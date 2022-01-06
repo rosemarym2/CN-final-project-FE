@@ -60,3 +60,40 @@ export const getSpecificListFetch = async (id) => {
     console.log(err);
   }
 }
+
+export const addNewListFetch = async (title, category, listItems) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_REST_API}lists`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title,
+        category,
+        listItems
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    return response.ok;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+}
+
+export const updateListItemCompletionStateFetch = async (id, itemName, itemCompletionState) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}lists/${id}`;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        itemName,
+        itemCompletionState
+      }),
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}

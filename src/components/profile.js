@@ -74,7 +74,15 @@ const Profile = (props) =>{
     title = "Music"
     // category= "Music"
     />
+    <h2>Create Your Own</h2>
+    <CreateList  
+    Img = {image5}  
+    alt= "Animated picture of person with an empty list"
+    title = "New List"
+    // category= "Create your own"
+    />   
     </div>
+    
   )
 }
 
@@ -108,4 +116,13 @@ const Saved = (props) =>{
   {/* <p className = "category">{props.category}</p> */}
   </div>
   )}
+
+const CreateList = (props) =>{
+  return (<div className ="Article">
+  <img src = {props.Img} className= "Img" />
+  <p>{props.title}</p>
+  {/* <p className = "category">{props.category}</p> */}
+  </div>
+  )}
+
   export default Profile

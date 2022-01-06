@@ -55,7 +55,7 @@ export const updateUserFetch = async (id, key, value) => {
   try {
     const url = `${process.env.REACT_APP_REST_API}users/${id}`;
     const obj = {}
-    object[key] = value;
+    obj[key] = value;
     const response = await fetch(url, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -189,7 +189,7 @@ export const updateListFetch = async (id, key, value) => {
   try {
     const url = `${process.env.REACT_APP_REST_API}updateList/${id}`;
     const obj = {}
-    object[key] = value;
+    obj[key] = value;
     const response = await fetch(url, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },

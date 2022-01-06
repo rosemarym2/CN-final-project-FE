@@ -39,7 +39,17 @@ export const logInFetch = async (username, password) => {
   }
 }
 
-
+export const getUserFetch = async (id) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}users/${id}`;
+    const response = await fetch(url, {
+      method: "GET"
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 //LIST
 

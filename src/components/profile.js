@@ -1,86 +1,82 @@
 import React from "react";
-// import'./App.css';
-import profileImage from 'cloudinary';
-import image1 from 'cloudinary';
-import image2 from 'cloudinary';
-import image3 from 'cloudinary';
-import image4 from 'cloudinary';
-import image5 from 'cloudinary';
-import image5 from 'cloudinary';
+import'./index.css';
 
 
-const Profile = (props) =>{
+export const Profile = (props) =>{
   return (
-    <div className = 'home'>
-    <h1>Pick A List</h1>
+    <div className = 'userProfile'>
+    <h1>My Space</h1>
     <UserProfile 
-    Img = {profileImage}  
-    username = {`{$username}`}//need to link user profile details with the back-end database
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486239/pana/Watch_app-pana_twwmm6.png" 
+    // Img2 = "https://res.cloudinary.com/cn-project/image/upload/v1641486239/pana/Self_confidence-pana_zo0elk.png"
+    // Img3 = "https://res.cloudinary.com/cn-project/image/upload/v1641486240/pana/404_Error_with_a_cute_animal-pana_uumdxx.png"
+    username = {`{$username}`} //need to link user profile details with the back-end database
     />
+    
     <h2>In Progress</h2>
     <InProgress  
-    Img = {image1}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person on top of the world globe"
     title = "Travel"
     // category= "Travel" 
      />
     <InProgress  
-    Img = {image2}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person reading books"
     title = "Books"
     // category= "Books"
     />
     <InProgress  
-    Img = {image3}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of couple watching movies"
     title = "Movies"
     // category= "Movies" - target="_blank"/page link
     />
     <h2>Completed</h2>
     <Completed  
-    Img = {image4}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person listening to music"
     title = "Music"
     // category= "Music"
     />
     <Completed  
-    Img = {image5}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person with an empty list"
     title = "New List"
     // category= "Create your own"
     /> 
     <Completed  
-    Img = {image5}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person with an empty list"
     title = "New List"
     // category= "Create your own"
     />   
     <h2>Saved</h2>  
     <Saved  
-    Img = {image4}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person listening to music"
     title = "Music"
     // category= "Music"
     />
     <Saved   
-    Img = {image4}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person listening to music"
     title = "Music"
     // category= "Music"
     />
     <Saved   
-    Img = {image4}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person listening to music"
     title = "Music"
     // category= "Music"
     />
     <h2>Create Your Own</h2>
     <CreateList  
-    Img = {image5}  
+    Img = "https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"   
     alt= "Animated picture of person with an empty list"
     title = "New List"
     // category= "Create your own"
-    />   
+    />  
     </div>
     
   )
@@ -88,7 +84,9 @@ const Profile = (props) =>{
 
 const UserProfile  = (props) =>{
   return (<div className ="UserProfile">
-  <img src = {props.profileImage} className= "profileImg" />
+  <img src = {props.Img} className= "Img" />
+  <img src = {props.Img2} className= "Img" />
+  <img src = {props.Img3} className= "Img" />
   <h2>{props.username}</h2>
   </div>
   )}
@@ -125,4 +123,4 @@ const CreateList = (props) =>{
   </div>
   )}
 
-  export default Profile
+//   export default Profile

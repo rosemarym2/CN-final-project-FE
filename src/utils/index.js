@@ -51,6 +51,18 @@ export const getUserFetch = async (id) => {
   }
 }
 
+export const deleteUserFetch = async (id) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}users/${id}`;
+    const response = await fetch(url, {
+      method: "DELETE"
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 //LIST
 
 export const addNewListFetch = async (title, category, listItems) => {

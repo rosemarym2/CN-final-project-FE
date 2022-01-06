@@ -176,7 +176,7 @@ export const updateListItemCompletionStateFetch = async (id, itemName, itemCompl
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         itemName,
-        itemCompletionState
+        completed: itemCompletionState
       })
     });
     return await response.json();

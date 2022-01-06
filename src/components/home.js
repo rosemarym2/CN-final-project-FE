@@ -1,11 +1,11 @@
 import React from "react";
 // import'./App.css';
-import image1 from 'cloudinary';
-import image2 from 'cloudinary';
-import image3 from 'cloudinary';
-import image4 from 'cloudinary';
-import image5 from 'cloudinary';
-import image5 from 'cloudinary';
+import image1 from 'https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Winter_solstice-pana_x4wbwx.png';
+import image2 from 'https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Book_lover-pana_gvn56e.png';
+import image3 from 'https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Film_rolls-pana_wipspq.png';
+import image4 from 'https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Headphone-pana_ay39wz.png';
+import image5 from 'https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Add_notes-pana_eh4w5x.png';
+
 
 
 const Home = (props) =>{

@@ -1,5 +1,6 @@
 import React from "react";
 // import'./App.css';
+import profileImage from 'cloudinary';
 import image1 from 'cloudinary';
 import image2 from 'cloudinary';
 import image3 from 'cloudinary';
@@ -13,39 +14,66 @@ const Profile = (props) =>{
     <div className = 'home'>
     <h1>Pick A List</h1>
     <UserProfile 
-    name = {`{$name}`}//need to link user profile details with the back-end database
+    Img = {profileImage}  
+    username = {`{$username}`}//need to link user profile details with the back-end database
     />
-    <Article  
+    <h2>In Progress</h2>
+    <InProgress  
     Img = {image1}  
     alt= "Animated picture of person on top of the world globe"
     title = "Travel"
     // category= "Travel" 
      />
-    <Article  
+    <InProgress  
     Img = {image2}  
     alt= "Animated picture of person reading books"
     title = "Books"
     // category= "Books"
     />
-    <Article  
+    <InProgress  
     Img = {image3}  
     alt= "Animated picture of couple watching movies"
     title = "Movies"
     // category= "Movies" - target="_blank"/page link
     />
-    <Article  
+    <h2>Completed</h2>
+    <Completed  
     Img = {image4}  
     alt= "Animated picture of person listening to music"
     title = "Music"
     // category= "Music"
     />
-    <h2>Create Your Own</h2>
-    <Article  
+    <Completed  
     Img = {image5}  
     alt= "Animated picture of person with an empty list"
     title = "New List"
     // category= "Create your own"
-    />    
+    /> 
+    <Completed  
+    Img = {image5}  
+    alt= "Animated picture of person with an empty list"
+    title = "New List"
+    // category= "Create your own"
+    />   
+    <h2>Saved</h2>  
+    <Saved  
+    Img = {image4}  
+    alt= "Animated picture of person listening to music"
+    title = "Music"
+    // category= "Music"
+    />
+    <Saved   
+    Img = {image4}  
+    alt= "Animated picture of person listening to music"
+    title = "Music"
+    // category= "Music"
+    />
+    <Saved   
+    Img = {image4}  
+    alt= "Animated picture of person listening to music"
+    title = "Music"
+    // category= "Music"
+    />
     </div>
   )
 }
@@ -53,11 +81,11 @@ const Profile = (props) =>{
 const UserProfile  = (props) =>{
   return (<div className ="UserProfile">
   <img src = {props.profileImage} className= "profileImg" />
-  <h2>{props.name}</h2>
+  <h2>{props.username}</h2>
   </div>
   )}
 
-const Article = (props) =>{
+const InProgress = (props) =>{
   return (<div className ="Article">
   <img src = {props.Img} className= "Img" />
   <p>{props.title}</p>
@@ -65,4 +93,19 @@ const Article = (props) =>{
   </div>
   )}
 
+const Completed = (props) =>{
+  return (<div className ="Article">
+  <img src = {props.Img} className= "Img" />
+  <p>{props.title}</p>
+  {/* <p className = "category">{props.category}</p> */}
+  </div>
+  )}
+
+const Saved = (props) =>{
+  return (<div className ="Article">
+  <img src = {props.Img} className= "Img" />
+  <p>{props.title}</p>
+  {/* <p className = "category">{props.category}</p> */}
+  </div>
+  )}
   export default Profile

@@ -5,7 +5,7 @@ import travel from "../images/travel.png";
 import ScratchCard from 'react-scratchcard';
 import './personalList.css';
 
-export const List = () => {
+export const List = (props) => {
   const [title, setTitle] = useState("");
   const [items, setItems] = useState([]);
   const [numOfItems, setNumOfItems] = useState();
@@ -14,7 +14,7 @@ export const List = () => {
   const [currentItem, setCurrentItem] = useState();
 
   const dataHandler = async () => {
-    const data = await getSpecificListFetch("61d5d921fe4df48127fc14ee");
+    const data = await getSpecificListFetch(props.link);
     const totalNumOfItems = data.list.listItems.length;
     const numOfItemsCompleted = data.list.listItems.filter(element => element.completed === true).length;
     const completionPercentage = numOfItemsCompleted / totalNumOfItems * 100;
@@ -26,7 +26,7 @@ export const List = () => {
   }
 
   const updateListItemState = async (itemName, competionState) => {
-    await updateListItemCompletionStateFetch("61d5d921fe4df48127fc14ee", itemName, competionState);
+    await updateListItemCompletionStateFetch(props.link, itemName, competionState);
     dataHandler();
   }
 

@@ -97,3 +97,47 @@ export const updateListItemCompletionStateFetch = async (id, itemName, itemCompl
     console.log(err);
   }
 }
+
+export const updateListFetch = async (id, key, value) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}updateList/${id}`;
+    const obj = {}
+    object[key] = value;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(obj),
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export const deleteListItemFetch = async (id, itemName) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}editList/${id}`;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        itemName
+      }),
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export const deleteSpecificListFetch = async (id) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}lists/${id}`;
+    const response = await fetch(url, {
+      method: "DELETE"
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}

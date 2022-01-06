@@ -5,8 +5,8 @@ import'./index.css';
 export const Home = (props) =>{
   return (
     <div className = "text">
-    <div>
     <h1>Pick A List</h1>
+    <div>
     <MainArticle 
     title = "Categories"
     />

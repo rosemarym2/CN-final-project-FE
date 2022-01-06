@@ -51,6 +51,54 @@ export const getUserFetch = async (id) => {
   }
 }
 
+export const updateUserFetch = async (id, key, value) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}users/${id}`;
+    const obj = {}
+    object[key] = value;
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(obj)
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export const updateUserEmailFetch = async (id, email) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}userEmail/${id}`;
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email
+      })
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export const updateUserPasswordFetch = async (id, password) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}userPassword/${id}`;
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        password
+      })
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export const deleteUserFetch = async (id) => {
   try {
     const url = `${process.env.REACT_APP_REST_API}users/${id}`;
@@ -74,7 +122,7 @@ export const addNewListFetch = async (title, category, listItems) => {
         title,
         category,
         listItems
-      }),
+      })
     });
     const data = await response.json();
     console.log(data);
@@ -129,7 +177,7 @@ export const updateListItemCompletionStateFetch = async (id, itemName, itemCompl
       body: JSON.stringify({
         itemName,
         itemCompletionState
-      }),
+      })
     });
     return await response.json();
   } catch (err) {
@@ -145,7 +193,7 @@ export const updateListFetch = async (id, key, value) => {
     const response = await fetch(url, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(obj),
+      body: JSON.stringify(obj)
     });
     return await response.json();
   } catch (err) {
@@ -161,7 +209,7 @@ export const deleteListItemFetch = async (id, itemName) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         itemName
-      }),
+      })
     });
     return await response.json();
   } catch (err) {

@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import'./index.css';
-
+import { getUserFetch } from "../utils";
 
 export const Profile = (props) =>{
+  const [user, setUser] = useState();
+  const GetUser = async () => {
+    const profile = await getUserFetch("61d5ace72b3bb16c099a7b29");
+    console.log(profile);
+    setUser(profile);
+    useEffect (()=>{
+    GetUser()
+    },[]);
+  }
   return (
     <div className = 'userProfile'>
     <h1>My Collection</h1>
@@ -10,7 +19,7 @@ export const Profile = (props) =>{
     Img = "https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png" 
     // Img2 = "https://res.cloudinary.com/cn-project/image/upload/v1641486239/pana/Self_confidence-pana_zo0elk.png"
     // Img3 = "https://res.cloudinary.com/cn-project/image/upload/v1641486240/pana/404_Error_with_a_cute_animal-pana_uumdxx.png"
-    username = {`{$username}`} //need to link user profile details with the back-end database
+    username = {`${user.username}`} //need to link user profile details with the back-end database
     />
     <h2>In Progress</h2>
     <div className="prog">

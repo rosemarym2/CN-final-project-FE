@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getSpecificListFetch, updateListItemCompletionStateFetch } from "../utils";
+import { getSpecificListFetch, updateListItemCompletionStateFetch, addToUserListsFetch } from "../utils";
 import grey from "../images/grey.png";
 import travel from "../images/travel.png";
 import ScratchCard from 'react-scratchcard';
@@ -12,17 +12,28 @@ export const List = (props) => {
   const [itemsCompleted, setItemsCompleted] = useState();
   const [percentage, setPercentage] = useState();
   const [currentItem, setCurrentItem] = useState();
+  const [list, setList] = useState();
 
   const dataHandler = async () => {
     const data = await getSpecificListFetch(props.link);
-    const totalNumOfItems = data.list.listItems.length;
-    const numOfItemsCompleted = data.list.listItems.filter(element => element.completed === true).length;
-    const completionPercentage = numOfItemsCompleted / totalNumOfItems * 100;
-    setNumOfItems(totalNumOfItems);
+    const result = calculatePercentage(data.list.listItems)
+    setList(data.list);
+    setNumOfItems(result.totalNumOfItems);
     setItems(data.list.listItems);
     setTitle(data.list.title);
-    setItemsCompleted(numOfItemsCompleted);
-    setPercentage(Math.round(completionPercentage));
+    setItemsCompleted(result.numOfItemsCompleted);
+    setPercentage(Math.round(result.completionPercentage));
+  }
+
+  const calculatePercentage = (listItems) => {
+    const totalNumOfItems = listItems.length;
+    const numOfItemsCompleted = listItems.filter(element => element.completed === true).length;
+    const completionPercentage = numOfItemsCompleted / totalNumOfItems * 100;
+    return {
+      totalNumOfItems,
+      numOfItemsCompleted,
+      completionPercentage
+    }
   }
 
   const updateListItemState = async (itemName, competionState) => {
@@ -32,6 +43,10 @@ export const List = (props) => {
 
   const updateCurrentItem = (currentItemName) => {
     setCurrentItem(currentItemName);
+  }
+
+  const pushToUserLists = async () => {
+    await addToUserListsFetch("61d6c9e7ed3d92ea3f0cb028", list);
   }
 
   const settings = {
@@ -70,7 +85,7 @@ export const List = (props) => {
       </div>
       <hr></hr>
       <div className="list-icons">
-        <i class="bi bi-star"></i><span>rate/rating</span><i class="bi bi-chat-text"></i><span>comments</span> <i class="bi bi-share"></i><span>share</span>
+        <i class="bi bi-star"></i><span>rate/rating</span><i class="bi bi-chat-text"></i><span>comments</span> <i class="bi bi-share"></i><span>share</span><i class="bi bi-bookmark" onClick={pushToUserLists} style={{ cursor: "pointer" }}></i>
       </div>
     </div >
   );

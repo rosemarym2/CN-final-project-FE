@@ -99,6 +99,20 @@ export const updateUserPasswordFetch = async (id, password) => {
   }
 }
 
+export const addToUserListsFetch = async (id, list) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}users/${id}`;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(list)
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export const deleteUserFetch = async (id) => {
   try {
     const url = `${process.env.REACT_APP_REST_API}users/${id}`;

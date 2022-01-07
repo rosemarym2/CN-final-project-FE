@@ -1,0 +1,36 @@
+.personal-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scratchcards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.list-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px 0 40px 0;
+}
+
+.list-icons i {
+  margin: 0 10px;
+}
+
+hr {
+  width: 300px;
+  margin-top: 10px;
+}

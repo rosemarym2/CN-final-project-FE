@@ -11,8 +11,8 @@ export const Settings = (props) => {
   };
 
   useEffect(() => {
-      getUser();
-    }, []);
+    getUser();
+  }, []);
 
   return (
     <div className="userProfile">
@@ -23,27 +23,27 @@ export const Settings = (props) => {
         username={user} // user profile details linked with the back-end database
       />
       <EditProfile
-      title = "Edit Profile"
+        title="Edit Profile"
       />
       <Colour
-      title = "Colour Scheme"
-      colour1= "light"
-      colour2= "dark"
+        title="Colour Scheme"
+        colour1="light"
+        colour2="dark"
       />
       <FontSize
-      title = "Font Size"
-      sizeSmall = "small"
-      sizeMedium = "medium"
-      sizeLarge = "large"
+        title="Font Size"
+        sizeSmall="small"
+        sizeMedium="medium"
+        sizeLarge="large"
       />
       <ListStyle
-      title = "List Style"
-      scratch = "scratchcard"
-      flip = "card flip"
-      checklist= "checklist"
+        title="List Style"
+        scratch="scratchcard"
+        flip="card flip"
+        checklist="checklist"
       />
       <Delete
-      title = "DELETE PROFILE"
+        title="DELETE PROFILE"
       />
     </div>
   );
@@ -63,70 +63,74 @@ const Colour = (props) => {
     <div className="Colour">
       <button>{props.title}</button>
       <SubCategories
-      title = {props.colour1}
+        title={props.colour1}
       />
       <SubCategories
-      title = {props.colour2}
+        title={props.colour2}
       />
     </div>
   );
 };
 
 const FontSize = (props) => {
-    return (
-      <div className="FontSize">
-        <button>{props.title}</button>
-        <SubCategories
-        title = {props.sizeSmall}
-        />
-        <SubCategories
-        title = {props.sizeMedium}
-        />
-        <SubCategories
-        title = {props.sizeLarge}
-        />
-      </div>
-    );
-  };
+  return (
+    <div className="FontSize">
+      <button>{props.title}</button>
+      <SubCategories
+        title={props.sizeSmall}
+      />
+      <SubCategories
+        title={props.sizeMedium}
+      />
+      <SubCategories
+        title={props.sizeLarge}
+      />
+    </div>
+  );
+};
 
-  const ListStyle = (props) => {
-    return (
-      <div className="ListStyle">
-        <button>{props.title}</button>
-        <SubCategories
-        title = {props.scratch}
-        />
-        <SubCategories
-        title = {props.flip}
-        />
-        <SubCategories
-        title = {props.checklist}
-        />
-      </div>
-    );
-  };
+const ListStyle = (props) => {
+  return (
+    <div className="ListStyle">
+      <button>{props.title}</button>
+      <SubCategories
+        title={props.scratch}
+      />
+      <SubCategories
+        title={props.flip}
+      />
+      <SubCategories
+        title={props.checklist}
+      />
+    </div>
+  );
+};
 
 const EditProfile = (props) => {
-    return (
-      <div className="EditProfile">
-        <button>{props.title}</button>
-      </div>
-    );
-  };
+  return (
+    <div className="EditProfile">
+      <button>{props.title}</button>
+      {/* <button onClick={toggleBtn}>{props.title}</button> */}
+    </div>
+  );
+};
 
 const SubCategories = (props) => {
-    return (
-      <div className="Subcategories">
-        <button>{props.title}</button>
-      </div>
-    );
-  };
+  return (
+    <div>
+      <button className="Subcategories">{props.title}</button>
+    </div>
+  );
+};
 
-  const Delete = (props) => {
-    return (
-      <div className="Delete">
-        <button>{props.title}</button>
-      </div>
-    );
-  };
+const Delete = (props) => {
+  return (
+    <div>
+      <button className="Delete">{props.title}</button>
+    </div>
+  );
+};
 
+// const toggleBtn = async () => {
+
+// }

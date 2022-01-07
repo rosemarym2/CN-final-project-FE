@@ -127,7 +127,7 @@ export const deleteUserFetch = async (id) => {
 
 //LIST
 
-export const addNewListFetch = async (title, category, listItems) => {
+export const addNewListFetch = async (title, category, keywords, listItems) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}lists`, {
       method: "POST",
@@ -135,6 +135,7 @@ export const addNewListFetch = async (title, category, listItems) => {
       body: JSON.stringify({
         title,
         category,
+        keywords,
         listItems
       })
     });

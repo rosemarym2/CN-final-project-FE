@@ -4,6 +4,7 @@ import { SignUp } from "./components/signup.js";
 import { Home } from "./components/home.js";
 import { LogIn } from "./components/logIn.js";
 import { Profile } from "./components/profile.js";
+import { NewList } from "./components/newList.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/profile">
           <Profile />
+        </Route>
+        <Route path="/newList">
+          <NewList />
         </Route>
       </Switch>
     </Router>

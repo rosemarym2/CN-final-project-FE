@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { signUpFetch } from "../utils";
+import { Link } from "react-router-dom";
 
 export const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -25,7 +26,7 @@ export const SignUp = () => {
         </div>
         <button type="submit">Sign Up</button>
       </form>
-      {/* <p>Already have an account? <Link to="/login">Sign In</Link></p> */}
+      <p>Already have an account? <Link to="/login">Log In</Link></p>
     </div >
   );
 }

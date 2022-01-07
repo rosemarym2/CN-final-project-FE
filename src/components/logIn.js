@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { logInFetch } from "../utils";
+import { Link, useHistory } from "react-router-dom"
 
 export const LogIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const logInHandler = async (e) => {
     e.preventDefault();
     const success = await logInFetch(username, password);
     if (!success) {
+      history.push("/home");
+    } else {
       alert("Incorrect username or password, please try again");
-    } else  {
-      alert("Logged in successfully.");
     }
   };
 
@@ -24,6 +26,7 @@ export const LogIn = () => {
         </div>
         <button type="submit">Log In</button>
       </form>
+      <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
     </div >
   );
 }

@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSpecificListFetch, updateListItemCompletionStateFetch, addToUserListsFetch } from "../utils";
 import grey from "../images/grey.png";
 import travel from "../images/travel.png";
 import ScratchCard from 'react-scratchcard';
 import './personalList.css';
+import { Link } from "react-router-dom";
 
-export const List = (props) => {
+export const List = () => {
   const [title, setTitle] = useState("");
   const [items, setItems] = useState([]);
   const [numOfItems, setNumOfItems] = useState();
@@ -15,7 +16,7 @@ export const List = (props) => {
   const [list, setList] = useState();
 
   const dataHandler = async () => {
-    const data = await getSpecificListFetch(props.link);
+    const data = await getSpecificListFetch("61d47a3d78db3cca18488211");
     const result = calculatePercentage(data.list.listItems)
     setList(data.list);
     setNumOfItems(result.totalNumOfItems);
@@ -24,6 +25,10 @@ export const List = (props) => {
     setItemsCompleted(result.numOfItemsCompleted);
     setPercentage(Math.round(result.completionPercentage));
   }
+
+  useEffect(() => {
+    dataHandler();
+  }, []);
 
   const calculatePercentage = (listItems) => {
     const totalNumOfItems = listItems.length;
@@ -37,7 +42,7 @@ export const List = (props) => {
   }
 
   const updateListItemState = async (itemName, competionState) => {
-    await updateListItemCompletionStateFetch(props.link, itemName, competionState);
+    await updateListItemCompletionStateFetch("61d47a3d78db3cca18488211", itemName, competionState);
     dataHandler();
   }
 
@@ -60,7 +65,7 @@ export const List = (props) => {
   return (
     <div className="personal-list">
       <div style={{ textAlign: "center" }}>
-        <button onClick={dataHandler}>Get the list</button>
+        <button style={{ cursor: "pointer" }}><Link to="/home">Go Back</Link></button>
         <h2>{title}</h2>
         <p>{title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
       </div>

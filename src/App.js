@@ -5,6 +5,7 @@ import { Home } from "./components/home.js";
 import { LogIn } from "./components/logIn.js";
 import { Profile } from "./components/profile.js";
 import { Settings } from "./components/settings.js";
+import { NewList } from "./components/newList.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
           </Route>
         <Route path="/settings">
           <Settings />
+        </Route>
+        <Route path="/newList">
+          <NewList />
         </Route>
       </Switch>
     </Router>

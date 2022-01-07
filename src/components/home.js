@@ -1,5 +1,5 @@
 import React from "react";
-import'./index.css';
+import'./profile.css';
 
 
 export const Home = (props) =>{

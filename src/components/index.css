@@ -1,0 +1,38 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: center;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(4, 33.3%);
+  padding: 35px;
+}
+
+.prog,
+.comp,
+.save {
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
+  grid-template-rows: repeat(4, 33.3%);
+  padding: 35px;
+}
+
+.create {
+  text-align: center;
+}
+
+.Img {
+  max-width: 230px;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+.userProfile {
+  text-align: center;
+}

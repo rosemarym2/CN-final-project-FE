@@ -31,9 +31,7 @@ export const logInFetch = async (username, password) => {
       })
     })
     const data = await response.json();
-    console.log(data);
-    localStorage.setItem("myId", data.user._id);
-    return response.ok;
+    return data.user._id;
   } catch (error) {
     console.log(error);
     return false;

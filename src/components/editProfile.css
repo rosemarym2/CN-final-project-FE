@@ -1,4 +1,4 @@
-h1 {
+.edit-profile-title {
   margin-top: 90px;
   margin-bottom: 30px;
   font-family: 'Comfortaa', cursive;
@@ -24,13 +24,13 @@ h1 {
   cursor: pointer;
 }
 
-p {
+.edit-profile-p {
   font-size: 14px;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
 }
 
-p:hover {
+.edit-profile-p:hover {
   font-weight: bold;
 }
 
@@ -59,7 +59,7 @@ p:hover {
   border: 2px solid #FF725E;
 }
 
-input {
+.edit-profile-input {
   border: none;
   outline: none;
   width: 120px;
@@ -81,6 +81,8 @@ input {
 .form-size p {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .form-size p i {

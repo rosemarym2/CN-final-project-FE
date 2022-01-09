@@ -32,6 +32,7 @@ export const logInFetch = async (username, password) => {
     })
     const data = await response.json();
     console.log(data);
+    localStorage.setItem("myId", data.user._id);
     return response.ok;
   } catch (error) {
     console.log(error);
@@ -119,7 +120,7 @@ export const deleteUserFetch = async (id) => {
     const response = await fetch(url, {
       method: "DELETE"
     });
-    return await response.json();
+    return response.ok;
   } catch (err) {
     console.log(err);
   }

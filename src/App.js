@@ -5,6 +5,7 @@ import { LogIn } from "./components/logIn.js";
 import { List } from "./components/personalList.js";
 import { Profile } from "./components/profile.js";
 import { Settings } from "./components/settings.js";
+import { Category } from "./components/category.js";
 import { NewList } from "./components/newList.js";
 import { EditProfile } from "./components/editProfile.js";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
@@ -37,6 +38,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/personalList">
             <List />
+          </PrivateRoute>
+          <PrivateRoute path="/category/:handle">
+            <Category />
           </PrivateRoute>
         </Switch>
       </Router>

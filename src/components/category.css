@@ -1,0 +1,22 @@
+.category-image {
+  width: 120px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+}
+
+.category-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-all-items {
+  display: flex;
+}

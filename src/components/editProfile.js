@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import "./editProfile.css";
 import { Redirect } from "react-router-dom";
+import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../utils";
 
 export const EditProfile = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [newUsername, setNewUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visiblePass, setVisiblePass] = useState(false);
   const [inputType, setInputType] = useState("password");
@@ -27,6 +30,21 @@ export const EditProfile = () => {
     }
   }
 
+  const submitHandler = async () => {
+    const userId = localStorage.getItem("myId");
+    if (email !== "") {
+      await updateUserEmailFetch(userId, email);
+    }
+
+    if (password !== "") {
+      await updateUserPasswordFetch(userId, password);
+    }
+
+    if (newUsername !== "") {
+      await updateUserFetch(userId, "username", newUsername);
+    }
+  }
+
   return (
     <>
       {!loggedIn ? <Redirect to="/login" /> : (
@@ -37,14 +55,14 @@ export const EditProfile = () => {
             <p className="edit-profile-p">Change profile photo</p>
           </div>
 
-          <form className="form-size">
+          <form className="form-size" onSubmit={submitHandler} >
             <p>
               <label for="username">Username</label>
-              <input className="edit-profile-input" autocapitalize="none" placeholder="Username" type="text" id="username" autocomplete="off" />
+              <input className="edit-profile-input" onChange={(e) => setNewUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" id="username" autocomplete="off" value={newUsername} />
             </p>
             <p>
               <label for="emailAddress">Email address</label>
-              <input className="edit-profile-input" autocapitalize="none" placeholder="Email address" type="text" id="emailAddress" autocomplete="off" />
+              <input className="edit-profile-input" onChange={(e) => setEmail(e.target.value)} autocapitalize="none" placeholder="Email address" type="text" id="emailAddress" autocomplete="off" value={email} />
             </p>
             <p>
               <label for="newPassword">New Password</label>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { logInFetch } from "../utils";
+import { Link } from "react-router-dom";
 
 export const LogIn = () => {
   const [username, setUsername] = useState("");
@@ -10,7 +11,7 @@ export const LogIn = () => {
     const success = await logInFetch(username, password);
     if (!success) {
       alert("Incorrect username or password, please try again");
-    } else  {
+    } else {
       alert("Logged in successfully.");
     }
   };
@@ -24,6 +25,7 @@ export const LogIn = () => {
         </div>
         <button type="submit">Log In</button>
       </form>
+      <p>Don't have an account? <span><Link to="/signup">Sign Up</Link></span></p>
     </div >
   );
 }

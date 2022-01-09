@@ -39,8 +39,6 @@ export const List = () => {
 
   const pushToUserLists = async () => {
     const userId = localStorage.getItem("myId");
-    console.log(userId);
-    console.log(list);
     await addToUserListsFetch(userId, list);
   }
 

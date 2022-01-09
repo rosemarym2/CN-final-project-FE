@@ -2,7 +2,8 @@ import React, { useContext, createContext, useState } from "react";
 import { SignUp } from "./components/signup.js";
 import { Home } from "./components/home.js";
 import { LogIn } from "./components/logIn.js";
-import { List } from "./components/personalList.js";
+import { UserList } from "./components/personalList.js";
+import { List } from "./components/publicList.js";
 import { Profile } from "./components/profile.js";
 import { Settings } from "./components/settings.js";
 import { Category } from "./components/category.js";
@@ -36,11 +37,14 @@ function App() {
           <PrivateRoute path="/newList">
             <NewList />
           </PrivateRoute>
-          <PrivateRoute path="/personalList">
-            <List />
+          <PrivateRoute path="/userList">
+            <UserList />
           </PrivateRoute>
           <PrivateRoute path="/category/:handle">
             <Category />
+          </PrivateRoute>
+          <PrivateRoute path="/list/:handle">
+            <List />
           </PrivateRoute>
         </Switch>
       </Router>

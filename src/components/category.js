@@ -37,7 +37,7 @@ export const Category = () => {
       <div className="category-all-items">
         {listArr.map((item, index) => {
           return (
-            <Link to={`publicList/${item._id}`}>
+            <Link to={`/list/${item._id}`}>
               <div key={index} className="category-item">
                 <img src={listImg} className="category-image" />
                 <p>{item.title}</p>

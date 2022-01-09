@@ -49,12 +49,13 @@ export const Home = () => {
         <h2>Create Your Own</h2>
       </div>
       <div className="create">
-        <Article
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Add_notes-pana_eh4w5x.png"
-          alt="Animated picture of person with an empty list"
-          title="New List"
-        // category= "Create your own"
-        />
+        <Link to="/newList">
+          <Article
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Add_notes-pana_eh4w5x.png"
+            alt="Animated picture of person with an empty list"
+            title="New List"
+          />
+        </Link>
       </div>
     </div >
   )

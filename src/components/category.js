@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { getFilteredListsFetch } from "../utils";
-import { Switch, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./category.css";
 
 export const Category = () => {
   const { handle } = useParams();
   const [listArr, setListArr] = useState([]);
   const [listImg, setListImg] = useState("");
-
-
 
   useEffect(() => {
     dataHandler(handle);
@@ -39,10 +37,12 @@ export const Category = () => {
       <div className="category-all-items">
         {listArr.map((item, index) => {
           return (
-            <div key={index} className="category-item">
-              <img src={listImg} className="category-image" />
-              <p>{item.title}</p>
-            </div>
+            <Link to={`publicList/${item._id}`}>
+              <div key={index} className="category-item">
+                <img src={listImg} className="category-image" />
+                <p>{item.title}</p>
+              </div>
+            </Link>
           )
         })}
       </div>

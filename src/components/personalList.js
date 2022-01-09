@@ -5,7 +5,7 @@ import travel from "../images/travel.png";
 import ScratchCard from 'react-scratchcard';
 import './personalList.css';
 
-export const List = (props) => {
+export const UserList = (props) => {
   const [title, setTitle] = useState("");
   const [items, setItems] = useState([]);
   const [numOfItems, setNumOfItems] = useState();

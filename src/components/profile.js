@@ -77,10 +77,12 @@ export const Profile = () => {
         {lists.map((item, index) => {
           console.log(item.category)
           return (
-            <div key={index}>
-              <img src={item.listImage} style={{ width: "150px" }} />
-              <h5>{item.title}</h5>
-            </div>
+            <Link to={`/profile/lists/${item._id}`}>
+              <div key={index}>
+                <img src={item.listImage} style={{ width: "150px" }} />
+                <h5>{item.title}</h5>
+              </div>
+            </Link>
           )
         })}
       </div>

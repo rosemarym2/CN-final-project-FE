@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+// functions below need changing
 import { getSpecificListFetch, updateListItemCompletionStateFetch, addToUserListsFetch } from "../utils";
 import grey from "../images/grey.png";
+//below needs removing
 import travel from "../images/travel.png";
 import ScratchCard from 'react-scratchcard';
 import './personalList.css';
 
-export const UserList = (props) => {
+export const UserList = () => {
+  const { id } = useParams();
   const [title, setTitle] = useState("");
   const [items, setItems] = useState([]);
   const [numOfItems, setNumOfItems] = useState();
@@ -14,8 +18,12 @@ export const UserList = (props) => {
   const [currentItem, setCurrentItem] = useState();
   const [list, setList] = useState();
 
-  const dataHandler = async () => {
-    const data = await getSpecificListFetch("61d5d921fe4df48127fc14ee");
+  useEffect(() => {
+    dataHandler(id);
+  }, []);
+
+  const dataHandler = async (id) => {
+    const data = await getSpecificListFetch(id);
     const result = calculatePercentage(data.list.listItems)
     setList(data.list);
     setNumOfItems(result.totalNumOfItems);
@@ -45,10 +53,6 @@ export const UserList = (props) => {
     setCurrentItem(currentItemName);
   }
 
-  const pushToUserLists = async () => {
-    await addToUserListsFetch("61d6c9e7ed3d92ea3f0cb028", list);
-  }
-
   const settings = {
     width: 150,
     height: 150,
@@ -60,7 +64,6 @@ export const UserList = (props) => {
   return (
     <div className="personal-list">
       <div style={{ textAlign: "center" }}>
-        <button onClick={dataHandler}>Get the list</button>
         <h2>{title}</h2>
         <p>{title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
       </div>
@@ -84,9 +87,6 @@ export const UserList = (props) => {
         })}
       </div>
       <hr></hr>
-      <div className="list-icons">
-        <i class="bi bi-star"></i><span>rate/rating</span><i class="bi bi-chat-text"></i><span>comments</span> <i class="bi bi-share"></i><span>share</span><i class="bi bi-bookmark" onClick={pushToUserLists} style={{ cursor: "pointer" }}></i>
-      </div>
     </div >
   );
 }

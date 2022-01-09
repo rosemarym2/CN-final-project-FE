@@ -25,25 +25,25 @@ function App() {
           <PrivateRoute path="/home">
             <Home />
           </PrivateRoute>
+          <PrivateRoute path="/profile/edit">
+            <EditProfile />
+          </PrivateRoute>
+          <PrivateRoute path="/profile/lists/:id">
+            <UserList />
+          </PrivateRoute>
           <PrivateRoute path="/profile">
             <Profile />
           </PrivateRoute>
           <PrivateRoute path="/settings">
             <Settings />
           </PrivateRoute>
-          <PrivateRoute path="/editProfile">
-            <EditProfile />
-          </PrivateRoute>
-          <PrivateRoute path="/newList">
+          <PrivateRoute path="/lists/create">
             <NewList />
-          </PrivateRoute>
-          <PrivateRoute path="/userList">
-            <UserList />
           </PrivateRoute>
           <PrivateRoute path="/category/:name">
             <Category />
           </PrivateRoute>
-          <PrivateRoute path="/list/:id">
+          <PrivateRoute path="/lists/:id">
             <List />
           </PrivateRoute>
         </Switch>

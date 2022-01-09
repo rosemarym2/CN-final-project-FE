@@ -21,18 +21,18 @@ export const EditProfile = () => {
     }
   }
 
-  const submitHandler = async () => {
+  const submitHandler = () => {
     const userId = localStorage.getItem("myId");
     if (email !== "") {
-      await updateUserEmailFetch(userId, email);
+      updateUserEmailFetch(userId, email);
     }
 
     if (password !== "") {
-      await updateUserPasswordFetch(userId, password);
+      updateUserPasswordFetch(userId, password);
     }
 
     if (newUsername !== "") {
-      await updateUserFetch(userId, "username", newUsername);
+      updateUserFetch(userId, "username", newUsername);
     }
   }
 

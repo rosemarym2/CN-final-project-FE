@@ -1,19 +1,23 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSpecificListFetch } from "../utils";
+import { getSpecificListFetch, addToUserListsFetch } from "../utils";
 
 export const List = () => {
-  const { handle } = useParams();
+  const { id } = useParams();
   const [listTitle, setListTitle] = useState("");
+  const [list, setList] = useState();
   const [items, setItems] = useState([]);
   const [listImg, setListImg] = useState("");
+  const [bookmark, setBookmark] = useState("bi bi-bookmark");
+  const [bookmarkColour, setBookmarkColour] = useState("#000000");
 
   useEffect(() => {
-    dataHandler(handle);
+    dataHandler(id);
   }, []);
 
   const dataHandler = async (linkId) => {
     const data = await getSpecificListFetch(linkId);
+    setList(data.list);
     console.log(data);
     setListTitle(data.list.title);
     setItems(data.list.listItems);
@@ -33,6 +37,13 @@ export const List = () => {
     }
   }
 
+  const pushToUserLists = async () => {
+    const userId = localStorage.getItem("myId");
+    console.log(userId);
+    console.log(list);
+    await addToUserListsFetch(userId, list);
+  }
+
   return (
     <div>
       <h1>{listTitle}</h1>
@@ -46,6 +57,18 @@ export const List = () => {
             </div>
           )
         })}
+      </div>
+      <div className="list-icons">
+        <i class="bi bi-star"></i><span>rate/rating</span>
+        <i class="bi bi-chat-text"></i><span>comments</span>
+        <i class="bi bi-share"></i><span>share</span>
+        <i class={bookmark}
+          onClick={pushToUserLists}
+          onMouseEnter={() => setBookmark("bi bi-bookmark-fill")}
+          onMouseLeave={() => setBookmark("bi bi-bookmark")}
+          onMouseDown={() => setBookmarkColour("#FF725E")}
+          onMouseUp={() => setBookmarkColour("#000000")}
+          style={{ color: bookmarkColour }}></i>
       </div>
     </div>
   )

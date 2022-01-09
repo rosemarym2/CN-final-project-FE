@@ -4,18 +4,18 @@ import { useParams, Link } from "react-router-dom";
 import "./category.css";
 
 export const Category = () => {
-  const { handle } = useParams();
+  const { name } = useParams();
   const [listArr, setListArr] = useState([]);
   const [listImg, setListImg] = useState("");
 
   useEffect(() => {
-    dataHandler(handle);
+    dataHandler(name);
   }, []);
 
-  const dataHandler = async (handle) => {
-    const data = await getFilteredListsFetch("category", handle);
+  const dataHandler = async (name) => {
+    const data = await getFilteredListsFetch("category", name);
     setListArr(data.filteredLists);
-    switch (handle) {
+    switch (name) {
       case "Travel":
         setListImg("https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Winter_solstice-pana_x4wbwx.png")
         break;
@@ -33,7 +33,7 @@ export const Category = () => {
 
   return (
     <div className="category-component">
-      <h1>{handle}</h1>
+      <h1>{name}</h1>
       <div className="category-all-items">
         {listArr.map((item, index) => {
           return (

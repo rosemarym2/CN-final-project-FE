@@ -40,10 +40,10 @@ function App() {
           <PrivateRoute path="/userList">
             <UserList />
           </PrivateRoute>
-          <PrivateRoute path="/category/:handle">
+          <PrivateRoute path="/category/:name">
             <Category />
           </PrivateRoute>
-          <PrivateRoute path="/list/:handle">
+          <PrivateRoute path="/list/:id">
             <List />
           </PrivateRoute>
         </Switch>

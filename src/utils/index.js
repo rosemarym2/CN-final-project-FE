@@ -100,7 +100,7 @@ export const updateUserPasswordFetch = async (id, password) => {
 
 export const addToUserListsFetch = async (id, list) => {
   try {
-    const url = `${process.env.REACT_APP_REST_API}users/${id}`;
+    const url = `${process.env.REACT_APP_REST_API}users/${id}/lists`;
     const response = await fetch(url, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },

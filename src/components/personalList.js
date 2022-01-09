@@ -15,7 +15,7 @@ export const List = (props) => {
   const [list, setList] = useState();
 
   const dataHandler = async () => {
-    const data = await getSpecificListFetch(props.link);
+    const data = await getSpecificListFetch("61d5d921fe4df48127fc14ee");
     const result = calculatePercentage(data.list.listItems)
     setList(data.list);
     setNumOfItems(result.totalNumOfItems);
@@ -37,7 +37,7 @@ export const List = (props) => {
   }
 
   const updateListItemState = async (itemName, competionState) => {
-    await updateListItemCompletionStateFetch(props.link, itemName, competionState);
+    await updateListItemCompletionStateFetch("61d5d921fe4df48127fc14ee", itemName, competionState);
     dataHandler();
   }
 

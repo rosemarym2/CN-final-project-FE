@@ -1,4 +1,5 @@
 body {
+  font-family: "Comfortaa", arial;
   background-color: #EEE2DC;
   text-align: center;
 }
@@ -10,10 +11,11 @@ body {
 }
 
 button {
-  border: 1.5px solid #ff725e;
   border-radius: 6px;
   padding: 15px;
   width: 175px;
+  font-family: "Comfortaa", arial;
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
@@ -23,7 +25,7 @@ button {
 }
 
 button:hover {
-  border: 2px solid #263238;
+  background-color: #ff725e;
   color: black;
 }
 
@@ -31,9 +33,18 @@ button:hover {
   border: 2px solid #ff725e;
 }
 
+.main:hover {
+  border: 2px solid #CC5B4B;
+}
+
 .sub {
   border: 2px solid #263238;
   background-color: EEE2DC;
+}
+
+.sub:hover {
+  background-color: #455A64;
+  color: white;
 }
 
 .delete {

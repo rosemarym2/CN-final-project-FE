@@ -10,6 +10,8 @@ import { Settings } from "./components/settings/settings.js";
 import { Category } from "./components/category/category.js";
 import { NewList } from "./components/newList.js";
 import { EditProfile } from "./components/editProfile/editProfile.js";
+import { Error404 } from "./components/404/404.js";
+import { ComingSoon } from "./components/comingSoon/comingSoon.js"
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
@@ -46,6 +48,12 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/lists/:id">
             <List />
+          </PrivateRoute>
+          <PrivateRoute path="/error404">
+            <Error404 />
+          </PrivateRoute>
+          <PrivateRoute path="/comingSoon">
+            <ComingSoon />
           </PrivateRoute>
           <Route path="/">
             <Landing />

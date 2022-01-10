@@ -5,12 +5,19 @@ import { Link } from "react-router-dom";
 
 export const Profile = () => {
   const [user, setUser] = useState("");
-  const [lists, setLists] = useState([]);
+  const [saved, setSaved] = useState([]);
+  const [inProgress, setInProgress] = useState([]);
+  const [completed, setCompleted] = useState([]);
 
   const getUser = async () => {
     const userId = localStorage.getItem("myId");
     const profile = await getUserFetch(userId);
-    setLists(profile.user.lists);
+    const savedLists = profile.user.lists.filter(element => element.status == "saved");
+    const inProgressLists = profile.user.lists.filter(element => element.status == "in progress");
+    const completedLists = profile.user.lists.filter(element => element.status == "completed");
+    setSaved(savedLists);
+    setInProgress(inProgressLists);
+    setCompleted(completedLists);
     setUser(profile.user.username);
   };
 
@@ -21,7 +28,6 @@ export const Profile = () => {
   return (
     <div className="userProfile">
       <h1>My Collection</h1>
-      <p>{user.username}</p>
       <UserProfile
         Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
         // Img2 = "https://res.cloudinary.com/cn-project/image/upload/v1641486239/pana/Self_confidence-pana_zo0elk.png"
@@ -31,51 +37,33 @@ export const Profile = () => {
       />
       <h2>In Progress</h2>
       <div className="prog">
-        <InProgress
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person on top of the world globe"
-          title="Travel"
-        // category= "Travel"
-        />
-        <InProgress
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person reading books"
-          title="Books"
-        // category= "Books"
-        />
-        <InProgress
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of couple watching movies"
-          title="Movies"
-        // category= "Movies" - target="_blank"/page link
-        />
+        {inProgress.map((item, index) => {
+          return (
+            <Link to={`/profile/lists/${item._id}`}>
+              <div key={index}>
+                <img src={item.listImage} style={{ width: "150px" }} />
+                <h5>{item.title}</h5>
+              </div>
+            </Link>
+          )
+        })}
       </div>
       <h2>Completed</h2>
       <div className="comp">
-        <Completed
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person listening to music"
-          title="Music"
-        // category= "Music"
-        />
-        <Completed
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person with an empty list"
-          title="New List"
-        // category= "Create your own"
-        />
-        <Completed
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person with an empty list"
-          title="New List"
-        // category= "Create your own"
-        />
+        {completed.map((item, index) => {
+          return (
+            <Link to={`/profile/lists/${item._id}`}>
+              <div key={index}>
+                <img src={item.listImage} style={{ width: "150px" }} />
+                <h5>{item.title}</h5>
+              </div>
+            </Link>
+          )
+        })}
       </div>
       <h2>Saved</h2>
       <div className="save">
-
-        {lists.map((item, index) => {
-          console.log(item.category)
+        {saved.map((item, index) => {
           return (
             <Link to={`/profile/lists/${item._id}`}>
               <div key={index}>
@@ -111,6 +99,18 @@ const UserProfile = (props) => {
   );
 };
 
+const CreateList = (props) => {
+  return (
+    <div className="Article">
+      <img src={props.Img} className="Img" />
+      <p>{props.title}</p>
+      {/* <p className = "category">{props.category}</p> */}
+    </div>
+  );
+};
+
+// below are not in use anymore 
+
 const InProgress = (props) => {
   return (
     <div className="Article">
@@ -140,15 +140,3 @@ const Saved = (props) => {
     </div>
   );
 };
-
-const CreateList = (props) => {
-  return (
-    <div className="Article">
-      <img src={props.Img} className="Img" />
-      <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
-    </div>
-  );
-};
-
-//   export default Profile

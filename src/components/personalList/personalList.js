@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { updateListItemCompletionStateFetch, getUserFetch } from "../../utils";
+import { updateListItemCompletionStateFetch, getUserFetch, updateListFetch } from "../../utils";
 import grey from "../../images/grey.png";
 import ScratchCard from "react-scratchcard";
 import "./personalList.css";
@@ -24,6 +24,13 @@ export const UserList = () => {
     const user = await getUserFetch(userId);
     const listToDisplay = user.user.lists.find(element => element._id == id);
     const result = calculatePercentage(listToDisplay.listItems);
+    if (result.completionPercentage > 0 && result.completionPercentage != 100) {
+      await updateListFetch(userId, id, "status", "in progress");
+    } else if (result.completionPercentage == 100) {
+      await updateListFetch(userId, id, "status", "completed");
+    } else {
+      await updateListFetch(userId, id, "status", "saved");
+    }
     setNumOfItems(result.totalNumOfItems);
     setItems(listToDisplay.listItems);
     setTitle(listToDisplay.title);

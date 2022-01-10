@@ -12,6 +12,7 @@ export const LogIn = ({ authContext }) => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const logInHandler = async (e) => {
     e.preventDefault();

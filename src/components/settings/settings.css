@@ -18,10 +18,6 @@ button:hover {
   font-weight: bold;
 }
 
-.Subcategories {
-  display: none;
-}
-
 .Delete {
   border-radius: 6px;
   width: 175px;

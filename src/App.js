@@ -4,6 +4,7 @@ import { Home } from "./components//home/home";
 import { LogIn } from "./components/logIn.js";
 import { UserList } from "./components/personalList/personalList.js";
 import { List } from "./components/publicList.js";
+import { Landing } from "./components/landing.js";
 import { Profile } from "./components/profile/profile.js";
 import { Settings } from "./components/settings/settings.js";
 import { Category } from "./components/category/category.js";
@@ -46,6 +47,9 @@ function App() {
           <PrivateRoute path="/lists/:id">
             <List />
           </PrivateRoute>
+          <Route path="/">
+            <Landing />
+          </Route>
         </Switch>
       </Router>
     </ProvideAuth>

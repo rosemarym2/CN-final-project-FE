@@ -52,46 +52,48 @@ export const Settings = () => {
   };
 
   return (
-    <div className="align">
-      <div className="userProfile">
-        <h1>Settings</h1>
-        <p>{user.username}</p>
-        <UserProfile
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
-          username={user}
-        />
+    <div className="settingsBody">
+      <div className="align">
+        <div className="userProfile">
+          <h1>Settings</h1>
+          <p>{user.username}</p>
+          <UserProfile
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
+            username={user}
+          />
+        </div>
+        <button className="main">Edit Profile</button>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <button className="main" onClick={buttonHandler}>Colour Scheme</button>
+          {!showButtons ? "" : (
+            <>
+              <button className="sub">Dark mode</button>
+              <button className="sub">Light mode</button>
+            </>
+          )}
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <button className="main" onClick={buttonHandler2}>List Styles</button>
+          {!showButtons2 ? "" : (
+            <>
+              <button className="sub">Scratchcard</button>
+              <button className="sub">Flip card</button>
+              <button className="sub">Checklist</button>
+            </>
+          )}
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <button className="main" onClick={buttonHandler3}>Font Size</button>
+          {!showButtons3 ? "" : (
+            <>
+              <button className="sub">Small</button>
+              <button className="sub">Medium</button>
+              <button className="sub">Large</button>
+            </>
+          )}
+        </div>
+        <button className="delete">DELETE PROFILE</button>
       </div>
-      <button className="main">Edit Profile</button>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <button className="main" onClick={buttonHandler}>Colour Scheme</button>
-        {!showButtons ? "" : (
-          <>
-            <button className="sub">Dark mode</button>
-            <button className="sub">Light mode</button>
-          </>
-        )}
-      </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <button className="main" onClick={buttonHandler2}>List Styles</button>
-        {!showButtons2 ? "" : (
-          <>
-            <button className="sub">Scratchcard</button>
-            <button className="sub">Flip card</button>
-            <button className="sub">Checklist</button>
-          </>
-        )}
-      </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <button className="main" onClick={buttonHandler3}>Font Size</button>
-        {!showButtons3 ? "" : (
-          <>
-            <button className="sub">Small</button>
-            <button className="sub">Medium</button>
-            <button className="sub">Large</button>
-          </>
-        )}
-      </div>
-      <button className="delete">DELETE PROFILE</button>
     </div>
   );
 }

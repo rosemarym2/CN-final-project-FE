@@ -1,7 +1,9 @@
-body {
+.settingsBody {
   font-family: "Comfortaa", arial;
   background-color: #EEE2DC;
   text-align: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .align {

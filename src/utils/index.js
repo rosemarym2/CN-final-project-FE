@@ -31,8 +31,7 @@ export const logInFetch = async (username, password) => {
       })
     })
     const data = await response.json();
-    console.log(data);
-    return response.ok;
+    return data.user._id;
   } catch (error) {
     console.log(error);
     return false;
@@ -101,7 +100,7 @@ export const updateUserPasswordFetch = async (id, password) => {
 
 export const addToUserListsFetch = async (id, list) => {
   try {
-    const url = `${process.env.REACT_APP_REST_API}users/${id}`;
+    const url = `${process.env.REACT_APP_REST_API}users/${id}/lists`;
     const response = await fetch(url, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -119,7 +118,7 @@ export const deleteUserFetch = async (id) => {
     const response = await fetch(url, {
       method: "DELETE"
     });
-    return await response.json();
+    return response.ok;
   } catch (err) {
     console.log(err);
   }
@@ -127,7 +126,7 @@ export const deleteUserFetch = async (id) => {
 
 //LIST
 
-export const addNewListFetch = async (title, category, listItems) => {
+export const addNewListFetch = async (title, category, keywords, listItems) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_REST_API}lists`, {
       method: "POST",
@@ -135,6 +134,7 @@ export const addNewListFetch = async (title, category, listItems) => {
       body: JSON.stringify({
         title,
         category,
+        keywords,
         listItems
       })
     });

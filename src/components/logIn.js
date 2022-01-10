@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { logInFetch } from "../utils";
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory, useLocation } from "react-router-dom";
 
-export const LogIn = () => {
+export const LogIn = ({ authContext }) => {
+  const useAuth = () => {
+    return useContext(authContext);
+  }
+  const location = useLocation();
+  const auth = useAuth();
+  const { from } = location.state || { from: { pathname: "/home" } };
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
   const logInHandler = async (e) => {
     e.preventDefault();
-    const success = await logInFetch(username, password);
-    if (!success) {
-      history.push("/home");
+    const userId = await logInFetch(username, password);
+    if (userId) {
+      auth.signin(() => {
+        history.replace(from);
+      }, userId);
     } else {
       alert("Incorrect username or password, please try again");
     }
@@ -26,7 +35,7 @@ export const LogIn = () => {
         </div>
         <button type="submit">Log In</button>
       </form>
-      <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+      <p>Don't have an account? <span><Link to="/signup">Sign Up</Link></span></p>
     </div >
   );
 }

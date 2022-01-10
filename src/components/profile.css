@@ -4,12 +4,13 @@ body {
   justify-content: center;
 }
 
+/* 
 .home {
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(4, 33.3%);
   padding: 35px;
-}
+} */
 
 .prog,
 .comp,

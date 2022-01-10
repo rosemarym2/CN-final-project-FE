@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+// functions below need changing
 import { getSpecificListFetch, updateListItemCompletionStateFetch, addToUserListsFetch } from "../utils";
 import grey from "../images/grey.png";
+//below needs removing
 import travel from "../images/travel.png";
 import ScratchCard from 'react-scratchcard';
 import './personalList.css';
 import { Link } from "react-router-dom";
 
-export const List = () => {
+export const UserList = () => {
+  const { id } = useParams();
   const [title, setTitle] = useState("");
   const [items, setItems] = useState([]);
   const [numOfItems, setNumOfItems] = useState();
@@ -15,8 +19,12 @@ export const List = () => {
   const [currentItem, setCurrentItem] = useState();
   const [list, setList] = useState();
 
-  const dataHandler = async () => {
-    const data = await getSpecificListFetch("61d47a3d78db3cca18488211");
+  useEffect(() => {
+    dataHandler(id);
+  }, []);
+
+  const dataHandler = async (id) => {
+    const data = await getSpecificListFetch(id);
     const result = calculatePercentage(data.list.listItems)
     setList(data.list);
     setNumOfItems(result.totalNumOfItems);
@@ -42,16 +50,12 @@ export const List = () => {
   }
 
   const updateListItemState = async (itemName, competionState) => {
-    await updateListItemCompletionStateFetch("61d47a3d78db3cca18488211", itemName, competionState);
+    await updateListItemCompletionStateFetch("61d5d921fe4df48127fc14ee", itemName, competionState);
     dataHandler();
   }
 
   const updateCurrentItem = (currentItemName) => {
     setCurrentItem(currentItemName);
-  }
-
-  const pushToUserLists = async () => {
-    await addToUserListsFetch("61d6c9e7ed3d92ea3f0cb028", list);
   }
 
   const settings = {
@@ -65,7 +69,6 @@ export const List = () => {
   return (
     <div className="personal-list">
       <div style={{ textAlign: "center" }}>
-        <button style={{ cursor: "pointer" }}><Link to="/home">Go Back</Link></button>
         <h2>{title}</h2>
         <p>{title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
       </div>
@@ -89,9 +92,6 @@ export const List = () => {
         })}
       </div>
       <hr></hr>
-      <div className="list-icons">
-        <i class="bi bi-star"></i><span>rate/rating</span><i class="bi bi-chat-text"></i><span>comments</span> <i class="bi bi-share"></i><span>share</span><i class="bi bi-bookmark" onClick={pushToUserLists} style={{ cursor: "pointer" }}></i>
-      </div>
     </div >
   );
 }

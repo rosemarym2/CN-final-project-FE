@@ -1,0 +1,38 @@
+button {
+  background-color: white;
+  border: 1.5px solid #ff725e;
+  border-radius: 6px;
+  padding: 15px;
+  width: 175px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.6;
+  border: 1.5px solid black;
+  font-weight: bold;
+}
+
+.Subcategories {
+  display: none;
+}
+
+.Delete {
+  border-radius: 6px;
+  width: 175px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 35px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #ff725e;
+  color: black;
+  border: 2px solid black;
+  font-weight: bold;
+}

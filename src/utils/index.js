@@ -129,6 +129,23 @@ export const updateListItemCompletionStateFetch = async (userId, listId, itemNam
   }
 }
 
+export const updateListFetch = async (userId, listId, key, value) => {
+  try {
+    const url = `${process.env.REACT_APP_REST_API}users/${userId}/lists/update/${listId}`;
+    const response = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        key,
+        value
+      })
+    });
+    return await response.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export const deleteUserFetch = async (id) => {
   try {
     const url = `${process.env.REACT_APP_REST_API}users/${id}`;
@@ -192,22 +209,6 @@ export const getSpecificListFetch = async (id) => {
     const url = `${process.env.REACT_APP_REST_API}lists/${id}`;
     const response = await fetch(url, {
       method: "GET"
-    });
-    return await response.json();
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-export const updateListFetch = async (id, key, value) => {
-  try {
-    const url = `${process.env.REACT_APP_REST_API}updateList/${id}`;
-    const obj = {}
-    obj[key] = value;
-    const response = await fetch(url, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(obj)
     });
     return await response.json();
   } catch (err) {

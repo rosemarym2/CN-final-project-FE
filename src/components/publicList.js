@@ -18,7 +18,6 @@ export const List = () => {
   const dataHandler = async (linkId) => {
     const data = await getSpecificListFetch(linkId);
     setList(data.list);
-    console.log(data);
     setListTitle(data.list.title);
     setItems(data.list.listItems);
     switch (data.list.category) {
@@ -39,6 +38,7 @@ export const List = () => {
 
   const pushToUserLists = async () => {
     const userId = localStorage.getItem("myId");
+    list.status = "saved";
     await addToUserListsFetch(userId, list);
   }
 

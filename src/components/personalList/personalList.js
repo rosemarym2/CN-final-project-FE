@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// functions below need changing
-import { getSpecificListFetch, updateListItemCompletionStateFetch, addToUserListsFetch } from "../../utils";
+import { updateListItemCompletionStateFetch, getUserFetch } from "../../utils";
 import grey from "../../images/grey.png";
-//below needs removing
-import travel from "../../images/travel.png";
-import ScratchCard from 'react-scratchcard';
-import './personalList.css';
-import { Link } from "react-router-dom";
+import ScratchCard from "react-scratchcard";
+import "./personalList.css";
 
 export const UserList = () => {
   const { id } = useParams();
@@ -17,26 +13,24 @@ export const UserList = () => {
   const [itemsCompleted, setItemsCompleted] = useState();
   const [percentage, setPercentage] = useState();
   const [currentItem, setCurrentItem] = useState();
-  const [list, setList] = useState();
+  const [listImage, setListImage] = useState("");
 
   useEffect(() => {
     dataHandler(id);
   }, []);
 
   const dataHandler = async (id) => {
-    const data = await getSpecificListFetch(id);
-    const result = calculatePercentage(data.list.listItems)
-    setList(data.list);
+    const userId = localStorage.getItem("myId");
+    const user = await getUserFetch(userId);
+    const listToDisplay = user.user.lists.find(element => element._id == id);
+    const result = calculatePercentage(listToDisplay.listItems);
     setNumOfItems(result.totalNumOfItems);
-    setItems(data.list.listItems);
-    setTitle(data.list.title);
+    setItems(listToDisplay.listItems);
+    setTitle(listToDisplay.title);
     setItemsCompleted(result.numOfItemsCompleted);
     setPercentage(Math.round(result.completionPercentage));
+    setListImage(listToDisplay.listImage);
   }
-
-  useEffect(() => {
-    dataHandler();
-  }, []);
 
   const calculatePercentage = (listItems) => {
     const totalNumOfItems = listItems.length;
@@ -50,8 +44,9 @@ export const UserList = () => {
   }
 
   const updateListItemState = async (itemName, competionState) => {
-    await updateListItemCompletionStateFetch("61d5d921fe4df48127fc14ee", itemName, competionState);
-    dataHandler();
+    const userId = localStorage.getItem("myId");
+    await updateListItemCompletionStateFetch(userId, id, itemName, competionState);
+    dataHandler(id);
   }
 
   const updateCurrentItem = (currentItemName) => {
@@ -79,11 +74,11 @@ export const UserList = () => {
               {item.completed == false ? (
                 <div onMouseDown={() => updateCurrentItem(item.itemName)}>
                   <ScratchCard {...settings}>
-                    <img src={travel} style={{ width: "150px" }} />
+                    <img src={listImage} style={{ width: "150px" }} />
                   </ScratchCard>
                 </div>
               ) : (
-                <img src={travel} style={{ width: "150px" }} onDoubleClick={() => updateListItemState(item.itemName, false)} />
+                <img src={listImage} style={{ width: "150px" }} onDoubleClick={() => updateListItemState(item.itemName, false)} />
               )}
               <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
               <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>

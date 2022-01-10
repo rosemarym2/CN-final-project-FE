@@ -5,9 +5,11 @@ import { getUserFetch } from "../../utils";
 export const Settings = () => {
   const [showButtons, setShowButtons] = useState(false);
   const [showButtons2, setShowButtons2] = useState(false);
+  const [showButtons3, setShowButtons3] = useState(false);
   const [user, setUser] = useState("");
   const getUser = async () => {
-    const profile = await getUserFetch("61d5ace72b3bb16c099a7b29");
+    const id = localStorage.getItem("myId");
+    const profile = await getUserFetch(id);
     console.log(profile);
     setUser(profile.user.username);
   };
@@ -32,6 +34,14 @@ export const Settings = () => {
     }
   }
 
+  const buttonHandler3 = async () => {
+    if (showButtons3) {
+      setShowButtons3(false);
+    } else {
+      setShowButtons3(true);
+    }
+  }
+
   const UserProfile = (props) => {
     return (
       <div className="UserProfile">
@@ -41,70 +51,8 @@ export const Settings = () => {
     );
   };
 
-  const EditProfile = (props) => {
-    return (
-      <div className="EditProfile">
-        <button>{props.title}</button>
-      </div>
-    );
-  };
-
-  const Colour = (props) => {
   return (
-    <div className="Colour">
-        <button onClick={buttonHandler}>Colour</button>
-        {!showButtons ? "" : (
-          <>
-            <SubCategories
-        title={props.colour1}
-      />
-            <SubCategories
-        title={props.colour2}
-      />
-          </>
-        )}
-    </div>
-  );
-};
-
-const FontSize = (props) => {
-  return (
-    <div className="FontSize">
-      <button onClick={buttonHandler2}>Font</button>
-        {!showButtons2 ? "" : (
-          <>
-      <SubCatFont
-        title={props.sizeSmall}
-      />
-      <SubCatFont
-        title={props.sizeMedium}
-      />
-      <SubCatFont
-        title={props.sizeLarge}
-      />
-      </>
-      )}
-    </div>
-  );
-};
-
-const SubCategories = (props) => {
-  return (
-    <div>
-      <button className="Subcategories">{props.title}</button>
-    </div>
-  );
-};
-
-const SubCatFont = (props) => {
-  return (
-    <div>
-      <button className="Subcategories">{props.title}</button>
-    </div>
-  );
-};
-  return (
-    <div>
+    <div className="align">
       <div className="userProfile">
         <h1>Settings</h1>
         <p>{user.username}</p>
@@ -112,181 +60,40 @@ const SubCatFont = (props) => {
           Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
           username={user}
         />
-        <EditProfile
-          title="Edit Profile" />
       </div>
-      
+      <button className="main">Edit Profile</button>
       <div style={{ display: "flex", flexDirection: "column" }}>
-      <Colour
-        title="Colour Scheme"
-        colour1="light"
-        colour2="dark"
-      />
-      
-      <div style={{ display: "flex", flexDirection: "column" }}>
-      <FontSize
-        title="Font Size"
-        sizeSmall="small"
-        sizeMedium="medium"
-        sizeLarge="large"
-      />
-      </div>
-      
-        <button onClick={buttonHandler2}>List Styles</button>
-        {!showButtons2 ? "" : (
+        <button className="main" onClick={buttonHandler}>Colour Scheme</button>
+        {!showButtons ? "" : (
           <>
-            <button>Style 1</button>
-            <button>Style 2</button>
-            <button>Style 3</button>
+            <button className="sub">Dark mode</button>
+            <button className="sub">Light mode</button>
           </>
         )}
       </div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <button className="main" onClick={buttonHandler2}>List Styles</button>
+        {!showButtons2 ? "" : (
+          <>
+            <button className="sub">Scratchcard</button>
+            <button className="sub">Flip card</button>
+            <button className="sub">Checklist</button>
+          </>
+        )}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <button className="main" onClick={buttonHandler3}>Font Size</button>
+        {!showButtons3 ? "" : (
+          <>
+            <button className="sub">Small</button>
+            <button className="sub">Medium</button>
+            <button className="sub">Large</button>
+          </>
+        )}
+      </div>
+      <button className="delete">DELETE PROFILE</button>
     </div>
   );
 }
 
 
-
-
-// import React, { useState, useEffect } from "react";
-// import "./settings.css";
-// import { getUserFetch } from "../../utils";
-
-// export const Settings = (props) => {
-//   const [user, setUser] = useState("");
-//   const [showButtons, setShowButtons] = useState(false);
-//   const getUser = async () => {
-//     const profile = await getUserFetch("61d5ace72b3bb16c099a7b29");
-//     console.log(profile);
-//     setUser(profile.user.username);
-//   };
-
-//   useEffect(() => {
-//     getUser();
-//   }, []);
-
-//   const buttonHandler = async () => {
-//     if (showButtons) {
-//       setShowButtons(false);
-//     } else {
-//       setShowButtons(true);
-//     }
-//   }
-
-//   return (
-//     <div className="userProfile">
-//       <h1>Settings</h1>
-//       <p>{user.username}</p>
-//       <UserProfile
-//         Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
-//         username={user} // user profile details linked with the back-end database
-//       />
-//       <EditProfile
-//         title="Edit Profile"
-//       />
-// //       <Colour
-//         title="Colour Scheme"
-//         colour1="light"
-//         colour2="dark"
-//       />
-//       <FontSize
-//         title="Font Size"
-//         sizeSmall="small"
-//         sizeMedium="medium"
-//         sizeLarge="large"
-//       />
-//       <ListStyle
-//         title="List Style"
-//         scratch="scratchcard"
-//         flip="card flip"
-//         checklist="checklist"
-//       />
-//       <Delete
-//         title="DELETE PROFILE"
-//       />
-//     </div>
-//   );
-// };
-
-// const UserProfile = (props) => {
-//   return (
-//     <div className="UserProfile">
-//       <img src={props.Img} className="Img" />
-//       <h2>{props.username}</h2>
-//     </div>
-//   );
-// };
-
-// const Colour = (props) => {
-//   return (
-//     <div className="Colour">
-//       <button onClick={buttonHandler}>{props.title}</button>
-//       {!showButtons ? <SubCategories /> : null}
-//       <SubCategories
-//         title={props.colour1}
-//       />
-//       <SubCategories
-//         title={props.colour2}
-//       />
-//     </div>
-//   );
-// };
-
-// const FontSize = (props) => {
-//   return (
-//     <div className="FontSize">
-//       <button>{props.title}</button>
-//       <SubCategories
-//         title={props.sizeSmall}
-//       />
-//       <SubCategories
-//         title={props.sizeMedium}
-//       />
-//       <SubCategories
-//         title={props.sizeLarge}
-//       />
-//     </div>
-//   );
-// };
-
-// const ListStyle = (props) => {
-//   return (
-//     <div className="ListStyle">
-//       <button>{props.title}</button>
-//       <SubCategories
-//         title={props.scratch}
-//       />
-//       <SubCategories
-//         title={props.flip}
-//       />
-//       <SubCategories
-//         title={props.checklist}
-//       />
-//     </div>
-//   );
-// };
-
-// const EditProfile = (props) => {
-//   return (
-//     <div className="EditProfile">
-//       <button>{props.title}</button>
-//       {/* <button onClick={toggleBtn}>{props.title}</button> */}
-//     </div>
-//   );
-// };
-
-// const SubCategories = (props) => {
-//   return (
-//     <div>
-//       <button className="Subcategories">{props.title}</button>
-//     </div>
-//   );
-// };
-
-// const Delete = (props) => {
-//   return (
-//     <div>
-//       <button className="Delete">{props.title}</button>
-//     </div>
-//   );
-// };

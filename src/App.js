@@ -1,14 +1,15 @@
 import React, { useContext, createContext, useState } from "react";
 import { SignUp } from "./components/signup.js";
-import { Home } from "./components/home.js";
+import { Home } from "./components//home/home";
 import { LogIn } from "./components/logIn.js";
-import { UserList } from "./components/personalList.js";
+import { UserList } from "./components/personalList/personalList.js";
 import { List } from "./components/publicList.js";
-import { Profile } from "./components/profile.js";
-import { Settings } from "./components/settings.js";
-import { Category } from "./components/category.js";
+import { Landing } from "./components/landing.js";
+import { Profile } from "./components/profile/profile.js";
+import { Settings } from "./components/settings/settings.js";
+import { Category } from "./components/category/category.js";
 import { NewList } from "./components/newList.js";
-import { EditProfile } from "./components/editProfile.js";
+import { EditProfile } from "./components/editProfile/editProfile.js";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
           <PrivateRoute path="/lists/:id">
             <List />
           </PrivateRoute>
+          <Route path="/">
+            <Landing />
+          </Route>
         </Switch>
       </Router>
     </ProvideAuth>

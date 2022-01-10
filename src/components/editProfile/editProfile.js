@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./editProfile.css";
-import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../utils";
+import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../../utils";
 
 export const EditProfile = () => {
   const [newUsername, setNewUsername] = useState("");

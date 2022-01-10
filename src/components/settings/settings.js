@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./settings.css";
-import { getUserFetch } from "../utils";
 import { Link } from "react-router-dom";
+import { getUserFetch } from "../../utils";
 
 export const Settings = (props) => {
   const [user, setUser] = useState("");

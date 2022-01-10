@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getFilteredListsFetch } from "../utils";
+import { getFilteredListsFetch } from "../../utils";
 import { useParams, Link } from "react-router-dom";
 import "./category.css";
 

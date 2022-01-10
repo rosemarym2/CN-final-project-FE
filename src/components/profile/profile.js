@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
-import { getUserFetch } from "../utils";
+import { getUserFetch } from "../../utils";
 import { Link } from "react-router-dom";
 
 export const Profile = () => {

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // functions below need changing
-import { getSpecificListFetch, updateListItemCompletionStateFetch, addToUserListsFetch } from "../utils";
-import grey from "../images/grey.png";
+import { getSpecificListFetch, updateListItemCompletionStateFetch, addToUserListsFetch } from "../../utils";
+import grey from "../../images/grey.png";
 //below needs removing
-import travel from "../images/travel.png";
+import travel from "../../images/travel.png";
 import ScratchCard from 'react-scratchcard';
 import './personalList.css';
+import { Link } from "react-router-dom";
 
 export const UserList = () => {
   const { id } = useParams();
@@ -32,6 +33,10 @@ export const UserList = () => {
     setItemsCompleted(result.numOfItemsCompleted);
     setPercentage(Math.round(result.completionPercentage));
   }
+
+  useEffect(() => {
+    dataHandler();
+  }, []);
 
   const calculatePercentage = (listItems) => {
     const totalNumOfItems = listItems.length;

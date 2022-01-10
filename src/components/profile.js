@@ -88,7 +88,7 @@ export const Profile = () => {
       </div>
       <h2>Create Your Own</h2>
       <div className="create">
-        <Link to="/newList">
+        <Link to="/lists/create">
           <CreateList
             Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
             alt="Animated picture of person with an empty list"

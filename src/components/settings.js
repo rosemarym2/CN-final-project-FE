@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./settings.css";
 import { getUserFetch } from "../utils";
+import { Link } from "react-router-dom";
 
 export const Settings = (props) => {
   const [user, setUser] = useState("");
@@ -22,9 +23,11 @@ export const Settings = (props) => {
         Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
         username={user} // user profile details linked with the back-end database
       />
-      <EditProfile
-        title="Edit Profile"
-      />
+      <Link to="/profile/edit">
+        <EditProfile
+          title="Edit Profile"
+        />
+      </Link>
       <Colour
         title="Colour Scheme"
         colour1="light"

@@ -10,6 +10,7 @@ import { Settings } from "./components/settings/settings.js";
 import { Category } from "./components/category/category.js";
 import { NewList } from "./components/newList.js";
 import { EditProfile } from "./components/editProfile/editProfile.js";
+import { AboutUs } from "./components/aboutUs/aboutUs.js";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/lists/:id">
             <List />
+          </PrivateRoute>
+          <PrivateRoute path="/aboutUs">
+            <AboutUs />
           </PrivateRoute>
           <Route path="/">
             <Landing />

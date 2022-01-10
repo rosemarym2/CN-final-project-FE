@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
 import { getUserFetch } from "../utils";
+import { Link } from "react-router-dom";
 
-export const Profile = (props) => {
+export const Profile = () => {
   const [user, setUser] = useState("");
-  const [list, setList] = useState([]);
+  const [lists, setLists] = useState([]);
+
   const getUser = async () => {
-    const profile = await getUserFetch("61d5ace72b3bb16c099a7b29");
-    console.log(profile);
+    const userId = localStorage.getItem("myId");
+    const profile = await getUserFetch(userId);
+    setLists(profile.user.lists);
     setUser(profile.user.username);
   };
 
   useEffect(() => {
-      getUser();
-    }, []);
+    getUser();
+  }, []);
 
   return (
     <div className="userProfile">
@@ -32,19 +35,19 @@ export const Profile = (props) => {
           Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
           alt="Animated picture of person on top of the world globe"
           title="Travel"
-          // category= "Travel"
+        // category= "Travel"
         />
         <InProgress
           Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
           alt="Animated picture of person reading books"
           title="Books"
-          // category= "Books"
+        // category= "Books"
         />
         <InProgress
           Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
           alt="Animated picture of couple watching movies"
           title="Movies"
-          // category= "Movies" - target="_blank"/page link
+        // category= "Movies" - target="_blank"/page link
         />
       </div>
       <h2>Completed</h2>
@@ -53,52 +56,47 @@ export const Profile = (props) => {
           Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
           alt="Animated picture of person listening to music"
           title="Music"
-          // category= "Music"
+        // category= "Music"
         />
         <Completed
           Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
           alt="Animated picture of person with an empty list"
           title="New List"
-          // category= "Create your own"
+        // category= "Create your own"
         />
         <Completed
           Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
           alt="Animated picture of person with an empty list"
           title="New List"
-          // category= "Create your own"
+        // category= "Create your own"
         />
       </div>
       <h2>Saved</h2>
       <div className="save">
-        <Saved
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person listening to music"
-          title="Music"
-          // category= "Music"
-        />
-        <Saved
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person listening to music"
-          title="Music"
-          // category= "Music"
-        />
-        <Saved
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person listening to music"
-          title="Music"
-          // category= "Music"
-        />
+
+        {lists.map((item, index) => {
+          console.log(item.category)
+          return (
+            <Link to={`/profile/lists/${item._id}`}>
+              <div key={index}>
+                <img src={item.listImage} style={{ width: "150px" }} />
+                <h5>{item.title}</h5>
+              </div>
+            </Link>
+          )
+        })}
       </div>
       <h2>Create Your Own</h2>
       <div className="create">
-        <CreateList
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
-          alt="Animated picture of person with an empty list"
-          title="New List"
-          // category= "Create your own"
-        />
+        <Link to="/newList">
+          <CreateList
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
+            alt="Animated picture of person with an empty list"
+            title="New List"
+          />
+        </Link>
       </div>
-      </div>
+    </div>
   );
 };
 

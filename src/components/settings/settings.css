@@ -1,9 +1,21 @@
+body {
+  font-family: "Comfortaa", arial;
+  background-color: #EEE2DC;
+  text-align: center;
+}
+
+.align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 button {
-  background-color: white;
-  border: 1.5px solid #ff725e;
   border-radius: 6px;
   padding: 15px;
   width: 175px;
+  font-family: "Comfortaa", arial;
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
@@ -13,22 +25,35 @@ button {
 }
 
 button:hover {
-  opacity: 0.6;
-  border: 1.5px solid black;
-  font-weight: bold;
+  background-color: #ff725e;
+  color: black;
 }
 
-.Subcategories {
-  display: none;
+.main {
+  border: 2px solid #ff725e;
 }
 
-.Delete {
+.main:hover {
+  border: 2px solid #CC5B4B;
+}
+
+.sub {
+  border: 2px solid #263238;
+  background-color: EEE2DC;
+}
+
+.sub:hover {
+  background-color: #455A64;
+  color: white;
+}
+
+.delete {
   border-radius: 6px;
-  width: 175px;
+  width: 200px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  margin: 35px;
+  margin-top: 35px;
   cursor: pointer;
   transition: 0.3s;
   background-color: #ff725e;
@@ -36,3 +61,4 @@ button:hover {
   border: 2px solid black;
   font-weight: bold;
 }
+

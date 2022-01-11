@@ -1,11 +1,13 @@
 import React from "react";
 import './home.css';
 import { Link } from "react-router-dom";
+import { TopNav } from "../topNav/topNav";
 
 export const Home = () => {
 
   return (
     <div className="home-component">
+      <TopNav />
       <h1>Pick A List</h1>
       <div>
         <MainArticle

@@ -13,3 +13,26 @@
 li {
   list-style-type: none;
 } */
+
+.navBar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.navbarSection {
+  display: flex;
+  flex-direction: column;
+  /* display: block; */
+  justify-content: flex-end;
+  width: 25%;
+}
+
+.navBarLi {
+  list-style: none;
+}
+
+.hideNavMenu {
+  display: none;
+}

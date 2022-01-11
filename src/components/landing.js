@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { TopNav } from "./topNav/topNav";
 
 export const Landing = () => {
 
   return (
     <div>
+      <TopNav />
       <button style={{ cursor: "pointer" }}><Link to="/login">Log In</Link></button>
       <button style={{ cursor: "pointer" }}><Link to="/signup">Sign Up</Link></button>
       <div style={{ display: "flex" }}>

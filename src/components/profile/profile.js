@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./profile.css";
 import { getUserFetch } from "../../utils";
 import { Link } from "react-router-dom";
+import { TopNav } from "../topNav/topNav";
 
 export const Profile = () => {
   const [user, setUser] = useState("");
@@ -27,6 +28,7 @@ export const Profile = () => {
 
   return (
     <div className="userProfile">
+      <TopNav />
       <h1>My Collection</h1>
       <UserProfile
         Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"

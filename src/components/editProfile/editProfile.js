@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./editProfile.css";
 import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../../utils";
+import { TopNav } from "../topNav/topNav";
 
 export const EditProfile = () => {
   const [newUsername, setNewUsername] = useState("");
@@ -38,6 +39,7 @@ export const EditProfile = () => {
 
   return (
     <div className="edit-profile-page">
+      <TopNav />
       <h1 className="edit-profile-title">Edit Profile</h1>
       <div className="change-profile-picture">
         <div className="profile-picture"></div>

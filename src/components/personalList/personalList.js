@@ -4,6 +4,7 @@ import { updateListItemCompletionStateFetch, getUserFetch, updateListFetch } fro
 import grey from "../../images/grey.png";
 import ScratchCard from "react-scratchcard";
 import "./personalList.css";
+import { TopNav } from "../topNav/topNav";
 
 export const UserList = () => {
   const { id } = useParams();
@@ -70,6 +71,7 @@ export const UserList = () => {
 
   return (
     <div className="personal-list">
+      <TopNav />
       <div style={{ textAlign: "center" }}>
         <h2>{title}</h2>
         <p>{title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>

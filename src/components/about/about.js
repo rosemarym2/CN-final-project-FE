@@ -1,5 +1,6 @@
 import "./about.css";
 import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 
 export const About = () => {
 
@@ -12,6 +13,7 @@ export const About = () => {
             </h5>
             <h3>Meet the team</h3>
             <h5>Based in Nottingham UK, Rosie, Rachel, Julija and Holly met at work and found a shared interest in creating websites and also making lists! Join them as they delve into the world of online lists!</h5>
+            <BottomNav />
         </div>
     )
 }

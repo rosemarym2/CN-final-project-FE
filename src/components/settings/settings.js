@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./settings.css";
 import { getUserFetch } from "../../utils";
+import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 
 export const Settings = () => {
   const [showButtons, setShowButtons] = useState(false);
@@ -53,6 +55,7 @@ export const Settings = () => {
 
   return (
     <div className="align">
+      <TopNav />
       <div className="userProfile">
         <h1>Settings</h1>
         <p>{user.username}</p>
@@ -92,6 +95,7 @@ export const Settings = () => {
         )}
       </div>
       <button className="delete">DELETE PROFILE</button>
+      <BottomNav />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../utils";
 import { TopNav } from "./topNav/topNav";
+import { BottomNav } from "./bottomNav/bottomNav";
 
 export const List = () => {
   const { id } = useParams();
@@ -76,6 +77,7 @@ export const List = () => {
           onMouseUp={() => setBookmarkColour("#000000")}
           style={{ color: bookmarkColour }}></i>
       </div>
+      <BottomNav />
     </div>
   )
 }

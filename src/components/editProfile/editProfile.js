@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./editProfile.css";
 import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 
 export const EditProfile = () => {
   const [newUsername, setNewUsername] = useState("");
@@ -62,6 +63,7 @@ export const EditProfile = () => {
         </p>
         <button type="submit" id="save-changes-button">Save Changes</button>
       </form>
+      <BottomNav />
     </div >
   )
 }

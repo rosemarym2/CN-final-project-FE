@@ -4,7 +4,7 @@ import { Home } from "./components//home/home";
 import { LogIn } from "./components/logIn.js";
 import { UserList } from "./components/personalList/personalList.js";
 import { List } from "./components/publicList.js";
-import { Landing } from "./components/landing.js";
+import { Landing } from "./components/landing/landing.js";
 import { Profile } from "./components/profile/profile.js";
 import { Settings } from "./components/settings/settings.js";
 import { Category } from "./components/category/category.js";
@@ -13,7 +13,6 @@ import { EditProfile } from "./components/editProfile/editProfile.js";
 import { About } from "./components/about/about.js";
 import { Error404 } from "./components/404/404.js";
 import { ComingSoon } from "./components/comingSoon/comingSoon.js"
-import { BottomNav } from "./components/bottomNav/bottomNav.js";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {

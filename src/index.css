@@ -14,14 +14,14 @@ code {
 
 body {
   margin: 0;
-  overflow-x: hidden;
-  font-family: "Comfortaa", arial;
-}
+  /* overflow-x: hidden; */
+ font-family: "Comfortaa", arial;
+} 
 
-p {
+/* p {
   font-weight: bold;
-}
+}  */
 
-span {
+/* span {
   font-weight: bold;
-}
+} */

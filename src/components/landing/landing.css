@@ -1,7 +1,8 @@
 .landingBody {
-    background-color: white;
+    background-color: #EEE2DC;
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 
 .landingStyle {
@@ -9,16 +10,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 15vw;
-    height: 60vh;
-    padding: 100px;
-    margin-top: 10vh;
+    padding: 50px 20px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     border-radius: 50px;
-    border: 2px solid black;
-    background-color: #EEE2DC;
+    background-color: white;
 }
 
 .landingSpan {
+    display: flex;
     padding: 20px;
 }
 
@@ -34,6 +34,7 @@
     margin: 4px;
     cursor: pointer;
     transition: 0.3s;
+    cursor: pointer;
   }
   
   .landingBtn:hover {
@@ -50,4 +51,24 @@
   .landingImg {
     width: 450px;
     height: auto;
+  }
+
+  .landingLogoImg {
+    width: auto;
+    height: 80px;
+    padding: 20px;
+  }
+
+  .landingHR {
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .landingAbout {
+    cursor: pointer;
+  }
+
+  .landingAbout:hover {
+    color: #ff725e;
   }

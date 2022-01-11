@@ -1,24 +1,10 @@
-/* .navBar { */
-  /* background-color: aqua; */
-  /* width: 100vw;
-  height: auto;
-}
-
-.showMenu {
-  background-color: pink;
-  width: 20vw;
-  height: auto;
-}
-
-li {
-  list-style-type: none;
-} */
-
 .navBar {
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-content: center;
+  position: fixed;
+  top: 0;
 }
 
 .navbarSection {

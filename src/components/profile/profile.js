@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
-import { getUserFetch } from "../../utils";
+import { getUserFetch, deleteSpecificListFetch } from "../../utils";
 import { Link } from "react-router-dom";
 
 export const Profile = () => {
@@ -25,6 +25,15 @@ export const Profile = () => {
     getUser();
   }, []);
 
+  const deleteHandler = async (listId) => {
+    const userId = localStorage.getItem("myId");
+    console.log(userId);
+    console.log(listId);
+    const itemToDelete = await deleteSpecificListFetch(userId, listId);
+    getUser();
+    console.log(itemToDelete);
+  }
+
   return (
     <div className="userProfile">
       <h1>My Collection</h1>
@@ -39,12 +48,17 @@ export const Profile = () => {
       <div className="prog">
         {inProgress.map((item, index) => {
           return (
-            <Link to={`/profile/lists/${item._id}`}>
-              <div key={index}>
-                <img src={item.listImage} style={{ width: "150px" }} />
-                <h5>{item.title}</h5>
+            <div>
+              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                <i class="bi bi-trash"></i>
               </div>
-            </Link>
+              <Link to={`/profile/lists/${item._id}`}>
+                <div key={index}>
+                  <img src={item.listImage} style={{ width: "150px" }} />
+                  <h5>{item.title}</h5>
+                </div>
+              </Link>
+            </div>
           )
         })}
       </div>
@@ -52,12 +66,17 @@ export const Profile = () => {
       <div className="comp">
         {completed.map((item, index) => {
           return (
-            <Link to={`/profile/lists/${item._id}`}>
-              <div key={index}>
-                <img src={item.listImage} style={{ width: "150px" }} />
-                <h5>{item.title}</h5>
+            <div>
+              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                <i class="bi bi-trash"></i>
               </div>
-            </Link>
+              <Link to={`/profile/lists/${item._id}`}>
+                <div key={index}>
+                  <img src={item.listImage} style={{ width: "150px" }} />
+                  <h5>{item.title}</h5>
+                </div>
+              </Link>
+            </div>
           )
         })}
       </div>
@@ -65,12 +84,17 @@ export const Profile = () => {
       <div className="save">
         {saved.map((item, index) => {
           return (
-            <Link to={`/profile/lists/${item._id}`}>
-              <div key={index}>
-                <img src={item.listImage} style={{ width: "150px" }} />
-                <h5>{item.title}</h5>
+            <div>
+              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                <i class="bi bi-trash"></i>
               </div>
-            </Link>
+              <Link to={`/profile/lists/${item._id}`}>
+                <div key={index}>
+                  <img src={item.listImage} style={{ width: "150px" }} />
+                  <h5>{item.title}</h5>
+                </div>
+              </Link>
+            </div>
           )
         })}
       </div>

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../utils";
+import { TopNav } from "./topNav/topNav";
 
 export const List = () => {
   const { id } = useParams();
@@ -50,6 +51,7 @@ export const List = () => {
 
   return (
     <div>
+      <TopNav />
       <h1>{listTitle}</h1>
       <div className="scratchcards">
         {items.map((item, index) => {

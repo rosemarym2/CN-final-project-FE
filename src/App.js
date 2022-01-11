@@ -13,7 +13,6 @@ import { EditProfile } from "./components/editProfile/editProfile.js";
 import { About } from "./components/about/about.js";
 import { Error404 } from "./components/404/404.js";
 import { ComingSoon } from "./components/comingSoon/comingSoon.js"
-import { BottomNav } from "./components/bottomNav/bottomNav.js";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {

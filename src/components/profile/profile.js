@@ -3,6 +3,7 @@ import "./profile.css";
 import { getUserFetch, deleteSpecificListFetch } from "../../utils";
 import { Link } from "react-router-dom";
 import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 
 export const Profile = () => {
   const [user, setUser] = useState("");
@@ -110,6 +111,7 @@ export const Profile = () => {
           />
         </Link>
       </div>
+      <BottomNav />
     </div>
   );
 };

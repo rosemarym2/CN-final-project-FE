@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./settings.css";
+import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 import { getUserFetch, deleteUserFetch } from "../../utils";
 import { Link, Redirect } from "react-router-dom";
 
@@ -64,6 +66,7 @@ export const Settings = () => {
     <>
       {userDeleted ? <Redirect to="/landing" /> : (
         <div className="align">
+        <TopNav />
           <div className="userProfile">
             <h1>Settings</h1>
             <p>{user.username}</p>
@@ -114,6 +117,7 @@ export const Settings = () => {
               </div>
             )}
           </div>
+      <BottomNav />
         </div>
       )}
     </>

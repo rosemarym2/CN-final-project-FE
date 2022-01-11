@@ -5,6 +5,7 @@ import grey from "../../images/grey.png";
 import ScratchCard from "react-scratchcard";
 import "./personalList.css";
 import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 
 export const UserList = () => {
   const { id } = useParams();
@@ -96,6 +97,7 @@ export const UserList = () => {
         })}
       </div>
       <hr></hr>
+      <BottomNav />
     </div >
   );
 }

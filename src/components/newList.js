@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { addNewListFetch } from "../utils";
+import { TopNav } from "./topNav/topNav.js"; 
 
 export const NewList = () => {
     const [title, setTitle] = useState("");
@@ -43,6 +44,7 @@ export const NewList = () => {
 
     return (
         <div>
+            <TopNav />
             <h1>Create a New List</h1>
             <h2>Set Up Your List</h2>
             <label for="listTitle">Name Your List</label>

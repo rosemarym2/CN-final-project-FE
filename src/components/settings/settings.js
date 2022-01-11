@@ -1,22 +1,40 @@
 import React, { useState, useEffect } from "react";
 import "./settings.css";
-import { getUserFetch } from "../../utils";
+import { getUserFetch, deleteUserFetch } from "../../utils";
+import { Link, Redirect } from "react-router-dom";
 
 export const Settings = () => {
   const [showButtons, setShowButtons] = useState(false);
   const [showButtons2, setShowButtons2] = useState(false);
   const [showButtons3, setShowButtons3] = useState(false);
   const [user, setUser] = useState("");
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+  const [userDeleted, setUserDeleted] = useState(false);
+
   const getUser = async () => {
-    const id = localStorage.getItem("myId");
-    const profile = await getUserFetch(id);
-    console.log(profile);
+    const userId = localStorage.getItem("myId");
+    const profile = await getUserFetch(userId);
     setUser(profile.user.username);
   };
 
   useEffect(() => {
     getUser();
   }, []);
+
+  const deleteConfirmationHandler = (value) => {
+    if (value) {
+      setDeleteConfirmation(true);
+    } else {
+      setDeleteConfirmation(false);
+    }
+  }
+
+  const deleteUserProfileHandler = async () => {
+    const userId = localStorage.getItem("myId");
+    await deleteUserFetch(userId);
+    localStorage.clear();
+    setTimeout(() => setUserDeleted(true), 1000);
+  }
 
   const buttonHandler = async () => {
     if (showButtons) {
@@ -42,60 +60,69 @@ export const Settings = () => {
     }
   }
 
-  const UserProfile = (props) => {
-    return (
-      <div className="UserProfile">
-        <img src={props.Img} className="Img" />
-        <h2>{props.username}</h2>
-      </div>
-    );
-  };
-
   return (
-    <div className="settingsBody">
-      <div className="align">
-        <div className="userProfile">
-          <h1>Settings</h1>
-          <p>{user.username}</p>
-          <UserProfile
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
-            username={user}
-          />
-        </div>
-        <button className="main">Edit Profile</button>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <button className="main" onClick={buttonHandler}>Colour Scheme</button>
-          {!showButtons ? "" : (
-            <>
-              <button className="sub">Dark mode</button>
-              <button className="sub">Light mode</button>
-            </>
+    <>
+      {userDeleted ? <Redirect to="/landing" /> : (
+        <div className="align">
+          <div className="userProfile">
+            <h1>Settings</h1>
+            <p>{user.username}</p>
+            <UserProfile
+              Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
+              username={user}
+            />
+          </div>
+          <Link to="/profile/edit">
+            <button className="main">Edit Profile</button>
+          </Link>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <button className="main" onClick={buttonHandler}>Colour Scheme</button>
+            {!showButtons ? "" : (
+              <>
+                <button className="sub">Dark mode</button>
+                <button className="sub">Light mode</button>
+              </>
+            )}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <button className="main" onClick={buttonHandler2}>List Styles</button>
+            {!showButtons2 ? "" : (
+              <>
+                <button className="sub">Scratchcard</button>
+                <button className="sub">Flip card</button>
+                <button className="sub">Checklist</button>
+              </>
+            )}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <button className="main" onClick={buttonHandler3}>Font Size</button>
+            {!showButtons3 ? "" : (
+              <>
+                <button className="sub">Small</button>
+                <button className="sub">Medium</button>
+                <button className="sub">Large</button>
+              </>
+            )}
+          </div>
+          <button className="delete" onClick={() => deleteConfirmationHandler(true)}>DELETE PROFILE</button>
+          {!deleteConfirmation ? "" : (
+            <div>
+              <p>Are you sure you want to delete your account?</p>
+              <button onClick={deleteUserProfileHandler}>Yes, delete it!</button>
+              <button onClick={() => deleteConfirmationHandler(false)}>No, I want to keep it.</button>
+            </div>
           )}
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <button className="main" onClick={buttonHandler2}>List Styles</button>
-          {!showButtons2 ? "" : (
-            <>
-              <button className="sub">Scratchcard</button>
-              <button className="sub">Flip card</button>
-              <button className="sub">Checklist</button>
-            </>
-          )}
-        </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <button className="main" onClick={buttonHandler3}>Font Size</button>
-          {!showButtons3 ? "" : (
-            <>
-              <button className="sub">Small</button>
-              <button className="sub">Medium</button>
-              <button className="sub">Large</button>
-            </>
-          )}
-        </div>
-        <button className="delete">DELETE PROFILE</button>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 
-
+const UserProfile = (props) => {
+  return (
+    <div className="UserProfile">
+      <img src={props.Img} className="Img" />
+      <h2>{props.username}</h2>
+    </div>
+  );
+};

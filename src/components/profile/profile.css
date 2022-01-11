@@ -38,3 +38,26 @@ h1 {
 .userProfile {
   text-align: center;
 }
+
+.delete-personal-list-button {
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  cursor: pointer;
+  padding-right: 15px;
+}
+
+.delete-personal-list-button i {
+  color: #000000;
+}
+
+.delete-personal-list-button i:hover {
+  color: #CC5B4B;
+  font-size: 18px;
+}
+
+.delete-personal-list-button i:active {
+  color: #FF725E;
+}

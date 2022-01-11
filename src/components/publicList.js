@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSpecificListFetch, addToUserListsFetch } from "../utils";
+import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../utils";
+import { TopNav } from "./topNav/topNav";
 
 export const List = () => {
   const { id } = useParams();
@@ -38,12 +39,19 @@ export const List = () => {
 
   const pushToUserLists = async () => {
     const userId = localStorage.getItem("myId");
-    list.status = "saved";
-    await addToUserListsFetch(userId, list);
+    const user = await getUserFetch(userId);
+    const matchExists = user.user.lists.find(element => element._id == list._id);
+    if (!matchExists) {
+      list.status = "saved";
+      await addToUserListsFetch(userId, list);
+    } else {
+      alert("You already have this list on your profile");
+    }
   }
 
   return (
     <div>
+      <TopNav />
       <h1>{listTitle}</h1>
       <div className="scratchcards">
         {items.map((item, index) => {

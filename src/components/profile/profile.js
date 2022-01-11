@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
-import { getUserFetch } from "../../utils";
+import { getUserFetch, deleteSpecificListFetch } from "../../utils";
 import { Link } from "react-router-dom";
+import { TopNav } from "../topNav/topNav";
 
 export const Profile = () => {
   const [user, setUser] = useState("");
@@ -25,7 +26,17 @@ export const Profile = () => {
     getUser();
   }, []);
 
+  const deleteHandler = async (listId) => {
+    const userId = localStorage.getItem("myId");
+    console.log(userId);
+    console.log(listId);
+    const itemToDelete = await deleteSpecificListFetch(userId, listId);
+    getUser();
+    console.log(itemToDelete);
+  }
+
   return (
+<<<<<<< HEAD
     <div className="profileBody">
       <div className="userProfile">
         <h1>My Collection</h1>
@@ -40,12 +51,33 @@ export const Profile = () => {
         <div className="prog">
           {inProgress.map((item, index) => {
             return (
+=======
+    <div className="userProfile">
+      <TopNav />
+      <h1>My Collection</h1>
+      <UserProfile
+        Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
+        // Img2 = "https://res.cloudinary.com/cn-project/image/upload/v1641486239/pana/Self_confidence-pana_zo0elk.png"
+        // Img3 = "https://res.cloudinary.com/cn-project/image/upload/v1641486240/pana/404_Error_with_a_cute_animal-pana_uumdxx.png"
+        // username = {`${user.username}`} //need to link user profile details with the back-end database
+        username={user} //need to link user profile details with the back-end database
+      />
+      <h2>In Progress</h2>
+      <div className="prog">
+        {inProgress.map((item, index) => {
+          return (
+            <div>
+              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                <i class="bi bi-trash"></i>
+              </div>
+>>>>>>> 2cad4ce8011966eb21be0ae603df909d3e34e0b7
               <Link to={`/profile/lists/${item._id}`}>
                 <div key={index}>
                   <img src={item.listImage} style={{ width: "150px" }} />
                   <h5>{item.title}</h5>
                 </div>
               </Link>
+<<<<<<< HEAD
             )
           })}
         </div>
@@ -53,12 +85,27 @@ export const Profile = () => {
         <div className="comp">
           {completed.map((item, index) => {
             return (
+=======
+            </div>
+          )
+        })}
+      </div>
+      <h2>Completed</h2>
+      <div className="comp">
+        {completed.map((item, index) => {
+          return (
+            <div>
+              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                <i class="bi bi-trash"></i>
+              </div>
+>>>>>>> 2cad4ce8011966eb21be0ae603df909d3e34e0b7
               <Link to={`/profile/lists/${item._id}`}>
                 <div key={index}>
                   <img src={item.listImage} style={{ width: "150px" }} />
                   <h5>{item.title}</h5>
                 </div>
               </Link>
+<<<<<<< HEAD
             )
           })}
         </div>
@@ -66,12 +113,27 @@ export const Profile = () => {
         <div className="save">
           {saved.map((item, index) => {
             return (
+=======
+            </div>
+          )
+        })}
+      </div>
+      <h2>Saved</h2>
+      <div className="save">
+        {saved.map((item, index) => {
+          return (
+            <div>
+              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                <i class="bi bi-trash"></i>
+              </div>
+>>>>>>> 2cad4ce8011966eb21be0ae603df909d3e34e0b7
               <Link to={`/profile/lists/${item._id}`}>
                 <div key={index}>
                   <img src={item.listImage} style={{ width: "150px" }} />
                   <h5>{item.title}</h5>
                 </div>
               </Link>
+<<<<<<< HEAD
             )
           })}
         </div>
@@ -85,6 +147,21 @@ export const Profile = () => {
             />
           </Link>
         </div>
+=======
+            </div>
+          )
+        })}
+      </div>
+      <h2>Create Your Own</h2>
+      <div className="create">
+        <Link to="/newList">
+          <CreateList
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
+            alt="Animated picture of person with an empty list"
+            title="New List"
+          />
+        </Link>
+>>>>>>> 2cad4ce8011966eb21be0ae603df909d3e34e0b7
       </div>
     </div>
   );

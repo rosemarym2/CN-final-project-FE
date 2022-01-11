@@ -105,13 +105,15 @@ export const Settings = () => {
             )}
           </div>
           <button className="delete" onClick={() => deleteConfirmationHandler(true)}>DELETE PROFILE</button>
-          {!deleteConfirmation ? "" : (
-            <div>
-              <p>Are you sure you want to delete your account?</p>
-              <button onClick={deleteUserProfileHandler}>Yes, delete it!</button>
-              <button onClick={() => deleteConfirmationHandler(false)}>No, I want to keep it.</button>
-            </div>
-          )}
+          <div className="delConf">
+            {!deleteConfirmation ? "" : (
+              <div>
+                <p>Are you sure you want to delete your account?</p>
+                <button className="delMain" onClick={deleteUserProfileHandler}>Yes, delete it!</button>
+                <button className="delMain" onClick={() => deleteConfirmationHandler(false)}>No, I want to keep it.</button>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </>

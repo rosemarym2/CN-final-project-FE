@@ -1,22 +1,29 @@
 .category-image {
-  width: 120px;
+  width: 200px;
+  height: auto;
 }
 
 .category-item {
   display: flex;
   flex-direction: column;
   width: 120px;
+  height: 300px;
   align-items: center;
   text-align: center;
-  margin: 20px;
+  margin: 35px;
 }
 
 .category-component {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .category-all-items {
+  padding: 10px;
+  width: 50%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

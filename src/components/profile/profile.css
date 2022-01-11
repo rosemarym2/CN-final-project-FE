@@ -1,16 +1,17 @@
-body {
-  font-family: "Courier New", Courier, monospace;
+.profileBody {
+  background-color: #EEE2DC;
+  font-family: "Comfortaa", arial;
   display: flex;
   justify-content: center;
 }
 
-/* 
+
 .home {
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(4, 33.3%);
   padding: 35px;
-} */
+}
 
 .prog,
 .comp,
@@ -36,4 +37,27 @@ h1 {
 
 .userProfile {
   text-align: center;
+}
+
+.delete-personal-list-button {
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  cursor: pointer;
+  padding-right: 15px;
+}
+
+.delete-personal-list-button i {
+  color: #000000;
+}
+
+.delete-personal-list-button i:hover {
+  color: #CC5B4B;
+  font-size: 18px;
+}
+
+.delete-personal-list-button i:active {
+  color: #FF725E;
 }

@@ -1,0 +1,54 @@
+.landingBody {
+    background-color: white;
+    font-family: "Comfortaa", arial;
+    display: flex;
+    justify-content: center;
+}
+
+.landingStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 15vw;
+    height: 60vh;
+    padding: 100px;
+    margin-top: 10vh;
+    border-radius: 50px;
+    border: 2px solid black;
+    background-color: #EEE2DC;
+}
+
+.landingSpan {
+    padding: 20px;
+}
+
+.landingBtn {
+    border-radius: 6px;
+    padding: 15px;
+    width: 175px;
+    font-family: "Comfortaa", arial;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .landingBtn:hover {
+    background-color: #ff725e;
+    color: black;
+  }
+
+  .landingBtnStyle {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+  }
+
+  .landingImg {
+    width: 450px;
+    height: auto;
+  }

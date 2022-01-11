@@ -1,8 +1,9 @@
 .home-component {
+  background-color: #EEE2DC;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 80px 0 50px 0;
+  height: 100vh;
 }
 
 .Img {

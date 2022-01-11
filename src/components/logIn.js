@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { logInFetch } from "../utils";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import "./logIn.css";
 
 export const LogIn = ({ authContext }) => {
   const useAuth = () => {
@@ -26,11 +27,13 @@ export const LogIn = ({ authContext }) => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <form onSubmit={logInHandler}>
-        <input onChange={(e) => setUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" value={username} />
+    <div className="loginBody">
+      <h1 className="loginTitle">ListJunkie</h1>
+      <form className="loginForm" onSubmit={logInHandler}>
+      <img className="loginImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641490186/pana/Reading_list-pana_nkdm01.png"></img>
+        <input className="loginInput" onChange={(e) => setUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" value={username} />
         <div className="password-input">
-          <input onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type="password" value={password} />
+          <input className="loginInput" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type="password" value={password} />
         </div>
         <button type="submit">Log In</button>
       </form>

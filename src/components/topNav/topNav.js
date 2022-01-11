@@ -17,9 +17,9 @@ export const TopNav = () => {
     return (
         <div>
             <nav className="navBar">
-            <li className="navBarLi"><Link to="/home">LOGO</Link></li>
-            <div className="navbarSection">
-            <button onClick={handleToggle}>{navbarOpen ? <i class="bi bi-x"></i> : <i class="bi bi-list"></i>}</button>
+                <h1 className="navBarLogo"><Link to="/home">LOGO</Link></h1>
+                <div className="navbarSection">
+                    <button className="burgerBtn" onClick={handleToggle}>{navbarOpen ? <i class="bi bi-x"></i> : <i class="bi bi-list"></i>}</button>
                     <ul className={`menuNav ${navbarOpen ? "showNavMenu" : "hideNavMenu"}`}>
                         <li className="navBarLi"><Link to="/about"><i class="bi bi-info-circle"></i> About us</Link></li>
                         <li className="navBarLi"><Link to="/settings"><i class="bi bi-gear"></i> Settings</Link></li>

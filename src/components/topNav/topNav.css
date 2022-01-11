@@ -1,5 +1,6 @@
 .navBar {
   width: 100vw;
+  height: 8vh;
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -8,17 +9,32 @@
 }
 
 .navbarSection {
+  width: 10vw;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  /* display: block; */
-  justify-content: flex-end;
-  width: 25%;
+  margin-left: 1720px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.burgerBtn {
+  margin: 12px;
+  display: flex;
+  align-self: flex-end;
+  width: 50px;
+  height: auto;
 }
 
 .navBarLi {
   list-style: none;
+  padding: 5px;
 }
 
 .hideNavMenu {
   display: none;
+}
+
+.navBarLogo {
+  margin: 18px;
 }

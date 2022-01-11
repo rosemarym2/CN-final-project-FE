@@ -1,12 +1,13 @@
 .loginImg {
-    width: 300px;
+    width: 450px;
     height: auto;
 }
 
-.loginTitle {
-    text-align: center;
+  .loginLogoImg {
+    width: auto;
+    height: 80px;
     padding: 20px;
-}
+  }
 
 .loginBody {
     background-color: #EEE2DC;
@@ -19,16 +20,16 @@
 }
 
 .loginForm {
-    background-color: white;
-    border: 2px solid #CC5B4B;
-    width: 20%;
-    height: 70%;
-    text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    border-radius: 10px;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 20px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 50px;
+    background-color: white;
+    height: 100vh;
 }
 
 .loginInput {
@@ -37,4 +38,14 @@
     padding: 10px;
     border-radius: 5px;
     border: 2px solid #ff725e;
+    outline: none;
+    margin: 5px 0;
 }
+
+.loginLoginSpan {
+    font-weight: 700;
+    }
+    
+    .loginLoginSpan:hover {
+        color: #ff725e;
+      }

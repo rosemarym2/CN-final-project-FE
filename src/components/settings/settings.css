@@ -1,7 +1,8 @@
-body {
-  font-family: "Comfortaa", arial;
+.settingsBody {
   background-color: #EEE2DC;
   text-align: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .align {
@@ -62,3 +63,20 @@ button:hover {
   font-weight: bold;
 }
 
+.delConf {
+  width: 500px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.delMain {
+  border: 2px solid #ff725e;
+  width: 200px;
+}
+
+.delMain:hover {
+  border: 2px solid #CC5B4B;
+}

@@ -73,7 +73,7 @@ export const UserList = () => {
   }
 
   return (
-    <div className="personal-list">
+    <div>
       <TopNav />
       <div style={{ textAlign: "center" }}>
         <h2>{list.title}</h2>
@@ -105,6 +105,6 @@ export const UserList = () => {
         })}
       </ul>
       <BottomNav />
-    </div >
+    </div>
   );
 }

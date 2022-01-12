@@ -87,7 +87,6 @@ export const EditProfile = () => {
         </form>
       </div >
       <BottomNav />
-      
       <NotificationContainer />
     </div >
   )

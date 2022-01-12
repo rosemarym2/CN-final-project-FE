@@ -75,12 +75,6 @@ export const Profile = () => {
                   <h5>{item.title}</h5>
                 </div>
               </Link>
-              <Link to={`/profile/lists/${item._id}`}>
-                <div key={index}>
-                  <img src={item.listImage} style={{ width: "150px" }} />
-                  <h5>{item.title}</h5>
-                </div>
-              </Link>
             </div>
           )
         })}
@@ -125,7 +119,7 @@ export const Profile = () => {
       <div className="create">
         <Link to="/lists/create">
           <CreateList
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png"
             alt="Animated picture of person with an empty list"
             title="New List"
           />

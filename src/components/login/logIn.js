@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { logInFetch } from "../utils";
+import { logInFetch } from "../../utils";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./logIn.css";
 import 'react-notifications/lib/notifications.css';

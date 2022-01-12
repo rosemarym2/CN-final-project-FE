@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../utils";
-import { TopNav } from "./topNav/topNav";
-import { BottomNav } from "./bottomNav/bottomNav";
+import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../../utils";
+import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
@@ -56,7 +56,7 @@ export const List = () => {
   const createNotification = (type) => {
     switch (type) {
       case "info":
-        NotificationManager.info(`List "${list.title}" already exists on your profile`);
+        NotificationManager.info(`List "${list.title}" already exists in your profile`);
         break;
       case "success":
         NotificationManager.success(`List "${list.title}" successfully added to your profile`);

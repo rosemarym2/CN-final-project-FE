@@ -29,16 +29,16 @@ export const LogIn = ({ authContext }) => {
   return (
     <div className="loginBody">
       <form className="loginForm" onSubmit={logInHandler}>
-      <img className="loginLogoImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641915487/output-onlinepngtools_r2el6k.png"></img>
-        <img className="loginImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641490186/pana/Reading_list-pana_nkdm01.png"></img>
+        <img className="loginLogoImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641915487/output-onlinepngtools_r2el6k.png"></img>
+        <img className="loginImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641980972/pana/misc/Tablet_login-pana_miktxi.png"></img>
         <input className="loginInput" onChange={(e) => setUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" value={username} />
         <div className="password-input">
           <input className="loginInput" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type="password" value={password} />
         </div>
-        <button type="submit">Log In</button>    
+        <button type="submit">Log In</button>
         <p>Don't have an account? <span className="loginLoginSpan"><Link to="/signup">Sign Up</Link></span></p>
       </form>
-  
+
     </div >
   );
 }

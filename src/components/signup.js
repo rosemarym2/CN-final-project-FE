@@ -22,15 +22,15 @@ export const SignUp = () => {
       {signedUp ? <Redirect to="/login" /> : (
         <div className="signup-page">
           <form className="signupForm" onSubmit={signUpHandler}>
-          <img className="signupLogoImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641915487/output-onlinepngtools_r2el6k.png"></img>
-        <img className="signupImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641490186/pana/Reading_list-pana_nkdm01.png"></img>
+            <img className="signupLogoImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641915487/output-onlinepngtools_r2el6k.png"></img>
+            <img className="signupImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641980972/pana/misc/Sign_up-pana_otvhr4.png"></img>
             <input className="signupInput" onChange={(e) => setUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" value={username} />
             <input className="signupInput" onChange={(e) => setEmail(e.target.value)} autocapitalize="none" placeholder="Email address" type="text" value={email} />
             <div className="password-input">
               <input className="signupInput" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type="password" value={password} />
               {/* <i class={passIcon} onClick={visiblePassHandler}></i> */}
             </div>
-            <button type="submit">Sign Up</button>          
+            <button type="submit">Sign Up</button>
             <p>Already have an account? <span className="signupLoginSpan"><Link to="/login">Log In</Link></span></p>
           </form>
 

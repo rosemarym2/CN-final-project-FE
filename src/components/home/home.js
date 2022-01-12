@@ -18,7 +18,7 @@ export const Home = () => {
       <div className="category-list">
         <Link to="/category/Travel">
           <Article
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Winter_solstice-pana_x4wbwx.png"
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641917068/pana/categories/Winter_solstice-pana_ga4pzm.png"
             alt="Animated picture of the world globe"
             title="Travel"
           />
@@ -26,7 +26,7 @@ export const Home = () => {
 
         <Link to="/category/Books">
           <Article
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Book_lover-pana_gvn56e.png"
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641916769/pana/categories/Book_lover-pana_ruswm0.png"
             alt="Animated picture of person reading books"
             title="Books"
           />
@@ -34,7 +34,7 @@ export const Home = () => {
 
         <Link to="/category/Movies">
           <Article
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Film_rolls-pana_wipspq.png"
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641916622/pana/categories/Film_rolls-pana_gnpcro.png"
             alt="Animated picture movie reels"
             title="Movies"
           />
@@ -42,7 +42,7 @@ export const Home = () => {
 
         <Link to="/category/Music">
           <Article
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Headphone-pana_ay39wz.png"
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641916769/pana/categories/Headphone-pana_befwwy.png"
             alt="Animated picture of person listening to music"
             title="Music"
           />
@@ -54,7 +54,7 @@ export const Home = () => {
       <div className="create">
         <Link to="/lists/create">
           <Article
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Add_notes-pana_eh4w5x.png"
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png"
             alt="Animated picture of person with an empty list"
             title="New List"
           />

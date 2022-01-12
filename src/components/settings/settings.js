@@ -66,12 +66,12 @@ export const Settings = () => {
     <>
       {userDeleted ? <Redirect to="/landing" /> : (
         <div className="align">
-        <TopNav />
+          <TopNav />
           <div className="userProfile">
             <h1>Settings</h1>
             <p>{user.username}</p>
             <UserProfile
-              Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
+              Img="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"
               username={user}
             />
           </div>
@@ -117,7 +117,7 @@ export const Settings = () => {
               </div>
             )}
           </div>
-      <BottomNav />
+          <BottomNav />
         </div>
       )}
     </>

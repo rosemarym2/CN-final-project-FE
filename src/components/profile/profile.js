@@ -41,11 +41,8 @@ export const Profile = () => {
       <TopNav />
       <h1>My Collection</h1>
       <UserProfile
-        Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
-        // Img2 = "https://res.cloudinary.com/cn-project/image/upload/v1641486239/pana/Self_confidence-pana_zo0elk.png"
-        // Img3 = "https://res.cloudinary.com/cn-project/image/upload/v1641486240/pana/404_Error_with_a_cute_animal-pana_uumdxx.png"
-        // username = {`${user.username}`} //need to link user profile details with the back-end database
-        username={user} //need to link user profile details with the back-end database
+        Img="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"
+        username={user}
       />
       <h2>In Progress</h2>
       <div className="prog">
@@ -105,7 +102,7 @@ export const Profile = () => {
       <div className="create">
         <Link to="/lists/create">
           <CreateList
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png"
             alt="Animated picture of person with an empty list"
             title="New List"
           />

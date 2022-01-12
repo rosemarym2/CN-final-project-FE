@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
+  margin: 70px 0;
 }
 
 .public-list-component-body h1 {
@@ -52,7 +52,6 @@
 
 .public-list-keywords {
   display: flex;
-
 }
 
 .public-list-keywords {
@@ -60,6 +59,7 @@
   max-width: 800px;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
 }
 
 .public-list-keywords li {

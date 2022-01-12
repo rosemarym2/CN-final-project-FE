@@ -1,13 +1,16 @@
-.home-component {
-  background-color: #EEE2DC;
+.home-component-body {
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
 }
 
-.Img {
-  height: 200px;
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 800px;
 }
 
 .category-article {
@@ -18,11 +21,8 @@
   cursor: pointer;
 }
 
-.category-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 900px;
+.Img {
+  height: 180px;
 }
 
 @media screen and (max-width: 600px) {

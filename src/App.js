@@ -1,14 +1,14 @@
 import React, { useContext, createContext, useState } from "react";
-import { SignUp } from "./components/signup.js";
+import { SignUp } from "./components/signup/signup.js";
 import { Home } from "./components//home/home";
-import { LogIn } from "./components/logIn.js";
+import { LogIn } from "./components/login/logIn.js";
 import { UserList } from "./components/personalList/personalList.js";
-import { List } from "./components/publicList.js";
+import { List } from "./components/publicList/publicList.js";
 import { Landing } from "./components/landing/landing.js";
 import { Profile } from "./components/profile/profile.js";
 import { Settings } from "./components/settings/settings.js";
 import { Category } from "./components/category/category.js";
-import { NewList } from "./components/newList.js";
+import { NewList } from "./components/newList/newList.js";
 import { EditProfile } from "./components/editProfile/editProfile.js";
 import { About } from "./components/about/about.js";
 import { Error404 } from "./components/404/404.js";

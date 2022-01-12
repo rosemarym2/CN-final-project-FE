@@ -7,7 +7,7 @@ import { BottomNav } from "../bottomNav/bottomNav";
 export const Home = () => {
 
   return (
-    <div className="home-component">
+    <div>
       <TopNav />
       <h1>Pick A List</h1>
       <div>
@@ -30,7 +30,15 @@ export const Home = () => {
             alt="Animated picture of person reading books"
             title="Books"
           />
-        </Link>
+        </div>
+        <div className="category-list">
+          <Link to="/category/Travel">
+            <Article
+              Img="https://res.cloudinary.com/cn-project/image/upload/v1641481525/pana/Winter_solstice-pana_x4wbwx.png"
+              alt="Animated picture of the world globe"
+              title="Travel"
+            />
+          </Link>
 
         <Link to="/category/Movies">
           <Article
@@ -61,7 +69,7 @@ export const Home = () => {
         </Link>
       </div>
       <BottomNav />
-    </div >
+    </div>
   )
 }
 

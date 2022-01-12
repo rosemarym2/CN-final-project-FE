@@ -3,6 +3,8 @@ import "./editProfile.css";
 import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav";
 import { BottomNav } from "../bottomNav/bottomNav";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export const EditProfile = () => {
   const [newUsername, setNewUsername] = useState("");
@@ -23,7 +25,8 @@ export const EditProfile = () => {
     }
   }
 
-  const submitHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
     const userId = localStorage.getItem("myId");
     if (email !== "") {
       updateUserEmailFetch(userId, email);
@@ -36,34 +39,56 @@ export const EditProfile = () => {
     if (newUsername !== "") {
       updateUserFetch(userId, "username", newUsername);
     }
+    createNotification("success");
   }
 
-  return (
-    <div className="edit-profile-page">
-      <TopNav />
-      <h1 className="edit-profile-title">Edit Profile</h1>
-      <div className="change-profile-picture">
-        <div className="profile-picture"></div>
-        <p className="edit-profile-p">Change profile photo</p>
-      </div>
+  const createNotification = (type) => {
+    switch (type) {
+      case "info":
+        NotificationManager.info("Changes saved successfully");
+        break;
+      case "success":
+        NotificationManager.success("Changes saved successfully");
+        break;
+      // case "warning":
+      //   NotificationManager.warning("Incorrect username or password, please try again");
+      //   break;
+      // case "error":
+      //   NotificationManager.error("Incorrect username or password, please try again");
+      //   break;
+    }
+  };
 
-      <form className="form-size" onSubmit={submitHandler} >
-        <p>
-          <label for="username">Username</label>
-          <input className="edit-profile-input" onChange={(e) => setNewUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" id="username" autocomplete="off" value={newUsername} />
-        </p>
-        <p>
-          <label for="emailAddress">Email address</label>
-          <input className="edit-profile-input" onChange={(e) => setEmail(e.target.value)} autocapitalize="none" placeholder="Email address" type="text" id="emailAddress" autocomplete="off" value={email} />
-        </p>
-        <p>
-          <label for="newPassword">New Password</label>
-          <input className="edit-profile-input" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="New password" id="newPassword" type={inputType} value={password} />
-          <i class={passIcon} onClick={visiblePassHandler}></i>
-        </p>
-        <button type="submit" id="save-changes-button">Save Changes</button>
-      </form>
+  return (
+    <div>
+      <TopNav />
+      <div className="edit-profile-page">
+        <h1 className="edit-profile-title">Edit Profile</h1>
+        <div className="change-profile-picture">
+          <div className="profile-picture"></div>
+          <p className="edit-profile-p">Change profile photo</p>
+        </div>
+
+        <form className="form-size" onSubmit={submitHandler} >
+          <p>
+            <label for="username">Username</label>
+            <input className="edit-profile-input" onChange={(e) => setNewUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" id="username" autocomplete="off" value={newUsername} />
+          </p>
+          <p>
+            <label for="emailAddress">Email address</label>
+            <input className="edit-profile-input" onChange={(e) => setEmail(e.target.value)} autocapitalize="none" placeholder="Email address" type="text" id="emailAddress" autocomplete="off" value={email} />
+          </p>
+          <p>
+            <label for="newPassword">New Password</label>
+            <input className="edit-profile-input" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="New password" id="newPassword" type={inputType} value={password} />
+            <i class={passIcon} onClick={visiblePassHandler}></i>
+          </p>
+          <button type="submit" id="save-changes-button">Save Changes</button>
+        </form>
+      </div >
       <BottomNav />
+      
+      <NotificationContainer />
     </div >
   )
 }

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { getFilteredListsFetch } from "../../utils";
 import { useParams, Link } from "react-router-dom";
 import "./category.css";
+import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
 
 export const Category = () => {
   const { name } = useParams();
@@ -32,20 +34,24 @@ export const Category = () => {
   }
 
   return (
-    <div className="category-component">
-      <h1>{name}</h1>
-      <div className="category-all-items">
-        {listArr.map((item, index) => {
-          return (
-            <Link to={`/lists/${item._id}`}>
-              <div key={index} className="category-item">
-                <img src={listImg} className="category-image" />
-                <p>{item.title}</p>
-              </div>
-            </Link>
-          )
-        })}
+    <div>
+      <TopNav />
+      <div className="category-component">
+        <h1>{name}</h1>
+        <div className="category-all-items">
+          {listArr.map((item, index) => {
+            return (
+              <Link to={`/lists/${item._id}`}>
+                <div key={index} className="category-item">
+                  <img src={listImg} className="category-image" />
+                  <p>{item.title}</p>
+                </div>
+              </Link>
+            )
+          })}
+        </div>
       </div>
+      <BottomNav />
     </div>
   );
 }

@@ -4,6 +4,8 @@ import { getUserFetch, deleteSpecificListFetch } from "../../utils";
 import { Link } from "react-router-dom";
 import { TopNav } from "../topNav/topNav";
 import { BottomNav } from "../bottomNav/bottomNav";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export const Profile = () => {
   const [user, setUser] = useState("");
@@ -27,17 +29,32 @@ export const Profile = () => {
     getUser();
   }, []);
 
+  const createNotification = (type, message) => {
+    switch (type) {
+      case "info":
+        NotificationManager.info(`${message}`);
+        break;
+      case "success":
+        NotificationManager.success(`${message}`);
+        break;
+      // case "warning":
+      //   NotificationManager.warning("Incorrect username or password, please try again");
+      //   break;
+      // case "error":
+      //   NotificationManager.error("Incorrect username or password, please try again");
+      //   break;
+    }
+  };
+
   const deleteHandler = async (listId) => {
     const userId = localStorage.getItem("myId");
-    console.log(userId);
-    console.log(listId);
     const itemToDelete = await deleteSpecificListFetch(userId, listId);
     getUser();
-    console.log(itemToDelete);
+    createNotification("success", itemToDelete.message);
   }
 
   return (
-    <div className="userProfile">
+    <div>
       <TopNav />
       <h1>My Collection</h1>
       <UserProfile
@@ -57,42 +74,43 @@ export const Profile = () => {
                   <img src={item.listImage} style={{ width: "150px" }} />
                   <h5>{item.title}</h5>
                 </div>
-              </Link>
-            </div>
-          )
-        })}
-      </div>
-      <h2>Completed</h2>
-      <div className="comp">
-        {completed.map((item, index) => {
-          return (
-            <div>
-              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                <i class="bi bi-trash"></i>
+                <Link to={`/profile/lists/${item._id}`}>
+                  <div key={index}>
+                    <img src={item.listImage} style={{ width: "150px" }} />
+                    <h5>{item.title}</h5>
+                  </div>
+                </Link>
               </div>
-              <Link to={`/profile/lists/${item._id}`}>
-                <div key={index}>
-                  <img src={item.listImage} style={{ width: "150px" }} />
-                  <h5>{item.title}</h5>
+            )
+          })}
+        </div>
+        <h2>Completed</h2>
+        <div className="comp">
+          {completed.map((item, index) => {
+            return (
+              <div>
+                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                  <i class="bi bi-trash"></i>
                 </div>
-              </Link>
-            </div>
-          )
-        })}
-      </div>
-      <h2>Saved</h2>
-      <div className="save">
-        {saved.map((item, index) => {
-          return (
-            <div>
-              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                <i class="bi bi-trash"></i>
+                <Link to={`/profile/lists/${item._id}`}>
+                  <div key={index}>
+                    <img src={item.listImage} style={{ width: "150px" }} />
+                    <h5>{item.title}</h5>
+                  </div>
+                </Link>
               </div>
-              <Link to={`/profile/lists/${item._id}`}>
-                <div key={index}>
-                  <img src={item.listImage} style={{ width: "150px" }} />
-                  <h5>{item.title}</h5>
+            )
+          })}
+        </div>
+        <h2>Saved</h2>
+        <div className="save">
+          {saved.map((item, index) => {
+            return (
+              <div>
+                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                  <i class="bi bi-trash"></i>
                 </div>
+<<<<<<< HEAD
               </Link>
             </div>
           )
@@ -107,8 +125,32 @@ export const Profile = () => {
             title="New List"
           />
         </Link>
+=======
+                <Link to={`/profile/lists/${item._id}`}>
+                  <div key={index}>
+                    <img src={item.listImage} style={{ width: "150px" }} />
+                    <h5>{item.title}</h5>
+                  </div>
+                </Link>
+              </div>
+            )
+          })}
+        </div>
+        <h2>Create Your Own</h2>
+        <div className="create">
+          <Link to="/lists/create">
+            <CreateList
+              Img="https://res.cloudinary.com/cn-project/image/upload/v1641486603/pana/No_data-pana_f82ggb.png"
+              alt="Animated picture of person with an empty list"
+              title="New List"
+            />
+          </Link>
+        </div>
+>>>>>>> 9565760dd096ae7e3e27cb89f59720e75c1459ed
       </div>
       <BottomNav />
+
+      <NotificationContainer />
     </div>
   );
 };
@@ -125,38 +167,6 @@ const UserProfile = (props) => {
 };
 
 const CreateList = (props) => {
-  return (
-    <div className="Article">
-      <img src={props.Img} className="Img" />
-      <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
-    </div>
-  );
-};
-
-// below are not in use anymore 
-
-const InProgress = (props) => {
-  return (
-    <div className="Article">
-      <img src={props.Img} className="Img" />
-      <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
-    </div>
-  );
-};
-
-const Completed = (props) => {
-  return (
-    <div className="Article">
-      <img src={props.Img} className="Img" />
-      <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
-    </div>
-  );
-};
-
-const Saved = (props) => {
   return (
     <div className="Article">
       <img src={props.Img} className="Img" />

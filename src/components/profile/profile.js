@@ -32,7 +32,7 @@ export const Profile = () => {
   const createNotification = (type, message) => {
     switch (type) {
       case "info":
-        NotificationManager.info(`List  already exists on your profile`);
+        NotificationManager.info(`${message}`);
         break;
       case "success":
         NotificationManager.success(`${message}`);

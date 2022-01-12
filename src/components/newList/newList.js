@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { addNewListFetch } from "../../utils";
-import { TopNav } from "../topNav/topNav.js"; 
+import { TopNav } from "../topNav/topNav.js";
 import { BottomNav } from "../bottomNav/bottomNav";
+import "./newList.css"
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export const NewList = () => {
     const [title, setTitle] = useState("");
@@ -20,6 +22,7 @@ export const NewList = () => {
             completed: false
         }));
         const success = addNewListFetch(title, category, keywords, finalListItems);
+        createNotification("success")
     }
 
     const newKeyword = (input) => {
@@ -43,44 +46,81 @@ export const NewList = () => {
         setListItems(currentArr);
     };
 
+    const createNotification = (type) => {
+        switch (type) {
+          // case 'info':
+          //   NotificationManager.info('Info message');
+          //   break;
+          case 'success':
+            NotificationManager.success("You've successfully added your list!", 'List Added');
+            break;
+          case 'warning':
+            NotificationManager.warning("Something went wrong, please try again");
+            break;
+          case 'error':
+            NotificationManager.error("Something went wrong, please try again");
+            break;
+        }
+      };
+
     return (
         <div>
             <TopNav />
-            <div>
+            <div className="newListBody">
                 <h1>Create a New List</h1>
-                <h2>Set Up Your List</h2>
-                <label for="listTitle">Name Your List</label>
-                <input type="text" onChange={(event) => setTitle(event.target.value)} id="listTitle" name="listTitle" placeholder="My New List" required />
+                <img className="newListImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png" />
+                <div className="newListSetupandKeyContainer">
+                    <div className="newListSetupContainer">
+                        <h2>Set Up Your List</h2>
+                        <label for="listTitle">Name Your List</label>
+                        <input className="newListInput" type="text" onChange={(event) => setTitle(event.target.value)} id="listTitle" name="listTitle" placeholder="My New List" required />
 
-                <label for="listCat">Category</label>
-                <input type="text" onChange={(event) => setCategory(event.target.value)} id="listCat" name="listCat" placeholder="Travel" required />
+                        <label for="listCat">Category</label>
+                        <input className="newListInput" type="text" onChange={(event) => setCategory(event.target.value)} id="listCat" name="listCat" placeholder="Travel" required />
 
-                <label for="listKeyword">Keywords</label>
-                <input type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder="Flight" required />
-                <button onClick={() => newKeyword(keywordStr)}>Add Keyword</button>
-                {keywords.map((item, index) => {
-                    return (
-                        <div>
-                            <li key={index}>{item}</li>
+                        <label for="listKeyword">Keywords</label>
+                        <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder="Flight" required />
+                        <button onClick={() => newKeyword(keywordStr)}>Add Keyword</button>
+                    </div>
+                    <div className="newListKeywordsContainer">
+                        <h2>Keywords:</h2>
+                        <div className="newListListMap">
+                        {keywords.map((item, index) => {
+                            return (
+                                <div>
+                                    <li key={index}>{item}, </li>
+                                </div>
+                            )
+                        })}
                         </div>
-                    )
-                })}
-                <h2>Add List Items</h2>
-                <label for="itemName">Name</label>
-                <input type="text" onChange={nameChangeHandler} id="itemName" name="itemName" placeholder="Fly to the Moon" required />
-                <label for="itemInfo">Info</label>
-                <input type="text" onChange={infoChangeHandler} id="itemInfo" name="itemInfo" placeholder="Need a Rocket" required />
-                <button onClick={() => newListItem(itemName, itemInfo)}>Add Item</button>
-                {listItems.map((item, index) => {
-                    return (
-                        <ul>
-                            <li key={index}>{item.itemName} - {item.itemInfo}</li>
-                        </ul>
-                    )
-                })}
-                <button onClick={newListHandler}>Save List</button>
+                    </div>
+                </div>
+                <div className="newListAddListItemsAndRender">
+                <div className="newListListItemsContainer">
+                    <h2>Add List Items</h2>
+                    <label for="itemName">Name</label>
+                    <input className="newListInput" type="text" onChange={nameChangeHandler} id="itemName" name="itemName" placeholder="Fly to the Moon" required />
+                    <label for="itemInfo">Info</label>
+                    <input className="newListInput" type="text" onChange={infoChangeHandler} id="itemInfo" name="itemInfo" placeholder="Need a Rocket" required />
+                    <button onClick={() => newListItem(itemName, itemInfo)}>Add Item</button>
+                </div>
+                <div className="newListListContents">
+                <h2>Your List Items:</h2>
+                    <div className="newListRenderListMap">
+                    {listItems.map((item, index) => {
+                        return (
+                            <div>
+                                <li key={index}>{item.itemName} - {item.itemInfo},</li>
+                            </div>
+                        )
+                    })}
+                    </div>
+                </div>
+                </div>
+                <button className="newListSaveButton" onClick={newListHandler}>Save List</button>
             </div >
             <BottomNav />
+            <NotificationContainer />
         </div>
     )
 };

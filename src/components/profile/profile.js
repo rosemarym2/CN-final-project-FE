@@ -4,6 +4,8 @@ import { getUserFetch, deleteSpecificListFetch } from "../../utils";
 import { Link } from "react-router-dom";
 import { TopNav } from "../topNav/topNav";
 import { BottomNav } from "../bottomNav/bottomNav";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export const Profile = () => {
   const [user, setUser] = useState("");
@@ -27,13 +29,28 @@ export const Profile = () => {
     getUser();
   }, []);
 
+  const createNotification = (type, message) => {
+    switch (type) {
+      case "info":
+        NotificationManager.info(`List  already exists on your profile`);
+        break;
+      case "success":
+        NotificationManager.success(`${message}`);
+        break;
+      // case "warning":
+      //   NotificationManager.warning("Incorrect username or password, please try again");
+      //   break;
+      // case "error":
+      //   NotificationManager.error("Incorrect username or password, please try again");
+      //   break;
+    }
+  };
+
   const deleteHandler = async (listId) => {
     const userId = localStorage.getItem("myId");
-    console.log(userId);
-    console.log(listId);
     const itemToDelete = await deleteSpecificListFetch(userId, listId);
     getUser();
-    console.log(itemToDelete);
+    createNotification("success", itemToDelete.message);
   }
 
   return (
@@ -112,6 +129,8 @@ export const Profile = () => {
         </Link>
       </div>
       <BottomNav />
+
+      <NotificationContainer />
     </div>
   );
 };
@@ -128,38 +147,6 @@ const UserProfile = (props) => {
 };
 
 const CreateList = (props) => {
-  return (
-    <div className="Article">
-      <img src={props.Img} className="Img" />
-      <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
-    </div>
-  );
-};
-
-// below are not in use anymore 
-
-const InProgress = (props) => {
-  return (
-    <div className="Article">
-      <img src={props.Img} className="Img" />
-      <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
-    </div>
-  );
-};
-
-const Completed = (props) => {
-  return (
-    <div className="Article">
-      <img src={props.Img} className="Img" />
-      <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
-    </div>
-  );
-};
-
-const Saved = (props) => {
   return (
     <div className="Article">
       <img src={props.Img} className="Img" />

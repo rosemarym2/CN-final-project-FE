@@ -12,6 +12,7 @@ export const List = () => {
   const [listImg, setListImg] = useState("");
   const [bookmark, setBookmark] = useState("bi bi-bookmark");
   const [bookmarkColour, setBookmarkColour] = useState("#000000");
+  const [keywords, setKeywords] = useState([]);
 
   useEffect(() => {
     dataHandler(id);
@@ -20,6 +21,7 @@ export const List = () => {
   const dataHandler = async (linkId) => {
     const data = await getSpecificListFetch(linkId);
     setList(data.list);
+    setKeywords(data.list.keywords);
     setListTitle(data.list.title);
     setItems(data.list.listItems);
     switch (data.list.category) {
@@ -58,13 +60,19 @@ export const List = () => {
         {items.map((item, index) => {
           return (
             <div className="card" key={index}>
-              <img src={listImg} style={{ width: "150px" }} />
+              <img src={item.image ? item.image : listImg} style={{ width: "150px" }} />
               <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
               <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
             </div>
           )
         })}
       </div>
+      <hr></hr>
+      <ul>
+        {keywords.map((item, index) => {
+          return <li key={index}>#{item}</li>
+        })}
+      </ul>
       <div className="list-icons">
         <i class="bi bi-star"></i><span>rate/rating</span>
         <i class="bi bi-chat-text"></i><span>comments</span>

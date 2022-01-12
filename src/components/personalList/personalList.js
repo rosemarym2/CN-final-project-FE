@@ -9,13 +9,14 @@ import { BottomNav } from "../bottomNav/bottomNav";
 
 export const UserList = () => {
   const { id } = useParams();
-  const [title, setTitle] = useState("");
+  const [list, setList] = useState({});
   const [items, setItems] = useState([]);
   const [numOfItems, setNumOfItems] = useState();
   const [itemsCompleted, setItemsCompleted] = useState();
   const [percentage, setPercentage] = useState();
   const [currentItem, setCurrentItem] = useState();
   const [listImage, setListImage] = useState("");
+  const [keywords, setKeywords] = useState([]);
 
   useEffect(() => {
     dataHandler(id);
@@ -34,11 +35,12 @@ export const UserList = () => {
       await updateListFetch(userId, id, "status", "saved");
     }
     setNumOfItems(result.totalNumOfItems);
+    setList(listToDisplay);
     setItems(listToDisplay.listItems);
-    setTitle(listToDisplay.title);
     setItemsCompleted(result.numOfItemsCompleted);
     setPercentage(Math.round(result.completionPercentage));
     setListImage(listToDisplay.listImage);
+    setKeywords(listToDisplay.keywords);
   }
 
   const calculatePercentage = (listItems) => {
@@ -74,8 +76,8 @@ export const UserList = () => {
     <div className="personal-list">
       <TopNav />
       <div style={{ textAlign: "center" }}>
-        <h2>{title}</h2>
-        <p>{title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
+        <h2>{list.title}</h2>
+        <p>{list.title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
       </div>
       <div className="scratchcards">
         {items.map((item, index) => {
@@ -84,11 +86,11 @@ export const UserList = () => {
               {item.completed == false ? (
                 <div onMouseDown={() => updateCurrentItem(item.itemName)}>
                   <ScratchCard {...settings}>
-                    <img src={listImage} style={{ width: "150px" }} />
+                    <img src={item.image ? item.image : listImage} style={{ width: "150px" }} />
                   </ScratchCard>
                 </div>
               ) : (
-                <img src={listImage} style={{ width: "150px" }} onDoubleClick={() => updateListItemState(item.itemName, false)} />
+                <img src={item.image ? item.image : listImage} style={{ width: "150px" }} onDoubleClick={() => updateListItemState(item.itemName, false)} />
               )}
               <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
               <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
@@ -97,6 +99,11 @@ export const UserList = () => {
         })}
       </div>
       <hr></hr>
+      <ul>
+        {keywords.map((item, index) => {
+          return <li key={index}>#{item}</li>
+        })}
+      </ul>
       <BottomNav />
     </div >
   );

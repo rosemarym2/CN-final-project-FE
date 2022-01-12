@@ -24,9 +24,12 @@ export const TopNav = () => {
       <div className="drop-down-menu-container">
         <div className="drop-down-menu">
           <ul className={`menuNav ${navbarOpen ? "showNavMenu" : "hideNavMenu"} ul-list`}>
+            <li className="navBarLi"><Link to="/home"><i class="bi bi-house-door"></i> Home</Link></li>
+            <li className="navBarLi"><Link to="/profile"><i class="bi bi-person"></i> Profile</Link></li>
             <li className="navBarLi"><Link to="/about"><i class="bi bi-info-circle"></i> About us</Link></li>
             <li className="navBarLi"><Link to="/settings"><i class="bi bi-gear"></i> Settings</Link></li>
             <li onClick={logOut} className="navBarLi"><Link to="/login"><i class="bi bi-box-arrow-right"></i> Log out</Link></li>
+
           </ul>
         </div>
       </div>

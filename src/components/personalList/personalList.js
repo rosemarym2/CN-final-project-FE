@@ -71,33 +71,35 @@ export const UserList = () => {
   }
 
   return (
-    <div className="personal-list">
+    <div>
       <TopNav />
-      <div style={{ textAlign: "center" }}>
-        <h2>{title}</h2>
-        <p>{title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
-      </div>
-      <div className="scratchcards">
-        {items.map((item, index) => {
-          return (
-            <div className="card" key={index}>
-              {item.completed == false ? (
-                <div onMouseDown={() => updateCurrentItem(item.itemName)}>
-                  <ScratchCard {...settings}>
-                    <img src={listImage} style={{ width: "150px" }} />
-                  </ScratchCard>
-                </div>
-              ) : (
-                <img src={listImage} style={{ width: "150px" }} onDoubleClick={() => updateListItemState(item.itemName, false)} />
-              )}
-              <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
-              <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
-            </div>
-          )
-        })}
-      </div>
-      <hr></hr>
+      <div className="personal-list">
+        <div style={{ textAlign: "center" }}>
+          <h2>{title}</h2>
+          <p>{title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
+        </div>
+        <div className="scratchcards">
+          {items.map((item, index) => {
+            return (
+              <div className="card" key={index}>
+                {item.completed == false ? (
+                  <div onMouseDown={() => updateCurrentItem(item.itemName)}>
+                    <ScratchCard {...settings}>
+                      <img src={listImage} style={{ width: "150px" }} />
+                    </ScratchCard>
+                  </div>
+                ) : (
+                  <img src={listImage} style={{ width: "150px" }} onDoubleClick={() => updateListItemState(item.itemName, false)} />
+                )}
+                <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
+                <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
+              </div>
+            )
+          })}
+        </div>
+        <hr></hr>
+      </div >
       <BottomNav />
-    </div >
+    </div>
   );
 }

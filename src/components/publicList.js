@@ -53,29 +53,31 @@ export const List = () => {
   return (
     <div>
       <TopNav />
-      <h1>{listTitle}</h1>
-      <div className="scratchcards">
-        {items.map((item, index) => {
-          return (
-            <div className="card" key={index}>
-              <img src={listImg} style={{ width: "150px" }} />
-              <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
-              <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
-            </div>
-          )
-        })}
-      </div>
-      <div className="list-icons">
-        <i class="bi bi-star"></i><span>rate/rating</span>
-        <i class="bi bi-chat-text"></i><span>comments</span>
-        <i class="bi bi-share"></i><span>share</span>
-        <i class={bookmark}
-          onClick={pushToUserLists}
-          onMouseEnter={() => setBookmark("bi bi-bookmark-fill")}
-          onMouseLeave={() => setBookmark("bi bi-bookmark")}
-          onMouseDown={() => setBookmarkColour("#FF725E")}
-          onMouseUp={() => setBookmarkColour("#000000")}
-          style={{ color: bookmarkColour }}></i>
+      <div>
+        <h1>{listTitle}</h1>
+        <div className="scratchcards">
+          {items.map((item, index) => {
+            return (
+              <div className="card" key={index}>
+                <img src={listImg} style={{ width: "150px" }} />
+                <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
+                <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
+              </div>
+            )
+          })}
+        </div>
+        <div className="list-icons">
+          <i class="bi bi-star"></i><span>rate/rating</span>
+          <i class="bi bi-chat-text"></i><span>comments</span>
+          <i class="bi bi-share"></i><span>share</span>
+          <i class={bookmark}
+            onClick={pushToUserLists}
+            onMouseEnter={() => setBookmark("bi bi-bookmark-fill")}
+            onMouseLeave={() => setBookmark("bi bi-bookmark")}
+            onMouseDown={() => setBookmarkColour("#FF725E")}
+            onMouseUp={() => setBookmarkColour("#000000")}
+            style={{ color: bookmarkColour }}></i>
+        </div>
       </div>
       <BottomNav />
     </div>

@@ -63,64 +63,68 @@ export const Settings = () => {
   }
 
   return (
-    <>
-      {userDeleted ? <Redirect to="/landing" /> : (
-        <div className="align">
-        <TopNav />
-          <div className="userProfile">
-            <h1>Settings</h1>
-            <p>{user.username}</p>
-            <UserProfile
-              Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
-              username={user}
-            />
+    <div>
+      <TopNav />
+      <div>
+        {userDeleted ? <Redirect to="/landing" /> : (
+          <div className="align">
+
+            <div className="userProfile">
+              <h1>Settings</h1>
+              <p>{user.username}</p>
+              <UserProfile
+                Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
+                username={user}
+              />
+            </div>
+            <Link to="/profile/edit">
+              <button className="main">Edit Profile</button>
+            </Link>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <button className="main" onClick={buttonHandler}>Colour Scheme</button>
+              {!showButtons ? "" : (
+                <>
+                  <button className="sub">Dark mode</button>
+                  <button className="sub">Light mode</button>
+                </>
+              )}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <button className="main" onClick={buttonHandler2}>List Styles</button>
+              {!showButtons2 ? "" : (
+                <>
+                  <button className="sub">Scratchcard</button>
+                  <button className="sub">Flip card</button>
+                  <button className="sub">Checklist</button>
+                </>
+              )}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <button className="main" onClick={buttonHandler3}>Font Size</button>
+              {!showButtons3 ? "" : (
+                <>
+                  <button className="sub">Small</button>
+                  <button className="sub">Medium</button>
+                  <button className="sub">Large</button>
+                </>
+              )}
+            </div>
+            <button className="delete" onClick={() => deleteConfirmationHandler(true)}>DELETE PROFILE</button>
+            <div className="delConf">
+              {!deleteConfirmation ? "" : (
+                <div>
+                  <p>Are you sure you want to delete your account?</p>
+                  <button className="delMain" onClick={deleteUserProfileHandler}>Yes, delete it!</button>
+                  <button className="delMain" onClick={() => deleteConfirmationHandler(false)}>No, I want to keep it.</button>
+                </div>
+              )}
+            </div>
+
           </div>
-          <Link to="/profile/edit">
-            <button className="main">Edit Profile</button>
-          </Link>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <button className="main" onClick={buttonHandler}>Colour Scheme</button>
-            {!showButtons ? "" : (
-              <>
-                <button className="sub">Dark mode</button>
-                <button className="sub">Light mode</button>
-              </>
-            )}
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <button className="main" onClick={buttonHandler2}>List Styles</button>
-            {!showButtons2 ? "" : (
-              <>
-                <button className="sub">Scratchcard</button>
-                <button className="sub">Flip card</button>
-                <button className="sub">Checklist</button>
-              </>
-            )}
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <button className="main" onClick={buttonHandler3}>Font Size</button>
-            {!showButtons3 ? "" : (
-              <>
-                <button className="sub">Small</button>
-                <button className="sub">Medium</button>
-                <button className="sub">Large</button>
-              </>
-            )}
-          </div>
-          <button className="delete" onClick={() => deleteConfirmationHandler(true)}>DELETE PROFILE</button>
-          <div className="delConf">
-            {!deleteConfirmation ? "" : (
-              <div>
-                <p>Are you sure you want to delete your account?</p>
-                <button className="delMain" onClick={deleteUserProfileHandler}>Yes, delete it!</button>
-                <button className="delMain" onClick={() => deleteConfirmationHandler(false)}>No, I want to keep it.</button>
-              </div>
-            )}
-          </div>
+        )}
+      </div>
       <BottomNav />
-        </div>
-      )}
-    </>
+    </div>
   );
 }
 

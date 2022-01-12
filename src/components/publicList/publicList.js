@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../utils";
-import { TopNav } from "./topNav/topNav";
-import { BottomNav } from "./bottomNav/bottomNav";
+import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../../utils";
+import { TopNav } from "../topNav/topNav";
+import { BottomNav } from "../bottomNav/bottomNav";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export const List = () => {
   const { id } = useParams();
@@ -45,10 +47,28 @@ export const List = () => {
     if (!matchExists) {
       list.status = "saved";
       await addToUserListsFetch(userId, list);
+      createNotification("success");
     } else {
-      alert("You already have this list on your profile");
+      createNotification("info");
     }
   }
+
+  const createNotification = (type) => {
+    switch (type) {
+      case "info":
+        NotificationManager.info(`List "${list.title}" already exists in your profile`);
+        break;
+      case "success":
+        NotificationManager.success(`List "${list.title}" successfully added to your profile`);
+        break;
+      // case "warning":
+      //   NotificationManager.warning("Incorrect username or password, please try again");
+      //   break;
+      // case "error":
+      //   NotificationManager.error("Incorrect username or password, please try again");
+      //   break;
+    }
+  };
 
   return (
     <div>
@@ -80,6 +100,8 @@ export const List = () => {
         </div>
       </div>
       <BottomNav />
+
+      <NotificationContainer />
     </div>
   )
 }

@@ -3,6 +3,8 @@ import "./editProfile.css";
 import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav";
 import { BottomNav } from "../bottomNav/bottomNav";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export const EditProfile = () => {
   const [newUsername, setNewUsername] = useState("");
@@ -23,7 +25,8 @@ export const EditProfile = () => {
     }
   }
 
-  const submitHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
     const userId = localStorage.getItem("myId");
     if (email !== "") {
       updateUserEmailFetch(userId, email);
@@ -36,7 +39,25 @@ export const EditProfile = () => {
     if (newUsername !== "") {
       updateUserFetch(userId, "username", newUsername);
     }
+    createNotification("success");
   }
+
+  const createNotification = (type) => {
+    switch (type) {
+      case "info":
+        NotificationManager.info("Changes saved successfully");
+        break;
+      case "success":
+        NotificationManager.success("Changes saved successfully");
+        break;
+      // case "warning":
+      //   NotificationManager.warning("Incorrect username or password, please try again");
+      //   break;
+      // case "error":
+      //   NotificationManager.error("Incorrect username or password, please try again");
+      //   break;
+    }
+  };
 
   return (
     <div>
@@ -66,6 +87,8 @@ export const EditProfile = () => {
         </form>
       </div >
       <BottomNav />
-    </div>
+      
+      <NotificationContainer />
+    </div >
   )
 }

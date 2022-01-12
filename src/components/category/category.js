@@ -34,7 +34,7 @@ export const Category = () => {
   }
 
   return (
-    <div>
+    <>
       <TopNav />
       <div className="category-component">
         <h1>{name}</h1>
@@ -51,7 +51,7 @@ export const Category = () => {
           })}
         </div>
       </div>
-      <BottomNav />
-    </div>
+      {/* <BottomNav /> */}
+    </>
   );
 }

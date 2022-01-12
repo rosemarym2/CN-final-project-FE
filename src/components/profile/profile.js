@@ -56,22 +56,23 @@ export const Profile = () => {
   return (
     <div>
       <TopNav />
-      <div className="userProfile">
-        <h1>My Collection</h1>
-        <UserProfile
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641488639/pana/Binary_code-pana_ld9rm6.png"
-          // Img2 = "https://res.cloudinary.com/cn-project/image/upload/v1641486239/pana/Self_confidence-pana_zo0elk.png"
-          // Img3 = "https://res.cloudinary.com/cn-project/image/upload/v1641486240/pana/404_Error_with_a_cute_animal-pana_uumdxx.png"
-          // username = {`${user.username}`} //need to link user profile details with the back-end database
-          username={user} //need to link user profile details with the back-end database
-        />
-        <h2>In Progress</h2>
-        <div className="prog">
-          {inProgress.map((item, index) => {
-            return (
-              <div>
-                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                  <i class="bi bi-trash"></i>
+      <h1>My Collection</h1>
+      <UserProfile
+        Img="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"
+        username={user}
+      />
+      <h2>In Progress</h2>
+      <div className="prog">
+        {inProgress.map((item, index) => {
+          return (
+            <div>
+              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                <i class="bi bi-trash"></i>
+              </div>
+              <Link to={`/profile/lists/${item._id}`}>
+                <div key={index}>
+                  <img src={item.listImage} style={{ width: "150px" }} />
+                  <h5>{item.title}</h5>
                 </div>
                 <Link to={`/profile/lists/${item._id}`}>
                   <div key={index}>
@@ -109,6 +110,22 @@ export const Profile = () => {
                 <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
                   <i class="bi bi-trash"></i>
                 </div>
+<<<<<<< HEAD
+              </Link>
+            </div>
+          )
+        })}
+      </div>
+      <h2>Create Your Own</h2>
+      <div className="create">
+        <Link to="/lists/create">
+          <CreateList
+            Img="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png"
+            alt="Animated picture of person with an empty list"
+            title="New List"
+          />
+        </Link>
+=======
                 <Link to={`/profile/lists/${item._id}`}>
                   <div key={index}>
                     <img src={item.listImage} style={{ width: "150px" }} />
@@ -129,6 +146,7 @@ export const Profile = () => {
             />
           </Link>
         </div>
+>>>>>>> 9565760dd096ae7e3e27cb89f59720e75c1459ed
       </div>
       <BottomNav />
 

@@ -5,6 +5,12 @@
   justify-content: center;
 }
 
+.profile-component {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .home {
   display: grid;

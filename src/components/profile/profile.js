@@ -54,81 +54,83 @@ export const Profile = () => {
   }
 
   return (
-    <div>
+    <>
       <TopNav />
-      <h1>My Collection</h1>
-      <UserProfile
-        Img="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"
-        username={user}
-      />
-      <h2>In Progress</h2>
-      <div className="prog">
-        {inProgress.map((item, index) => {
-          return (
-            <div>
-              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                <i class="bi bi-trash"></i>
-              </div>
-              <Link to={`/profile/lists/${item._id}`}>
-                <div key={index}>
-                  <img src={item.listImage} style={{ width: "150px" }} />
-                  <h5>{item.title}</h5>
+      <div className="profile-component">
+        <h1>My Collection</h1>
+        <UserProfile
+          Img="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"
+          username={user}
+        />
+        <h2>In Progress</h2>
+        <div className="prog">
+          {inProgress.map((item, index) => {
+            return (
+              <div>
+                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                  <i class="bi bi-trash"></i>
                 </div>
-              </Link>
-            </div>
-          )
-        })}
-      </div>
-      <h2>Completed</h2>
-      <div className="comp">
-        {completed.map((item, index) => {
-          return (
-            <div>
-              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                <i class="bi bi-trash"></i>
+                <Link to={`/profile/lists/${item._id}`}>
+                  <div key={index}>
+                    <img src={item.listImage} style={{ width: "150px" }} />
+                    <h5>{item.title}</h5>
+                  </div>
+                </Link>
               </div>
-              <Link to={`/profile/lists/${item._id}`}>
-                <div key={index}>
-                  <img src={item.listImage} style={{ width: "150px" }} />
-                  <h5>{item.title}</h5>
+            )
+          })}
+        </div>
+        <h2>Completed</h2>
+        <div className="comp">
+          {completed.map((item, index) => {
+            return (
+              <div>
+                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                  <i class="bi bi-trash"></i>
                 </div>
-              </Link>
-            </div>
-          )
-        })}
-      </div>
-      <h2>Saved</h2>
-      <div className="save">
-        {saved.map((item, index) => {
-          return (
-            <div>
-              <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                <i class="bi bi-trash"></i>
+                <Link to={`/profile/lists/${item._id}`}>
+                  <div key={index}>
+                    <img src={item.listImage} style={{ width: "150px" }} />
+                    <h5>{item.title}</h5>
+                  </div>
+                </Link>
               </div>
-              <Link to={`/profile/lists/${item._id}`}>
-                <div key={index}>
-                  <img src={item.listImage} style={{ width: "150px" }} />
-                  <h5>{item.title}</h5>
+            )
+          })}
+        </div>
+        <h2>Saved</h2>
+        <div className="save">
+          {saved.map((item, index) => {
+            return (
+              <div>
+                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                  <i class="bi bi-trash"></i>
                 </div>
-              </Link>
-            </div>
-          )
-        })}
-      </div>
-      <h2>Create Your Own</h2>
-      <div className="create">
-        <Link to="/lists/create">
-          <CreateList
-            Img="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png"
-            alt="Animated picture of person with an empty list"
-            title="New List"
-          />
-        </Link>
-      </div>
-      <BottomNav />
+                <Link to={`/profile/lists/${item._id}`}>
+                  <div key={index}>
+                    <img src={item.listImage} style={{ width: "150px" }} />
+                    <h5>{item.title}</h5>
+                  </div>
+                </Link>
+              </div>
+            )
+          })}
+        </div>
+        <h2>Create Your Own</h2>
+        <div className="create">
+          <Link to="/lists/create">
+            <CreateList
+              Img="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png"
+              alt="Animated picture of person with an empty list"
+              title="New List"
+            />
+          </Link>
+        </div>
+        <BottomNav />
 
-      <NotificationContainer />
-    </div >
+        <NotificationContainer />
+      </div >
+    </>
   );
 };
 

@@ -1,11 +1,28 @@
 .newListInput {
     width: 80%;
-    height: 20px;
+    height: auto;
     padding: 10px;
     border-radius: 5px;
     border: 2px solid #ff725e;
     outline: none;
     margin: 5px 0;
+
+}
+
+.listLabelPadding {
+    padding-top: 10px;;
+}
+
+.selectNewListCategory 
+{
+    width: 83.33%;
+    height: auto;
+    padding: 10px 6px;
+    border-radius: 5px;
+    border: 2px solid #ff725e;
+    outline: none;
+    margin: 5px 0;
+    color: gray;
 }
 
 .newListImg {
@@ -57,7 +74,12 @@
 padding: 5px;
 }
 
-
+.keywordSubtext {
+    font-size: small;
+}
+.newListButtons {
+    margin: 15px;;
+}
 .newListSaveButton {
     margin-bottom: 7vh;
 }

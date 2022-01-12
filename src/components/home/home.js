@@ -30,6 +30,7 @@ export const Home = () => {
             alt="Animated picture of person reading books"
             title="Books"
           />
+          </Link>
         </div>
         <div className="category-list">
           <Link to="/category/Travel">

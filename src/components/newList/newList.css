@@ -1,0 +1,76 @@
+.newListInput {
+    width: 80%;
+    height: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ff725e;
+    outline: none;
+    margin: 5px 0;
+}
+
+.newListImg {
+    width: 250px;
+    height: auto;
+}
+
+.newListBody {
+    height: 100vh;
+    text-align: center;
+    padding-top: 7vh;
+}
+
+.newListSetupandKeyContainer, .newListAddListItemsAndRender {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+
+.newListSetupContainer, .newListListItemsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.newListKeywordsContainer, .newListListContents {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    list-style: none;
+    border-radius: 5px;
+    border: 2px solid #ff725e;
+    height: auto;
+    margin-top: 5px;
+    overflow: scroll;
+}
+
+.newListListMap, .newListRenderListMap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    font-size: 18px;
+    max-height: 40vh;
+}
+
+.newListRenderListMap li, .newListListMap li {
+padding: 5px;
+}
+
+
+.newListSaveButton {
+    margin-bottom: 7vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .newListSetupandKeyContainer, .newListAddListItemsAndRender {
+        flex-direction: column;
+    }
+    .newListSetupContainer, .newListKeywordsContainer, 
+    .newListListContents, .newListListItemsContainer {
+        width: 100%;
+    }
+    .newListSaveButton {
+        margin-bottom: 20vh;
+    }
+}

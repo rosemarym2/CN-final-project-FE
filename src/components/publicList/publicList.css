@@ -1,0 +1,74 @@
+.public-list-component-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.public-list-component-body h1 {
+  width: 700px;
+  text-align: center;
+}
+
+.public-list-list-icons {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.public-list-list-icons i {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.all-items-public-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.public-list-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  width: 180px;
+  text-align: center;
+}
+
+.public-list-card img {
+  height: 180px;
+}
+
+.public-list-card h5 {
+  margin: 5px;
+}
+
+.public-list-card p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.public-list-keywords {
+  display: flex;
+
+}
+
+.public-list-keywords {
+  display: flex;
+  max-width: 800px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.public-list-keywords li {
+  list-style: none;
+  margin: 7px;
+}
+
+.public-list-keywords li:hover {
+  cursor: pointer;
+  color: #FF725E;
+  font-weight: bold;
+}

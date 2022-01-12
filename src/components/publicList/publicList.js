@@ -5,6 +5,7 @@ import { TopNav } from "../topNav/topNav";
 import { BottomNav } from "../bottomNav/bottomNav";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
+import "./publicList.css";
 
 export const List = () => {
   const { id } = useParams();
@@ -73,23 +74,36 @@ export const List = () => {
   };
 
   return (
-    <div>
+    <>
       <TopNav />
-      <div>
+      <div className="public-list-component-body">
         <h1>{listTitle}</h1>
-        <div className="scratchcards">
+        <div className="public-list-list-icons">
+          <i class="bi bi-star"></i><span>4.7 </span>
+          <i class="bi bi-chat-text"></i><span>53 </span>
+          <i class="bi bi-share"></i><span>41 </span>
+          <i class={bookmark}
+            onClick={pushToUserLists}
+            onMouseEnter={() => setBookmark("bi bi-bookmark-fill")}
+            onMouseLeave={() => setBookmark("bi bi-bookmark")}
+            onMouseDown={() => setBookmarkColour("#FF725E")}
+            onMouseUp={() => setBookmarkColour("#000000")}
+            style={{ color: bookmarkColour }}></i>
+        </div>
+        <hr></hr>
+        <div className="all-items-public-list">
           {items.map((item, index) => {
             return (
-              <div className="card" key={index}>
-                <img src={item.image ? item.image : listImg} style={{ width: "150px" }} />
-                <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
-                <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
+              <div className="public-list-card" key={index}>
+                <img src={item.image ? item.image : listImg} />
+                <h5>{item.itemName}</h5>
+                <p>{item.itemInfo}</p>
               </div>
             )
           })}
         </div>
         <hr></hr>
-        <ul>
+        <ul className="public-list-keywords">
           {keywords.map((item, index) => {
             return <li key={index}>#{item}</li>
           })}
@@ -107,9 +121,9 @@ export const List = () => {
             style={{ color: bookmarkColour }}></i>
         </div>
       </div>
-      <BottomNav />
+      {/* <BottomNav /> */}
 
       <NotificationContainer />
-    </div>
+    </>
   )
 }

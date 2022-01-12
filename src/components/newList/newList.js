@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { addNewListFetch } from "../utils";
-import { TopNav } from "./topNav/topNav.js"; 
-import { BottomNav } from "./bottomNav/bottomNav";
+import { addNewListFetch } from "../../utils";
+import { TopNav } from "../topNav/topNav.js"; 
+import { BottomNav } from "../bottomNav/bottomNav";
 
 export const NewList = () => {
     const [title, setTitle] = useState("");

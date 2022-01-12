@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { signUpFetch } from "../utils";
+import { signUpFetch } from "../../utils";
 import { Link, Redirect } from "react-router-dom";
 import "./signup.css";
 

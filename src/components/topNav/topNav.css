@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   position: fixed;
+
 }
 
 .nav-bar {
@@ -13,6 +14,7 @@
   position: fixed;
   background-color: #FFFFFF;
   border-bottom: 1px solid #DCDDDD;
+  padding: 10px 0;
 }
 
 .navigation-bar {
@@ -34,7 +36,9 @@
 }
 
 .navBarLi {
+  /* background-color: #ff725e; */
   list-style: none;
+  padding-bottom: 15px;
 }
 
 .hideNavMenu {
@@ -44,4 +48,14 @@
 .ul-list {
   width: 100px;
   margin: 2px;
+
+  background-color: white;
+}
+
+.burgerBtn {
+  width: 80px;
+  height: 40px;
+  font-size: x-large;
+  text-align: center;
+  padding: 0;
 }

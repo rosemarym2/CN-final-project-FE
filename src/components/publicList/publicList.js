@@ -78,17 +78,18 @@ export const List = () => {
       <TopNav />
       <div className="public-list-component-body">
         <h1>{listTitle}</h1>
+
         <div className="public-list-list-icons">
-          <i class="bi bi-star"></i><span>4.7 </span>
-          <i class="bi bi-chat-text"></i><span>53 </span>
-          <i class="bi bi-share"></i><span>41 </span>
+          <i class="bi bi-star"></i><span>rate</span>
+          <i class="bi bi-chat-text"></i><span>comment</span>
+          <i class="bi bi-share"></i><span>share</span>
           <i class={bookmark}
             onClick={pushToUserLists}
             onMouseEnter={() => setBookmark("bi bi-bookmark-fill")}
             onMouseLeave={() => setBookmark("bi bi-bookmark")}
             onMouseDown={() => setBookmarkColour("#FF725E")}
             onMouseUp={() => setBookmarkColour("#000000")}
-            style={{ color: bookmarkColour }}></i>
+            style={{ color: bookmarkColour }}></i><span>save</span>
         </div>
         <hr></hr>
         <div className="all-items-public-list">
@@ -108,17 +109,10 @@ export const List = () => {
             return <li key={index}>#{item}</li>
           })}
         </ul>
-        <div className="list-icons">
-          <i class="bi bi-star"></i><span>rate/rating</span>
-          <i class="bi bi-chat-text"></i><span>comments</span>
-          <i class="bi bi-share"></i><span>share</span>
-          <i class={bookmark}
-            onClick={pushToUserLists}
-            onMouseEnter={() => setBookmark("bi bi-bookmark-fill")}
-            onMouseLeave={() => setBookmark("bi bi-bookmark")}
-            onMouseDown={() => setBookmarkColour("#FF725E")}
-            onMouseUp={() => setBookmarkColour("#000000")}
-            style={{ color: bookmarkColour }}></i>
+        <div className="public-list-list-icons">
+          <i class="bi bi-star"></i><span>4.7 </span>
+          <i class="bi bi-chat-text"></i><span>53 </span>
+          <i class="bi bi-share"></i><span>41 </span>
         </div>
       </div>
       {/* <BottomNav /> */}

@@ -87,6 +87,10 @@
   .profile-list img {
     width: 130px;
   }
+
+  .empty-folder-profile-component {
+    width: 150px;
+  }
 }
 
 /* .home {

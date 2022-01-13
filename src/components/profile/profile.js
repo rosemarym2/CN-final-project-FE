@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./profile.css";
 import { getUserFetch, deleteSpecificListFetch } from "../../utils";
 import { Link } from "react-router-dom";
+import { TopNav } from "../topNav/topNav";
 import { Footer } from "../footer/footer"
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';

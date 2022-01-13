@@ -38,7 +38,7 @@
   text-align: center;
 }
 
-.profile-saved-lists, .profile-progress-lists, .profile-saved-lists {
+.profile-saved-lists, .profile-progress-lists, .profile-completed-lists {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -75,7 +75,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .profile-saved-lists, .profile-progress-lists, .profile-saved-lists {
+  .profile-saved-lists, .profile-progress-lists, .profile-completed-lists {
     width: 350px;
   }
 

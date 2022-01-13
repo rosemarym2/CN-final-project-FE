@@ -25,6 +25,11 @@
   width: 180px;
 }
 
+.scratch-off-image {
+  margin: auto;
+  display: block;
+}
+
 .card img {
   height: 180px;
 }

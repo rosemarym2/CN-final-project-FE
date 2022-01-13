@@ -73,4 +73,20 @@
   .public-list-keywords {
     width: 300px;
   }
+
+  .public-list-component-body h1 {
+    width: 300px;
+  }
+
+  .all-items-public-list {
+    width: 350px;
+  }
+
+  .public-list-card {
+    width: 150px;
+  }
+
+  .public-list-card img {
+    height: 150px;
+  }
 }

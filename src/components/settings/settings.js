@@ -97,8 +97,8 @@ export const Settings = () => {
               <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
               <>
               <GlobalStyles />
-                <button className="sub" onClick={() => darkMode()}>Dark mode</button>
-                <button className="sub" onClick={() => lightMode()}>Light mode</button>
+                <button className="sub" onClick={() => darkMode()}>Light/Dark mode</button>
+                {/* <button className="sub" onClick={() => lightMode()}>Light mode</button> */}
               </>
               </ThemeProvider>
             )}
@@ -123,13 +123,13 @@ export const Settings = () => {
               </>
             )}
           </div>
-          <button className="delete" onClick={() => deleteConfirmationHandler(true)}>DELETE PROFILE</button>
+          <button className="delete" onClick={() => deleteConfirmationHandler(true)}>Delete Profile</button>
           <div className="delConf">
             {!deleteConfirmation ? "" : (
               <div>
                 <p>Are you sure you want to delete your account?</p>
-                <button className="delMain" onClick={deleteUserProfileHandler}>Yes, delete it!</button>
-                <button className="delMain" onClick={() => deleteConfirmationHandler(false)}>No, I want to keep it.</button>
+                <button className="delConfSub" onClick={deleteUserProfileHandler}>Yes, delete it!</button>
+                <button className="delConfSub" onClick={() => deleteConfirmationHandler(false)}>No, keep it!</button>
               </div>
             )}
           </div>
@@ -148,3 +148,4 @@ const UserProfile = (props) => {
     </div>
   );
 };
+

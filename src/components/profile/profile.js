@@ -37,12 +37,6 @@ export const Profile = () => {
       case "success":
         NotificationManager.success(`${message}`);
         break;
-      // case "warning":
-      //   NotificationManager.warning("Incorrect username or password, please try again");
-      //   break;
-      // case "error":
-      //   NotificationManager.error("Incorrect username or password, please try again");
-      //   break;
     }
   };
 

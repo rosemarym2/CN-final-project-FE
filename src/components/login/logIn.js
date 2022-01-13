@@ -51,9 +51,9 @@ export const LogIn = ({ authContext }) => {
       // case 'success':
       //   NotificationManager.success('Success message', 'Title here');
       //   break;
-      case 'warning':
-        NotificationManager.warning("Incorrect username or password, please try again");
-        break;
+      // case 'warning':
+      //   NotificationManager.warning("Incorrect username or password, please try again");
+      //   break;
       case 'error':
         NotificationManager.error("Incorrect username or password, please try again");
         break;
@@ -74,7 +74,6 @@ export const LogIn = ({ authContext }) => {
         <p>Don't have an account? <span className="loginLoginSpan"><Link to="/signup">Sign Up</Link></span></p>
       </form>
       <NotificationContainer />
-      <Footer />
     </div >
   );
 }

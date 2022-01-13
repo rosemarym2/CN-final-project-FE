@@ -67,8 +67,9 @@ export const NewList = () => {
   };
 
   return (
-    <>
-      <TopNav />
+    <> 
+    <TopNav />
+    <div className="newListComponentDiv">
       <div className="newListBody">
         <h1>Create a New List</h1>
         <img className="newListImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png" />
@@ -133,6 +134,7 @@ export const NewList = () => {
       </div >
       <Footer />
       <NotificationContainer />
+    </div>
     </>
   )
 };

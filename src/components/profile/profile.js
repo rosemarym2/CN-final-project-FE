@@ -63,59 +63,71 @@ export const Profile = () => {
           username={user}
         />
         <h2>In Progress</h2>
-        <div className="prog">
-          {inProgress.map((item, index) => {
-            return (
-              <div>
-                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                  <i class="bi bi-trash"></i>
-                </div>
-                <Link to={`/profile/lists/${item._id}`}>
-                  <div key={index}>
-                    <img src={item.listImage} style={{ width: "150px" }} />
-                    <h5>{item.title}</h5>
+        {inProgress.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" className="empty-folder-profile-component" /> :
+          (
+            <div className="profile-progress-lists">
+              {inProgress.map((item, index) => {
+                return (
+                  <div>
+                    <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                      <i class="bi bi-trash"></i>
+                    </div>
+                    <Link to={`/profile/lists/${item._id}`}>
+                      <div key={index} className="profile-list">
+                        <img src={item.listImage} />
+                        <h5>{item.title}</h5>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            )
-          })}
-        </div>
+                )
+              })}
+            </div>
+          )
+        }
         <h2>Completed</h2>
-        <div className="comp">
-          {completed.map((item, index) => {
-            return (
-              <div>
-                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                  <i class="bi bi-trash"></i>
-                </div>
-                <Link to={`/profile/lists/${item._id}`}>
-                  <div key={index}>
-                    <img src={item.listImage} style={{ width: "150px" }} />
-                    <h5>{item.title}</h5>
+        {completed.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" className="empty-folder-profile-component" /> :
+          (
+            <div className="profile-completed-lists">
+              {completed.map((item, index) => {
+                return (
+                  <div>
+                    <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                      <i class="bi bi-trash"></i>
+                    </div>
+                    <Link to={`/profile/lists/${item._id}`}>
+                      <div key={index} className="profile-list">
+                        <img src={item.listImage} />
+                        <h5>{item.title}</h5>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            )
-          })}
-        </div>
+                )
+              })}
+            </div>
+          )
+        }
         <h2>Saved</h2>
-        <div className="save">
-          {saved.map((item, index) => {
-            return (
-              <div>
-                <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
-                  <i class="bi bi-trash"></i>
-                </div>
-                <Link to={`/profile/lists/${item._id}`}>
-                  <div key={index}>
-                    <img src={item.listImage} style={{ width: "150px" }} />
-                    <h5>{item.title}</h5>
+        {saved.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" className="empty-folder-profile-component" /> :
+          (
+            <div className="profile-saved-lists">
+              {saved.map((item, index) => {
+                return (
+                  <div>
+                    <div className="delete-personal-list-button" onClick={() => deleteHandler(item._id)}>
+                      <i class="bi bi-trash"></i>
+                    </div>
+                    <Link to={`/profile/lists/${item._id}`}>
+                      <div key={index} className="profile-list">
+                        <img src={item.listImage} />
+                        <h5>{item.title}</h5>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            )
-          })}
-        </div>
+                )
+              })}
+            </div>
+          )
+        }
         <h2>Create Your Own</h2>
         <div className="create">
           <Link to="/lists/create">
@@ -126,7 +138,7 @@ export const Profile = () => {
             />
           </Link>
         </div>
-        <BottomNav />
+        {/* <BottomNav /> */}
 
         <NotificationContainer />
       </div >
@@ -136,7 +148,7 @@ export const Profile = () => {
 
 const UserProfile = (props) => {
   return (
-    <div className="UserProfile">
+    <div className="userProfile">
       <img src={props.Img} className="Img" />
       <img src={props.Img2} className="Img" />
       <img src={props.Img3} className="Img" />
@@ -147,7 +159,7 @@ const UserProfile = (props) => {
 
 const CreateList = (props) => {
   return (
-    <div className="Article">
+    <div>
       <img src={props.Img} className="Img" />
       <p>{props.title}</p>
       {/* <p className = "category">{props.category}</p> */}

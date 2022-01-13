@@ -65,46 +65,48 @@ export const UserList = () => {
   }
 
   const settings = {
-    width: 150,
-    height: 150,
+    width: 180,
+    height: 180,
     image: grey,
     finishPercent: 80,
     onComplete: () => updateListItemState(currentItem, true)
   }
 
   return (
-    <div>
+    <>
       <TopNav />
-      <div style={{ textAlign: "center" }}>
-        <h2>{list.title}</h2>
-        <p>{list.title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
+      <div className="personal-list-component-body">
+        <div className="personal-list-component-title">
+          <h1>{list.title}</h1>
+          <p>{list.title ? (`${itemsCompleted} / ${numOfItems} - ${percentage}% completed`) : ""}</p>
+        </div>
+        <div className="scratchcards">
+          {items.map((item, index) => {
+            return (
+              <div className="card" key={index}>
+                {item.completed == false ? (
+                  <div onMouseDown={() => updateCurrentItem(item.itemName)}>
+                    <ScratchCard {...settings}>
+                      <img src={item.image ? item.image : listImage} />
+                    </ScratchCard>
+                  </div>
+                ) : (
+                  <img src={item.image ? item.image : listImage} onDoubleClick={() => updateListItemState(item.itemName, false)} />
+                )}
+                <h5>{item.itemName}</h5>
+                <p>{item.itemInfo}</p>
+              </div>
+            )
+          })}
+        </div>
+        <hr></hr>
+        <ul className="profile-list-keywords">
+          {keywords.map((item, index) => {
+            return <li key={index}>#{item}</li>
+          })}
+        </ul>
+        {/* <BottomNav /> */}
       </div>
-      <div className="scratchcards">
-        {items.map((item, index) => {
-          return (
-            <div className="card" key={index}>
-              {item.completed == false ? (
-                <div onMouseDown={() => updateCurrentItem(item.itemName)}>
-                  <ScratchCard {...settings}>
-                    <img src={item.image ? item.image : listImage} style={{ width: "150px" }} />
-                  </ScratchCard>
-                </div>
-              ) : (
-                <img src={item.image ? item.image : listImage} style={{ width: "150px" }} onDoubleClick={() => updateListItemState(item.itemName, false)} />
-              )}
-              <h5 style={{ margin: "5px" }}>{item.itemName}</h5>
-              <p style={{ fontSize: "12px", margin: "0" }}>{item.itemInfo}</p>
-            </div>
-          )
-        })}
-      </div>
-      <hr></hr>
-      <ul>
-        {keywords.map((item, index) => {
-          return <li key={index}>#{item}</li>
-        })}
-      </ul>
-      <BottomNav />
-    </div>
+    </>
   );
 }

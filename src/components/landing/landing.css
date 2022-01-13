@@ -1,5 +1,5 @@
 .landingBody {
-  background-color: #EEE2DC;
+  background-color: #eee2dc;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -20,7 +20,7 @@
   align-items: center;
   flex-direction: column;
   border-radius: 50px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 450px;
   padding: 60px 0;
 }
@@ -91,3 +91,4 @@
     width: 320px;
     padding: 30px 0;
   }
+}

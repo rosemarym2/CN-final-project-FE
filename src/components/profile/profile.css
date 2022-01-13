@@ -1,35 +1,48 @@
-.profileBody {
-  background-color: #EEE2DC;
-  font-family: "Comfortaa", arial;
-  display: flex;
-  justify-content: center;
-}
-
 .profile-component {
-  margin-top: 70px;
+  margin: 80px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.home {
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: repeat(4, 33.3%);
-  padding: 35px;
+.profile-component h2 {
+  margin: 40px 0;
 }
 
-.prog,
-.comp,
-.save {
-  display: grid;
-  grid-template-columns: repeat(3, 33.3%);
-  grid-template-rows: repeat(4, 33.3%);
-  padding: 35px;
+.userProfile h2 {
+  margin: 10px 0 0 0;
 }
 
-.create {
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  align-items: center;
   text-align: center;
+  margin: 10px;
+}
+
+.profile-list img {
+  width: 180px;
+}
+
+.empty-folder-profile-component {
+  width: 180px;
+}
+
+.profile-list:hover {
+  color: #FF725E;
+}
+
+.userProfile, .create {
+  text-align: center;
+}
+
+.profile-saved-lists, .profile-progress-lists, .profile-saved-lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 800px;
 }
 
 .Img {
@@ -37,15 +50,8 @@
   cursor: pointer;
 }
 
-h1 {
-  font-size: 42px;
-}
-
-.userProfile {
-  text-align: center;
-}
-
 .delete-personal-list-button {
+  margin-bottom: -20px;
   height: 25px;
   display: flex;
   flex-direction: column;
@@ -60,10 +66,50 @@ h1 {
 }
 
 .delete-personal-list-button i:hover {
-  color: #CC5B4B;
+  color: #FF725E;
   font-size: 18px;
 }
 
 .delete-personal-list-button i:active {
-  color: #FF725E;
+  color: #CC5B4B;
 }
+
+@media screen and (max-width: 600px) {
+  .profile-saved-lists, .profile-progress-lists, .profile-saved-lists {
+    width: 350px;
+  }
+
+  .profile-list {
+    width: 130px;
+    margin: 20px;
+  }
+
+  .profile-list img {
+    width: 130px;
+  }
+
+  .empty-folder-profile-component {
+    width: 150px;
+  }
+}
+
+/* .home {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(4, 33.3%);
+  padding: 35px;
+} */
+
+/* .prog,
+.comp,
+.save {
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
+  grid-template-rows: repeat(4, 33.3%);
+  padding: 35px;
+} */
+
+/* 
+h1 {
+  font-size: 42px;
+} */

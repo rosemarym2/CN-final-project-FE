@@ -15,6 +15,9 @@ export const LogIn = ({ authContext }) => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [visiblePass, setVisiblePass] = useState(false);
+  const [inputType, setInputType] = useState("password");
+  const [passIcon, setPassIcon] = useState("bi bi-eye-slash");
 
   const logInHandler = async (e) => {
     e.preventDefault();
@@ -27,6 +30,17 @@ export const LogIn = ({ authContext }) => {
       createNotification("error");
     }
   };
+
+  const visiblePassHandler = () => {
+    setVisiblePass(!visiblePass);
+    if (visiblePass) {
+      setInputType("password");
+      setPassIcon("bi bi-eye-slash");
+    } else {
+      setInputType("text");
+      setPassIcon("bi bi-eye");
+    }
+  }
 
   const createNotification = (type) => {
     switch (type) {
@@ -52,7 +66,8 @@ export const LogIn = ({ authContext }) => {
         <img className="loginImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641980972/pana/misc/Tablet_login-pana_miktxi.png"></img>
         <input className="loginInput" onChange={(e) => setUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" value={username} />
         <div className="password-input">
-          <input className="loginInput" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type="password" value={password} />
+          <input className="loginInput" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type={inputType} value={password} />
+          <i class={passIcon} onClick={visiblePassHandler}></i>
         </div>
         <button type="submit">Log In</button>
         <p>Don't have an account? <span className="loginLoginSpan"><Link to="/signup">Sign Up</Link></span></p>

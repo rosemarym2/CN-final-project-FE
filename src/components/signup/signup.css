@@ -1,56 +1,69 @@
-
 .signupImg {
-    width: 450px;
-    height: auto;
-  }
+  width: 450px;
+}
 
-  .signupLogoImg {
-    width: auto;
-    height: 80px;
-    padding: 20px;
-  }
-
-.signupTitle {
-    text-align: center;
-    padding: 20px;
+.signupLogoImg {
+  height: 80px;
+  padding: 20px;
 }
 
 .signup-page {
-    background-color: #EEE2DC;
-    text-align: center;
-
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: #EEE2DC;
+  height: 100vh;
+  display: flex;
 }
 
 .signupForm {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px 20px;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    border-radius: 50px;
-    background-color: white;
-    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 600px;
+  border-radius: 50px;
+  background-color: white;
+  padding: 30px 0;
+  margin: auto;
 }
 
 .signupInput {
-    width: 200px;
-    height: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid #ff725e;
-    outline: none;
-    margin: 5px 0;
+  width: 200px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ff725e;
+  outline: none;
+  margin: 5px 0;
 }
+
+.signupForm button {
+  margin-top: 10px;
+}
+
 .signupLoginSpan {
-font-weight: 700;
+  font-weight: 700;
 }
 
 .signupLoginSpan:hover {
-    color: #ff725e;
+  color: #ff725e;
+}
+
+@media screen and (max-width: 600px) {
+  .signupImg {
+    width: 250px;
+    margin-bottom: 10px;
   }
+
+  .signupLogoImg {
+    height: 45px;
+  }
+
+  .signupForm p {
+    font-size: 12px;
+    margin: 15px 0;
+  }
+
+  .signupForm {
+    width: 320px;
+    padding: 7px 0;
+  }
+}

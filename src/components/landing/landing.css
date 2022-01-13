@@ -1,73 +1,72 @@
 .landingBody {
-    background-color: #EEE2DC;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
+  background-color: #EEE2DC;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
 }
 
 .landingStyle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 50px 20px;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    border-radius: 50px;
-    background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px 20px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border-radius: 50px;
+  background-color: white;
 }
 
 .landingSpan {
-    display: flex;
-    padding: 20px;
+  display: flex;
+  padding: 20px;
 }
 
 .landingBtn {
-    border-radius: 6px;
-    padding: 15px;
-    width: 175px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 4px;
-    cursor: pointer;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  
-  .landingBtn:hover {
-    background-color: #ff725e;
-    color: black;
-  }
+  border-radius: 6px;
+  padding: 15px;
+  width: 175px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-  .landingBtnStyle {
-    display: flex;
-    flex-direction: row;
-    padding: 15px;
-  }
+.landingBtn:hover {
+  background-color: #ff725e;
+  color: black;
+}
 
-  .landingImg {
-    width: 450px;
-    height: auto;
-  }
+.landingBtnStyle {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
 
-  .landingLogoImg {
-    width: auto;
-    height: 80px;
-    padding: 20px;
-  }
+.landingImg {
+  width: 450px;
+  height: auto;
+}
 
-  .landingHR {
-    width: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  .landingAbout {
-    cursor: pointer;
-  }
+.landingLogoImg {
+  width: auto;
+  height: 80px;
+  padding: 20px;
+}
 
-  .landingAbout:hover {
-    color: #ff725e;
-  }
+.landingHR {
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.landingAbout {
+  cursor: pointer;
+}
+
+.landingAbout:hover {
+  color: #ff725e;
+}

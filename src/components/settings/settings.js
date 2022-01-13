@@ -128,8 +128,8 @@ export const Settings = () => {
             {!deleteConfirmation ? "" : (
               <div>
                 <p>Are you sure you want to delete your account?</p>
-                <button className="sub" onClick={deleteUserProfileHandler}>Yes, delete it!</button>
-                <button className="sub" onClick={() => deleteConfirmationHandler(false)}>No, keep it!</button>
+                <button className="delConfSub" onClick={deleteUserProfileHandler}>Yes, delete it!</button>
+                <button className="delConfSub" onClick={() => deleteConfirmationHandler(false)}>No, keep it!</button>
               </div>
             )}
           </div>

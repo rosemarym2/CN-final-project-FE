@@ -31,22 +31,35 @@ button:hover {
   color: black;
 }
 
-/* .main {
-  border: 2px solid #eee2dc;
-  background-color: lightgray;
-} */
-
-/* .main:hover {
-  border: 2px solid #cc5b4b;
-} */
-
-.sub {
-  color: #455a64;
+.main {
+  border: 2px solid #fff;
+  background-color: #ff725e;
 }
 
-.sub:hover {
+.main:hover,
+.delete:hover {
+  border: 2px solid #cc5b4b;
+}
+
+.sub {
+  color: black;
+  width: 150px;
+  margin-left: 10%;
+  background-color: lightgray;
+  border: 2px solid lightgray;
+}
+
+.delConfSub {
+  color: black;
+  width: 150px;
+  background-color: lightgray;
+  border: 2px solid lightgray;
+}
+
+.sub:hover,
+.delConfSub:hover {
   background-color: #455a64;
-  color: #eee2dc;
+  color: #fff;
 }
 
 .delete {
@@ -59,7 +72,9 @@ button:hover {
   cursor: pointer;
   transition: 0.3s;
   color: black;
+  border: 2px solid black;
   font-weight: bold;
+  background-color: lightgray;
 }
 
 .delete:hover {

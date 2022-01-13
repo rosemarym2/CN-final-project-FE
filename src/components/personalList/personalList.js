@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { updateListItemCompletionStateFetch, getUserFetch, updateListFetch } from "../../utils";
-import grey from "../../images/grey.png";
+import grey from "./grey.png";
 import ScratchCard from "react-scratchcard";
 import "./personalList.css";
 import { TopNav } from "../topNav/topNav";

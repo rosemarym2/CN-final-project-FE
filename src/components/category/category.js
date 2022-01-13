@@ -16,7 +16,8 @@ export const Category = () => {
 
   const dataHandler = async (name) => {
     const data = await getFilteredListsFetch("category", name);
-    setListArr(data.filteredLists);
+    const onlyPublicLists = data.filteredLists.filter(element => element.access === "public");
+    setListArr(onlyPublicLists);
     switch (name) {
       case "Travel":
         setListImg("https://res.cloudinary.com/cn-project/image/upload/v1641917068/pana/categories/Winter_solstice-pana_ga4pzm.png")

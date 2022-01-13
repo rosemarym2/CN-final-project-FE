@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addNewListFetch } from "../../utils";
+import { addNewListFetch, addToUserListsFetch, getSpecificListFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav.js";
 import { BottomNav } from "../bottomNav/bottomNav";
 import "./newList.css"
@@ -13,6 +13,10 @@ export const NewList = () => {
   const [listItems, setListItems] = useState([]);
   const [itemName, setItemName] = useState("");
   const [itemInfo, setItemInfo] = useState("");
+  const [listImage, setListImage] = useState("");
+  const [publicAccess, setPublicAccess] = useState(false);
+  const [privateAccess, setPrivateAccess] = useState(false);
+
 
   const newListHandler = async () => {
     const finalListItems = listItems.map((item) => ({
@@ -21,12 +25,23 @@ export const NewList = () => {
       itemInfo: item.itemInfo,
       completed: false
     }));
-    const success = addNewListFetch(title, category, keywords, finalListItems);
-    createNotification("success")
+    let access = "public";
+    if (!publicAccess) {
+      access = "private";
+    }
+    const success = await addNewListFetch(title, category, listImage, access, keywords, finalListItems);
+    if (success.newList) {
+      createNotification("success");
+      if (privateAccess) {
+        const userId = localStorage.getItem("myId");
+        const data = await getSpecificListFetch(success.newList._id);
+        data.list.status = "saved";
+        await addToUserListsFetch(userId, data.list);
+      }
+    }
   }
 
   const newKeyword = (input) => {
-    console.log(input);
     const storedKeys = [...keywords]
     storedKeys.push(input)
     setKeywords(storedKeys)
@@ -35,8 +50,22 @@ export const NewList = () => {
   const nameChangeHandler = (event) => {
     setItemName(event.target.value);
   }
-  const categoryHandler = (event) => {
-    setItemInfo(event.target.value);
+  const handleCategory = (category) => {
+    setCategory(category);
+    switch (category) {
+      case "Travel":
+        setListImage("https://res.cloudinary.com/cn-project/image/upload/v1641917068/pana/categories/Winter_solstice-pana_ga4pzm.png")
+        break;
+      case "Music":
+        setListImage("https://res.cloudinary.com/cn-project/image/upload/v1641916769/pana/categories/Headphone-pana_befwwy.png");
+        break;
+      case "Books":
+        setListImage("https://res.cloudinary.com/cn-project/image/upload/v1641916769/pana/categories/Book_lover-pana_ruswm0.png");
+        break;
+      case "Movies":
+        setListImage("https://res.cloudinary.com/cn-project/image/upload/v1641916622/pana/categories/Film_rolls-pana_gnpcro.png");
+        break;
+    }
   }
 
   const infoChangeHandler = (event) => {
@@ -48,6 +77,24 @@ export const NewList = () => {
     currentArr.push({ itemName: name, itemInfo: info })
     setListItems(currentArr);
   };
+
+  const handlePublicAccess = () => {
+    const currentPublicAccess = publicAccess;
+    if (currentPublicAccess) {
+      setPublicAccess(false);
+    } else {
+      setPublicAccess(true);
+    }
+  }
+
+  const handlePrivateAccess = () => {
+    const currentPrivateAccess = privateAccess;
+    if (currentPrivateAccess) {
+      setPrivateAccess(false);
+    } else {
+      setPrivateAccess(true);
+    }
+  }
 
   const createNotification = (type) => {
     switch (type) {
@@ -77,9 +124,8 @@ export const NewList = () => {
             <h2>Set Up Your List</h2>
             <label for="listTitle">Name Your List</label>
             <input className="newListInput" type="text" onChange={(event) => setTitle(event.target.value)} id="listTitle" name="listTitle" placeholder="My New List" required />
-
             <label className="listLabelPadding" for="listTitle">Choose a Category</label>
-            <select className="selectNewListCategory listLabelPadding" defaultValue={category} onChange={(e) => setCategory(e.target.value)}>
+            <select className="selectNewListCategory listLabelPadding" defaultValue={category} onChange={(e) => handleCategory(e.target.value)}>
               <option value="default" disabled selected>
                 Select Category
               </option>
@@ -88,7 +134,12 @@ export const NewList = () => {
               <option value="Books">Books</option>
               <option value="Movies">Movies</option>
             </select>
-
+            <div>
+              <input type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
+              <label for="public">Public List</label>
+              <input type="checkbox" id="private" name="private" value="private" onChange={handlePrivateAccess} />
+              <label for="private">Private List</label>
+            </div>
             <label className="listLabelPadding" for="listKeyword">Add Some Keywords <span className="keywordSubtext">(Click "Add Keyword" after each entry)</span></label>
 
             <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required />

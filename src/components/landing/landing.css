@@ -41,7 +41,6 @@
   margin: 4px;
   cursor: pointer;
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .landingBtn:hover {
@@ -92,4 +91,3 @@
     width: 320px;
     padding: 30px 0;
   }
-}

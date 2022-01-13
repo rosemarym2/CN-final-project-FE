@@ -50,12 +50,6 @@ export const EditProfile = () => {
       case "success":
         NotificationManager.success("Changes saved successfully");
         break;
-      // case "warning":
-      //   NotificationManager.warning("Incorrect username or password, please try again");
-      //   break;
-      // case "error":
-      //   NotificationManager.error("Incorrect username or password, please try again");
-      //   break;
     }
   };
 
@@ -65,10 +59,9 @@ export const EditProfile = () => {
       <div className="edit-profile-page">
         <h1 className="edit-profile-title">Edit Profile</h1>
         <div className="change-profile-picture">
-          <div className="profile-picture"></div>
+          <img className="editImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"></img>
           <p className="edit-profile-p">Change profile photo</p>
         </div>
-
         <form className="form-size" onSubmit={submitHandler} >
           <p>
             <label for="username">Username</label>
@@ -83,9 +76,11 @@ export const EditProfile = () => {
             <input className="edit-profile-input" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="New password" id="newPassword" type={inputType} value={password} />
             <i class={passIcon} onClick={visiblePassHandler}></i>
           </p>
-          <button type="submit" id="save-changes-button">Save Changes</button>
         </form>
       </div >
+      <div className="changesBtnPosition">
+        <button className="changesBtn" type="submit" id="save-changes-button">Save Changes</button>
+      </div>
       <BottomNav />
       <NotificationContainer />
     </div >

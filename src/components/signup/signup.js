@@ -2,7 +2,6 @@ import { useState } from "react";
 import { signUpFetch } from "../../utils";
 import { Link, Redirect } from "react-router-dom";
 import "./signup.css";
-import { Footer } from "../footer/footer"
 
 export const SignUp = () => {
   const [signedUp, setSignedUp] = useState(false);
@@ -50,7 +49,6 @@ export const SignUp = () => {
 
         </div >
       )}
-      <Footer />
     </>
   );
 }

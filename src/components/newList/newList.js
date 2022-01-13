@@ -135,12 +135,6 @@ export const NewList = () => {
               <option value="Books">Books</option>
               <option value="Movies">Movies</option>
             </select>
-            <div>
-              <input type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
-              <label for="public">Public List</label>
-              <input type="checkbox" id="private" name="private" value="private" onChange={handlePrivateAccess} />
-              <label for="private">Private List</label>
-            </div>
             <label className="listLabelPadding" for="listKeyword">Add Some Keywords <span className="keywordSubtext">(Click "Add Keyword" after each entry)</span></label>
 
             <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required />
@@ -181,6 +175,13 @@ export const NewList = () => {
             </div>
           </div>
         </div>
+            <div>
+              <p>Save just for you or make it public!</p>
+              <input type="checkbox" id="private" name="private" value="private" onChange={handlePrivateAccess} />
+              <label for="private" >Add to my lists</label>
+              <input type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
+              <label for="public">Make it public</label>
+            </div>
         <button className="newListSaveButton newListButtons" onClick={newListHandler}>Save List</button>
       </div >
       <Footer />

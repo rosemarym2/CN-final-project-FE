@@ -62,7 +62,7 @@ export const EditProfile = () => {
           <img className="editImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"></img>
           <p className="edit-profile-p">Change profile photo</p>
         </div>
-        <form className="form-size" onSubmit={submitHandler} >
+        <form className="form-size">
           <p>
             <label for="username">Username</label>
             <input className="edit-profile-input" onChange={(e) => setNewUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" id="username" autocomplete="off" value={newUsername} />
@@ -79,7 +79,7 @@ export const EditProfile = () => {
         </form>
       </div >
       <div className="changesBtnPosition">
-        <button className="changesBtn" type="submit" id="save-changes-button">Save Changes</button>
+        <button className="changesBtn" type="submit" id="save-changes-button" onClick={submitHandler}>Save Changes</button>
       </div>
       <Footer />
       <NotificationContainer />

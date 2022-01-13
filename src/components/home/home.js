@@ -2,7 +2,7 @@ import React from "react";
 import './home.css';
 import { Link } from "react-router-dom";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer";
 
 export const Home = () => {
 
@@ -61,7 +61,7 @@ export const Home = () => {
             />
           </Link>
         </div>
-        {/* <BottomNav /> */}
+        <Footer />
       </div>
     </>
   )

@@ -1,0 +1,23 @@
+.footerStyle {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width:100vw;
+    background-color: white;
+    border-top: 1px solid #DCDDDD;
+    height: 60px;
+}
+
+.footerUL {
+    display: flex;
+   justify-content: center; 
+}
+
+.footerli  {
+    list-style: none;
+    padding: 0 20px;
+    font-size: x-large;
+} 
+.footerli:hover {
+    color: #FF725E;
+}

@@ -1,17 +1,16 @@
 .loginImg {
-  width: 450px;
+  width: 350px;
 }
 
 .loginLogoImg {
-  height: 75px;
-  padding: 20px;
+  height: 60px;
+  padding: 10px;
 }
 
 .loginBody {
   background-color: #EEE2DC;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -19,12 +18,11 @@
 .loginForm {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  width: 600px;
+  width: 450px;
   border-radius: 50px;
   background-color: #FFFFFF;
-  padding: 30px 0;
+  padding: 50px 0;
 }
 
 .loginInput {

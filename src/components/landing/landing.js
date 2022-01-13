@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import "./landing.css";
+import { Footer } from "../footer/footer"
 
 export const Landing = () => {
   return (
+    <div>
     <div className="landingBody">
       <div className="landingStyle">
         <img className="landingLogoImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641915487/output-onlinepngtools_r2el6k.png"></img>
@@ -19,5 +21,7 @@ export const Landing = () => {
         <p className="landingAbout"><Link to="/about">About Us</Link></p>
       </div>
     </div >
+      <Footer />
+    </div>
   );
 }

@@ -3,7 +3,7 @@ import { getFilteredListsFetch } from "../../utils";
 import { useParams, Link } from "react-router-dom";
 import "./category.css";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 
 export const Category = () => {
   const { name } = useParams();
@@ -51,7 +51,7 @@ export const Category = () => {
           })}
         </div>
       </div>
-      {/* <BottomNav /> */}
+      <Footer />
     </>
   );
 }

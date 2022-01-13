@@ -1,73 +1,94 @@
 .landingBody {
-    background-color: #EEE2DC;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
+  background-color: #EEE2DC;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.landingLogoImg {
+  height: 60px;
+  padding: 10px;
+}
+
+.landingImg {
+  width: 350px;
 }
 
 .landingStyle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 50px 20px;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    border-radius: 50px;
-    background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  width: 450px;
+  padding: 60px 0;
 }
 
 .landingSpan {
-    display: flex;
-    padding: 20px;
+  display: flex;
+  padding: 20px;
 }
 
 .landingBtn {
-    border-radius: 6px;
-    padding: 15px;
-    width: 175px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 4px;
-    cursor: pointer;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  
-  .landingBtn:hover {
-    background-color: #ff725e;
-    color: black;
-  }
+  border-radius: 6px;
+  padding: 15px;
+  width: 175px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-  .landingBtnStyle {
-    display: flex;
-    flex-direction: row;
-    padding: 15px;
-  }
+.landingBtn:hover {
+  background-color: #ff725e;
+  color: black;
+}
 
+.landingBtnStyle {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
+.landingHR {
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.landingAbout {
+  cursor: pointer;
+}
+
+.landingAbout:hover {
+  color: #ff725e;
+}
+
+@media screen and (max-width: 600px) {
   .landingImg {
-    width: 450px;
-    height: auto;
+    width: 250px;
+    margin-bottom: 10px;
   }
 
   .landingLogoImg {
-    width: auto;
-    height: 80px;
-    padding: 20px;
+    height: 45px;
   }
 
-  .landingHR {
-    width: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  .landingAbout {
-    cursor: pointer;
+  .landingBtnStyle {
+    flex-direction: column;
   }
 
-  .landingAbout:hover {
-    color: #ff725e;
+  .loginForm p {
+    font-size: 12px;
+    margin: 15px 0;
   }
+
+  .landingStyle {
+    width: 320px;
+    padding: 30px 0;
+  }
+}

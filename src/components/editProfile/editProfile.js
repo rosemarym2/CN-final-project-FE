@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./editProfile.css";
 import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
@@ -56,12 +56,6 @@ export const EditProfile = () => {
       case "success":
         NotificationManager.success("Changes saved successfully");
         break;
-      // case "warning":
-      //   NotificationManager.warning("Incorrect username or password, please try again");
-      //   break;
-      // case "error":
-      //   NotificationManager.error("Incorrect username or password, please try again");
-      //   break;
     }
   };
 
@@ -76,7 +70,6 @@ export const EditProfile = () => {
           {/* <div className="profile-picture"></div> */}
           {/* <p className="edit-profile-p">Change profile photo</p> */}
         </div>
-
         <form className="form-size" onSubmit={submitHandler} >
           <p>
             <label for="username">Username</label>
@@ -91,10 +84,12 @@ export const EditProfile = () => {
             <input className="edit-profile-input" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="New password" id="newPassword" type={inputType} value={password} />
             <i class={passIcon} onClick={visiblePassHandler}></i>
           </p>
-          <button type="submit" id="save-changes-button">Save Changes</button>
         </form>
       </div >
-      <BottomNav />
+      <div className="changesBtnPosition">
+        <button className="changesBtn" type="submit" id="save-changes-button">Save Changes</button>
+      </div>
+      <Footer />
       <NotificationContainer />
     </div >
   )

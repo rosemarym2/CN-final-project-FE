@@ -1,7 +1,6 @@
 .edit-profile-title {
   margin-top: 90px;
   margin-bottom: 30px;
-  font-family: 'Comfortaa', cursive;
 }
 
 .edit-profile-page {
@@ -17,52 +16,21 @@
   align-items: center;
 }
 
-.profile-picture {
+.editImg {
   width: 150px;
   height: 150px;
-  background-color: #C4C4C4;
-  border-radius: 50%;
-  cursor: pointer;
 }
 
 .edit-profile-p {
   margin-top: 20px;
   font-size: 14px;
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-}
-
-.edit-profile-p:hover {
   font-weight: bold;
-}
-
-#save-changes-button {
-  margin-top: 30px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-  width: 280px;
-  height: 40px;
-  padding-top: 5px;
-  border-radius: 5px;
-  border: 2px solid #000000;
-  background-color: #FFFFFF;
-  cursor: pointer;
-}
-
-#save-changes-button:hover {
-  color: #FFFFFF;
-  background-color: #000000;
-}
-
-#save-changes-button:active {
-  color: #FFFFFF;
-  background-color: #FF725E;
-  border: 2px solid #FF725E;
 }
 
 .edit-profile-input {
   border: none;
+  border-radius: 5px;
   outline: none;
   width: 120px;
   padding-left: 5px;
@@ -71,25 +39,49 @@
 
 .form-size {
   margin-top: 20px;
-  width: 280px;
+  margin-bottom: 30px;
+  padding: 10px;
+  width: 330px;
   display: flex;
   flex-direction: column;
-}
-
-.form-size button {
-  align-self: center;
 }
 
 .form-size p {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
 }
 
 .form-size p i {
-  margin-left: -58px;
+  margin: 1.5px;
+  margin-left: -85px;
   cursor: pointer;
-  align-self: center;
+  align-self: flex-end;
   font-size: 16px;
+}
+
+.changesBtnPosition {
+  display: flex;
+  justify-content: center;
+}
+
+.changesBtn {
+  background-color: #ff725e;
+  border: 2px solid #ff725e;
+  border-radius: 6px;
+  padding: 15px;
+  width: 175px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.changesBtn:hover {
+  border: 2px solid #cc5b4b;
 }

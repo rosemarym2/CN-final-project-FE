@@ -87,7 +87,7 @@ export const UserList = () => {
                 {item.completed == false ? (
                   <div onMouseDown={() => updateCurrentItem(item.itemName)}>
                     <ScratchCard {...settings}>
-                      <img src={item.image ? item.image : listImage} />
+                      <img src={item.image ? item.image : listImage} className="scratch-off-image" />
                     </ScratchCard>
                   </div>
                 ) : (

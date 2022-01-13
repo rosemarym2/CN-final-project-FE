@@ -1,5 +1,5 @@
 .settingsBody {
-  background-color: #EEE2DC;
+  background-color: #eee2dc;
   text-align: center;
   width: 100vw;
   height: 100vh;
@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 7vh;
 }
 
 button {
@@ -31,21 +32,23 @@ button:hover {
 }
 
 .main {
-  border: 2px solid #ff725e;
+  border: 2px solid #eee2dc;
+  background-color: #ff725e;
 }
 
 .main:hover {
-  border: 2px solid #CC5B4B;
+  border: 2px solid #cc5b4b;
 }
 
 .sub {
-  border: 2px solid #263238;
-  background-color: EEE2DC;
+  border: 2px solid #eee2dc;
+  background-color: #455a64;
+  color: #eee2dc;
 }
 
 .sub:hover {
-  background-color: #455A64;
-  color: white;
+  background-color: #eee2dc;
+  color: #455a64;
 }
 
 .delete {
@@ -54,13 +57,18 @@ button:hover {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  margin-top: 35px;
+  margin-top: 20px;
   cursor: pointer;
   transition: 0.3s;
   background-color: #ff725e;
   color: black;
   border: 2px solid black;
   font-weight: bold;
+}
+
+.delete:hover {
+  color: black;
+  background-color: #eee2dc;
 }
 
 .delConf {
@@ -78,5 +86,5 @@ button:hover {
 }
 
 .delMain:hover {
-  border: 2px solid #CC5B4B;
+  border: 2px solid #cc5b4b;
 }

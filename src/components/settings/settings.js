@@ -4,6 +4,8 @@ import { TopNav } from "../topNav/topNav";
 import { BottomNav } from "../bottomNav/bottomNav";
 import { getUserFetch, deleteUserFetch } from "../../utils";
 import { Link, Redirect } from "react-router-dom";
+import { lightTheme, darkTheme, GlobalStyles } from "./colourThemes";
+import { ThemeProvider } from "styled-components";
 
 export const Settings = () => {
   const [showButtons, setShowButtons] = useState(false);
@@ -12,6 +14,7 @@ export const Settings = () => {
   const [user, setUser] = useState("");
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const [userDeleted, setUserDeleted] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   const getUser = async () => {
     const userId = localStorage.getItem("myId");
@@ -62,6 +65,16 @@ export const Settings = () => {
     }
   }
 
+  const darkMode = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+    console.log(theme);
+    };
+
+  const lightMode = () => {
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+    console.log(theme);
+    };
+
   return (
     <>
       {userDeleted ? <Redirect to="/landing" /> : (
@@ -81,10 +94,13 @@ export const Settings = () => {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <button className="main" onClick={buttonHandler}>Colour Scheme</button>
             {!showButtons ? "" : (
+              <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
               <>
-                <button className="sub">Dark mode</button>
-                <button className="sub">Light mode</button>
+              <GlobalStyles />
+                <button className="sub" onClick={() => darkMode()}>Dark mode</button>
+                <button className="sub" onClick={() => lightMode()}>Light mode</button>
               </>
+              </ThemeProvider>
             )}
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>

@@ -5,7 +5,7 @@ import grey from "../../images/grey.png";
 import ScratchCard from "react-scratchcard";
 import "./personalList.css";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 
 export const UserList = () => {
   const { id } = useParams();
@@ -105,7 +105,7 @@ export const UserList = () => {
             return <li key={index}>#{item}</li>
           })}
         </ul>
-        {/* <BottomNav /> */}
+        <Footer />
       </div>
     </>
   );

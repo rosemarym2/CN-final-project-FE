@@ -4,6 +4,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import "./logIn.css";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
+import { Footer } from "../footer/footer"
 
 export const LogIn = ({ authContext }) => {
   const useAuth = () => {
@@ -73,6 +74,7 @@ export const LogIn = ({ authContext }) => {
         <p>Don't have an account? <span className="loginLoginSpan"><Link to="/signup">Sign Up</Link></span></p>
       </form>
       <NotificationContainer />
+      <Footer />
     </div >
   );
 }

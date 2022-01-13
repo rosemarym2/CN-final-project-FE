@@ -58,4 +58,15 @@
   font-size: x-large;
   text-align: center;
   padding: 0;
+    border: 2px solid #fff;
+  background-color: #ff725e;
+}
+
+.main:hover,
+.burgerBtn:hover {
+  border: 2px solid #cc5b4b;
+}
+
+.navBarLi:hover {
+  color: #FF725E;
 }

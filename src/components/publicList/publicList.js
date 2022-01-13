@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getSpecificListFetch, addToUserListsFetch, getUserFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import "./publicList.css";
@@ -115,8 +115,7 @@ export const List = () => {
           <i class="bi bi-share"></i><span>41 </span>
         </div>
       </div>
-      {/* <BottomNav /> */}
-
+      <Footer />
       <NotificationContainer />
     </>
   )

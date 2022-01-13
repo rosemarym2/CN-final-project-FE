@@ -9,7 +9,8 @@ export const About = () => {
       <TopNav />
       <div className="about-us-component">
         <div className="about">
-          <img className="aboutImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641917408/pana/misc/FAQs-pana_h4mv1y.png"></img>
+          <img className="aboutImg" src="https://res.cloudinary.com/cn-project/image/upload/v1642092205/pana/misc/output-onlinepngtools_d346ft.png
+"></img>
           <h3>What is List Junkie?</h3>
           <h5>This is a space for you to go wild with your bucket lists! Always wanted to sky dive? Visit the Amazon? Have the bragging rights of reading all of the classics? Show off all the awesome thing's you've done and plan to do? Have fun with our scratch off lists! Use our existing lists or create your own!
           </h5>

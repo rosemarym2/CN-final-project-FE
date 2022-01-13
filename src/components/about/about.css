@@ -12,6 +12,7 @@
 
 .aboutImg {
   width: 500px;
+  padding-top: 50px;
 }
 
 @media screen and (max-width: 600px) {

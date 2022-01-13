@@ -3,7 +3,7 @@ import "./profile.css";
 import { getUserFetch, deleteSpecificListFetch } from "../../utils";
 import { Link } from "react-router-dom";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
@@ -138,7 +138,7 @@ export const Profile = () => {
             />
           </Link>
         </div>
-        {/* <BottomNav /> */}
+        <Footer />
 
         <NotificationContainer />
       </div >

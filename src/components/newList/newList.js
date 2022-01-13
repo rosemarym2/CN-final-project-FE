@@ -176,11 +176,15 @@ export const NewList = () => {
           </div>
         </div>
             <div>
-              <p>Save just for you or make it public!</p>
+              <p>Choose where you want the list saved to!</p>
+                <div className="newListCheckbox" >
               <input type="checkbox" id="private" name="private" value="private" onChange={handlePrivateAccess} />
-              <label for="private" >Add to my lists</label>
-              <input type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
-              <label for="public">Make it public</label>
+              <label for="private"> Add to my lists</label>
+              </div>
+              <div className="newListCheckbox" >
+              <input className="newListCheckbox" type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
+              <label for="public"> Add to public gallery</label>
+              </div>
             </div>
         <button className="newListSaveButton newListButtons" onClick={newListHandler}>Save List</button>
       </div >

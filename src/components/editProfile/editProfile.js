@@ -6,6 +6,12 @@ import { BottomNav } from "../bottomNav/bottomNav";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
+import 'antd/dist/antd.css';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { PicChanger } from "../imgChanger/imgChanger.js"
+
+
 export const EditProfile = () => {
   const [newUsername, setNewUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -65,8 +71,10 @@ export const EditProfile = () => {
       <div className="edit-profile-page">
         <h1 className="edit-profile-title">Edit Profile</h1>
         <div className="change-profile-picture">
-          <div className="profile-picture"></div>
-          <p className="edit-profile-p">Change profile photo</p>
+          <Avatar size={150} icon={<UserOutlined />} />
+          <PicChanger />
+          {/* <div className="profile-picture"></div> */}
+          {/* <p className="edit-profile-p">Change profile photo</p> */}
         </div>
 
         <form className="form-size" onSubmit={submitHandler} >

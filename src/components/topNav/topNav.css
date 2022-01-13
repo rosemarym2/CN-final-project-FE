@@ -1,11 +1,3 @@
-.drop-down-menu-container {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-
-}
-
 .nav-bar {
   width: 100vw;
   top: 0;
@@ -15,6 +7,13 @@
   background-color: #FFFFFF;
   border-bottom: 1px solid #DCDDDD;
   padding: 10px 0;
+}
+
+.drop-down-menu-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  position: fixed;
 }
 
 .navigation-bar {
@@ -28,7 +27,7 @@
 .drop-down-menu {
   display: flex;
   justify-content: flex-end;
-  width: 735px;
+  width: 840px;
 }
 
 .navigation-bar img {
@@ -36,9 +35,8 @@
 }
 
 .navBarLi {
-  /* background-color: #ff725e; */
   list-style: none;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .hideNavMenu {
@@ -48,8 +46,8 @@
 .ul-list {
   width: 100px;
   margin: 2px;
-
-  background-color: white;
+  padding: 5px 5px 0 15px;
+  background-color: #FFFFFF;
 }
 
 .burgerBtn {

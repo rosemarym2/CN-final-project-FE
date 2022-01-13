@@ -63,9 +63,9 @@ export const Profile = () => {
           username={user}
         />
         <h2>In Progress</h2>
-        {inProgress.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" style={{ width: "150px" }} /> :
+        {inProgress.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" className="empty-folder-profile-component" /> :
           (
-            <div>
+            <div className="profile-progress-lists">
               {inProgress.map((item, index) => {
                 return (
                   <div>
@@ -74,7 +74,7 @@ export const Profile = () => {
                     </div>
                     <Link to={`/profile/lists/${item._id}`}>
                       <div key={index} className="profile-list">
-                        <img src={item.listImage} style={{ width: "150px" }} />
+                        <img src={item.listImage} />
                         <h5>{item.title}</h5>
                       </div>
                     </Link>
@@ -85,9 +85,9 @@ export const Profile = () => {
           )
         }
         <h2>Completed</h2>
-        {completed.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" style={{ width: "150px" }} /> :
+        {completed.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" className="empty-folder-profile-component" /> :
           (
-            <div className="comp">
+            <div className="profile-completed-lists">
               {completed.map((item, index) => {
                 return (
                   <div>
@@ -96,7 +96,7 @@ export const Profile = () => {
                     </div>
                     <Link to={`/profile/lists/${item._id}`}>
                       <div key={index} className="profile-list">
-                        <img src={item.listImage} style={{ width: "150px" }} />
+                        <img src={item.listImage} />
                         <h5>{item.title}</h5>
                       </div>
                     </Link>
@@ -107,7 +107,7 @@ export const Profile = () => {
           )
         }
         <h2>Saved</h2>
-        {saved.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" style={{ width: "150px" }} /> :
+        {saved.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" className="empty-folder-profile-component" /> :
           (
             <div className="profile-saved-lists">
               {saved.map((item, index) => {
@@ -118,7 +118,7 @@ export const Profile = () => {
                     </div>
                     <Link to={`/profile/lists/${item._id}`}>
                       <div key={index} className="profile-list">
-                        <img src={item.listImage} style={{ width: "150px" }} />
+                        <img src={item.listImage} />
                         <h5>{item.title}</h5>
                       </div>
                     </Link>

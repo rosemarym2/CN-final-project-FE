@@ -1,9 +1,8 @@
 .home-component-body {
-  margin-top: 70px;
+  margin: 70px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
 }
 
 .category-list {

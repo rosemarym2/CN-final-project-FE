@@ -1,12 +1,25 @@
+.about-us-component {
+  margin: 70px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .about {
-    width: 60%;
-    text-align: center;
-    padding-left: 20%;
-    padding-right: 20%;
-    margin-top: 70px;
+  width: 800px;
+  text-align: center;
 }
 
 .aboutImg {
-    height: 45vh;
-    width: auto;
+  width: 500px;
+}
+
+@media screen and (max-width: 600px) {
+  .about {
+    width: 300px;
   }
+
+  .aboutImg {
+    width: 280px;
+  }
+}

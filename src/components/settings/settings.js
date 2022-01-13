@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./settings.css";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 import { getUserFetch, deleteUserFetch } from "../../utils";
 import { Link, Redirect } from "react-router-dom";
 import { lightTheme, darkTheme, GlobalStyles } from "./colourThemes";
@@ -133,7 +133,7 @@ export const Settings = () => {
               </div>
             )}
           </div>
-          <BottomNav />
+          <Footer />
         </div>
       )}
     </>

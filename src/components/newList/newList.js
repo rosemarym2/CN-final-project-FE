@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { addNewListFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav.js";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 import "./newList.css"
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
@@ -131,7 +131,7 @@ export const NewList = () => {
         </div>
         <button className="newListSaveButton newListButtons" onClick={newListHandler}>Save List</button>
       </div >
-      {/* <BottomNav /> */}
+      <Footer />
       <NotificationContainer />
     </>
   )

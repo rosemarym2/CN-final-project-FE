@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./editProfile.css";
 import { updateUserEmailFetch, updateUserPasswordFetch, updateUserFetch } from "../../utils";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
@@ -81,7 +81,7 @@ export const EditProfile = () => {
       <div className="changesBtnPosition">
         <button className="changesBtn" type="submit" id="save-changes-button">Save Changes</button>
       </div>
-      <BottomNav />
+      <Footer />
       <NotificationContainer />
     </div >
   )

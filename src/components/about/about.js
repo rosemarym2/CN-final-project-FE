@@ -1,6 +1,6 @@
 import "./about.css";
 import { TopNav } from "../topNav/topNav";
-import { BottomNav } from "../bottomNav/bottomNav";
+import { Footer } from "../footer/footer"
 
 export const About = () => {
 
@@ -17,6 +17,7 @@ export const About = () => {
           <h5>Based in Nottingham UK, Rosie, Rachel, Julija and Holly met at work and found a shared interest in creating websites and also making lists! Join them as they delve into the world of online lists!</h5>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

@@ -8,12 +8,25 @@ export const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [visiblePass, setVisiblePass] = useState(false);
+  const [inputType, setInputType] = useState("password");
+  const [passIcon, setPassIcon] = useState("bi bi-eye-slash");
 
   const signUpHandler = async () => {
-    // e.preventDefault();
     const success = signUpFetch(username, email, password);
     if (success) {
       setSignedUp(true);
+    }
+  }
+
+  const visiblePassHandler = () => {
+    setVisiblePass(!visiblePass);
+    if (visiblePass) {
+      setInputType("password");
+      setPassIcon("bi bi-eye-slash");
+    } else {
+      setInputType("text");
+      setPassIcon("bi bi-eye");
     }
   }
 
@@ -27,8 +40,8 @@ export const SignUp = () => {
             <input className="signupInput" onChange={(e) => setUsername(e.target.value)} autocapitalize="none" placeholder="Username" type="text" value={username} />
             <input className="signupInput" onChange={(e) => setEmail(e.target.value)} autocapitalize="none" placeholder="Email address" type="text" value={email} />
             <div className="password-input">
-              <input className="signupInput" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type="password" value={password} />
-              {/* <i class={passIcon} onClick={visiblePassHandler}></i> */}
+              <input className="signupInput" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="Password" type={inputType} value={password} />
+              <i class={passIcon} onClick={visiblePassHandler}></i>
             </div>
             <button type="submit">Sign Up</button>
             <p>Already have an account? <span className="signupLoginSpan"><Link to="/login">Log In</Link></span></p>

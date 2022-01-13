@@ -3,18 +3,26 @@
   display: flex;
   justify-content: center;
   height: 100vh;
+  align-items: center;
+}
+
+.landingLogoImg {
+  height: 60px;
+  padding: 10px;
+}
+
+.landingImg {
+  width: 350px;
 }
 
 .landingStyle {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  padding: 50px 20px;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
   border-radius: 50px;
-  background-color: white;
+  background-color: #FFFFFF;
+  width: 450px;
+  padding: 60px 0;
 }
 
 .landingSpan {
@@ -46,17 +54,6 @@
   padding: 15px;
 }
 
-.landingImg {
-  width: 450px;
-  height: auto;
-}
-
-.landingLogoImg {
-  width: auto;
-  height: 80px;
-  padding: 20px;
-}
-
 .landingHR {
   width: 100px;
   margin-left: 10px;
@@ -70,3 +67,27 @@
 .landingAbout:hover {
   color: #ff725e;
 }
+
+@media screen and (max-width: 600px) {
+  .landingImg {
+    width: 250px;
+    margin-bottom: 10px;
+  }
+
+  .landingLogoImg {
+    height: 45px;
+  }
+
+  .landingBtnStyle {
+    flex-direction: column;
+  }
+
+  .loginForm p {
+    font-size: 12px;
+    margin: 15px 0;
+  }
+
+  .landingStyle {
+    width: 320px;
+    padding: 30px 0;
+  }

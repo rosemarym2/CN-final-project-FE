@@ -1,10 +1,10 @@
 .signupImg {
-  width: 450px;
+  width: 350px;
 }
 
 .signupLogoImg {
-  height: 80px;
-  padding: 20px;
+  height: 60px;
+  padding: 10px;
 }
 
 .signup-page {
@@ -16,9 +16,8 @@
 .signupForm {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  width: 600px;
+  width: 450px;
   border-radius: 50px;
   background-color: white;
   padding: 30px 0;
@@ -64,6 +63,6 @@
 
   .signupForm {
     width: 320px;
-    padding: 7px 0;
+    padding: 25px 0;
   }
 }

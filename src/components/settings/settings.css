@@ -1,5 +1,5 @@
 .settingsBody {
-  background-color: #eee2dc;
+  background-color: #fff;
   text-align: center;
   width: 100vw;
   height: 100vh;
@@ -31,44 +31,40 @@ button:hover {
   color: black;
 }
 
-.main {
+/* .main {
   border: 2px solid #eee2dc;
-  background-color: #ff725e;
-}
+  background-color: lightgray;
+} */
 
-.main:hover {
+/* .main:hover {
   border: 2px solid #cc5b4b;
-}
+} */
 
 .sub {
-  border: 2px solid #eee2dc;
+  color: #455a64;
+}
+
+.sub:hover {
   background-color: #455a64;
   color: #eee2dc;
 }
 
-.sub:hover {
-  background-color: #eee2dc;
-  color: #455a64;
-}
-
 .delete {
   border-radius: 6px;
-  width: 200px;
+  width: 175px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
   transition: 0.3s;
-  background-color: #ff725e;
   color: black;
-  border: 2px solid black;
   font-weight: bold;
 }
 
 .delete:hover {
   color: black;
-  background-color: #eee2dc;
+  background-color: #ff725e;
 }
 
 .delConf {
@@ -87,4 +83,9 @@ button:hover {
 
 .delMain:hover {
   border: 2px solid #cc5b4b;
+}
+
+.Img {
+  background-color: #fff;
+  border-radius: 20%;
 }

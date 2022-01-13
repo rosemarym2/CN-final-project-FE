@@ -1,4 +1,17 @@
 .image {
-  height: 80vh;
-  width: auto;
+  height: auto;
+  width: 80vw;
+  max-width: 800px;
+
+}
+
+.ComingSoonBody {
+    text-align: center;
+    padding-top: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+  .ComingSoonBody {
+    padding-top: 150px;
+  }
 }

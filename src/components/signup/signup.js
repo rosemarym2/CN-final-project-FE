@@ -50,7 +50,7 @@ export const SignUp = () => {
 
         </div >
       )}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

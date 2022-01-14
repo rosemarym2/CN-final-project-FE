@@ -105,8 +105,8 @@ export const UserList = () => {
             return <li key={index}>#{item}</li>
           })}
         </ul>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }

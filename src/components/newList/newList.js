@@ -42,9 +42,10 @@ export const NewList = () => {
   }
 
   const newKeyword = (input) => {
-    const storedKeys = [...keywords]
-    storedKeys.push(input)
-    setKeywords(storedKeys)
+    const storedKeys = [...keywords];
+    storedKeys.push(input);
+    setKeywords(storedKeys);
+    setKeywordStr("");
   };
 
   const nameChangeHandler = (event) => {
@@ -76,6 +77,8 @@ export const NewList = () => {
     const currentArr = [...listItems]
     currentArr.push({ itemName: name, itemInfo: info })
     setListItems(currentArr);
+    setItemName("");
+    setItemInfo("");
   };
 
   const handlePublicAccess = () => {
@@ -94,6 +97,34 @@ export const NewList = () => {
     } else {
       setPrivateAccess(true);
     }
+  }
+
+  const editKeywordHandler = (index) => {
+    const storedItems = [...keywords];
+    const itemToEdit = storedItems.splice(index, 1);
+    setKeywords(storedItems);
+    setKeywordStr(itemToEdit);
+  }
+
+  const removeKeywordHandler = (index) => {
+    const storedItems = [...keywords];
+    storedItems.splice(index, 1);
+    setKeywords(storedItems);
+  }
+
+
+  const editItemHandler = (index) => {
+    const storedItems = [...listItems];
+    const itemToEdit = storedItems.splice(index, 1);
+    setListItems(storedItems);
+    setItemName(itemToEdit[0].itemName);
+    setItemInfo(itemToEdit[0].itemInfo);
+  }
+
+  const removeItemHandler = (index) => {
+    const storedItems = [...listItems];
+    storedItems.splice(index, 1);
+    setListItems(storedItems);
   }
 
   const createNotification = (type) => {
@@ -142,19 +173,24 @@ export const NewList = () => {
                 <label for="private">Private List</label>
               </div>
               <label className="listLabelPadding" for="listKeyword">Add Some Keywords <span className="keywordSubtext">(Click "Add Keyword" after each entry)</span></label>
-
-              <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required />
+              <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required autocomplete="off" value={keywordStr} />
               <button className="newListButtons" onClick={() => newKeyword(keywordStr)}>Add Keyword</button>
             </div>
             <div className="newListKeywordsContainer">
               <h2>Keywords:</h2>
               <div className="newListListMap">
                 {keywords.map((item, index) => {
-                  return (
-                    <div>
-                      <li key={index}>{item}, </li>
-                    </div>
-                  )
+                  if (item !== "") {
+                    return (
+                      <div className="mapped-item">
+                        <li key={index}>{item}</li>
+                        <div className="edit-delete-item-buttons">
+                          <i class="bi bi-pencil" onClick={() => editKeywordHandler(index)}></i>
+                          <i class="bi bi-trash" onClick={() => removeKeywordHandler(index)}></i>
+                        </div>
+                      </div>
+                    )
+                  }
                 })}
               </div>
             </div>
@@ -163,20 +199,26 @@ export const NewList = () => {
             <div className="newListListItemsContainer">
               <h2>Add List Items</h2>
               <label for="itemName">Name</label>
-              <input className="newListInput" type="text" onChange={nameChangeHandler} id="itemName" name="itemName" placeholder="Fly to the Moon" required />
+              <input className="newListInput" type="text" onChange={nameChangeHandler} id="itemName" name="itemName" placeholder="Fly to the Moon" required autocomplete="off" value={itemName} />
               <label for="itemInfo">Info</label>
-              <input className="newListInput" type="text" onChange={infoChangeHandler} id="itemInfo" name="itemInfo" placeholder="Need a Rocket" required />
+              <input className="newListInput" type="text" onChange={infoChangeHandler} id="itemInfo" name="itemInfo" placeholder="Need a Rocket" required autocomplete="off" value={itemInfo} />
               <button className="newListButtons" onClick={() => newListItem(itemName, itemInfo)}>Add Item</button>
             </div>
             <div className="newListListContents">
               <h2>Your List Items:</h2>
               <div className="newListRenderListMap">
                 {listItems.map((item, index) => {
-                  return (
-                    <div>
-                      <li key={index}>{item.itemName} - {item.itemInfo},</li>
-                    </div>
-                  )
+                  if (item.itemName !== "") {
+                    return (
+                      <div className="mapped-item">
+                        <li key={index}>{item.itemName} {!item.itemInfo ? "" : `- ${item.itemInfo}`}</li>
+                        <div className="edit-delete-item-buttons">
+                          <i class="bi bi-pencil" onClick={() => editItemHandler(index)}></i>
+                          <i class="bi bi-trash" onClick={() => removeItemHandler(index)}></i>
+                        </div>
+                      </div>
+                    )
+                  }
                 })}
               </div>
             </div>

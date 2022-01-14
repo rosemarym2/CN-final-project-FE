@@ -79,9 +79,9 @@ export const EditProfile = () => {
 
   const createNotification = (type) => {
     switch (type) {
-      case "info":
-        NotificationManager.info("Changes saved successfully");
-        break;
+      // case "info":
+      //   NotificationManager.info("Changes saved successfully");
+      //   break;
       case "success":
         NotificationManager.success("Changes saved successfully");
         break;

@@ -4,7 +4,6 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import "./logIn.css";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import { Footer } from "../footer/footer"
 
 export const LogIn = ({ authContext }) => {
   const useAuth = () => {
@@ -51,9 +50,9 @@ export const LogIn = ({ authContext }) => {
       // case 'success':
       //   NotificationManager.success('Success message', 'Title here');
       //   break;
-      case 'warning':
-        NotificationManager.warning("Incorrect username or password, please try again");
-        break;
+      // case 'warning':
+      //   NotificationManager.warning("Incorrect username or password, please try again");
+      //   break;
       case 'error':
         NotificationManager.error("Incorrect username or password, please try again");
         break;
@@ -74,7 +73,6 @@ export const LogIn = ({ authContext }) => {
         <p>Don't have an account? <span className="loginLoginSpan"><Link to="/signup">Sign Up</Link></span></p>
       </form>
       <NotificationContainer />
-      <Footer />
     </div >
   );
 }

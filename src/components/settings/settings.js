@@ -108,8 +108,8 @@ export const Settings = () => {
             {!showButtons2 ? "" : (
               <>
                 <button className="sub">Scratchcard</button>
-                <button className="sub">Flip card</button>
-                <button className="sub">Checklist</button>
+                <Link to="ComingSoon"><button className="sub">Flip card</button></Link>
+                <Link to="ComingSoon"><button className="sub">Checklist</button></Link>
               </>
             )}
           </div>
@@ -117,9 +117,9 @@ export const Settings = () => {
             <button className="main" onClick={buttonHandler3}>Font Size</button>
             {!showButtons3 ? "" : (
               <>
-                <button className="sub">Small</button>
-                <button className="sub">Medium</button>
-                <button className="sub">Large</button>
+                <Link to="ComingSoon"><button className="sub">Small</button></Link>
+                <Link to="ComingSoon"><button className="sub">Medium</button></Link>
+                <Link to="ComingSoon"><button className="sub">Large</button></Link>
               </>
             )}
           </div>

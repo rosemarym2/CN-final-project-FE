@@ -1,10 +1,11 @@
 .newListComponentDiv {
   display: flex;
   justify-content: center;
+  margin: 80px 0;
 }
+
 .newListBody {
   text-align: center;
-  margin: 80px 0;
   display: flex;
   flex-direction: column;
   width: 800px;
@@ -22,7 +23,11 @@
   border-radius: 5px;
   border: 2px solid #ff725e;
   outline: none;
-  margin: 5px 0;
+  margin: 7px 0;
+}
+
+.newListCheckbox {
+padding: 10px 0;
 }
 
 .listLabelPadding {
@@ -74,10 +79,9 @@
 
 .newListListMap, .newListRenderListMap {
   display: flex;
-  flex-wrap: wrap;
-  margin: 15px;
+  flex-direction: column;
+  margin: 0 auto;
   font-size: 18px;
-  max-height: 40vh;
 }
 
 .newListRenderListMap li, .newListListMap li {
@@ -90,12 +94,12 @@
 
 .newListButtons {
   margin: 15px;
-  ;
 }
 
 .newListSaveButton {
   display: block;
   margin: auto;
+  margin-top: 10px; 
 }
 
 @media only screen and (max-width: 768px) {
@@ -111,4 +115,24 @@
   .newListSaveButton {
     margin-bottom: 20vh;
   }
+}
+
+.mapped-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+.edit-delete-item-buttons i {
+  margin: 0 5px;
+}
+
+.edit-delete-item-buttons i:hover {
+  color: #FF725E;
+  font-size: 18px;
+}
+
+.edit-delete-item-buttons i:active {
+  color: #CC5B4B;
 }

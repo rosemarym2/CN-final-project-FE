@@ -22,7 +22,7 @@ export const Profile = () => {
     setSaved(savedLists);
     setInProgress(inProgressLists);
     setCompleted(completedLists);
-    setUser(profile.user.username);
+    setUser(profile.user);
   };
 
   useEffect(() => {
@@ -31,9 +31,6 @@ export const Profile = () => {
 
   const createNotification = (type, message) => {
     switch (type) {
-      // case "info":
-      //   NotificationManager.info(`${message}`);
-      //   break;
       case "success":
         NotificationManager.success(`${message}`);
         break;
@@ -51,10 +48,9 @@ export const Profile = () => {
     <>
       <TopNav />
       <div className="profile-component">
-        <h1>My Collection</h1>
+        <h1 className="userTitle">Welcome back, {user.username}!</h1>
         <UserProfile
           Img={user.image}
-          username={user}
         />
         <h2>In Progress</h2>
         {inProgress.length == 0 ? <img src="https://res.cloudinary.com/cn-project/image/upload/v1641918860/pana/misc/No_data-pana_nb1uva.png" className="empty-folder-profile-component" /> :
@@ -156,7 +152,6 @@ const CreateList = (props) => {
     <div>
       <img src={props.Img} className="Img" />
       <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
     </div>
   );
 };

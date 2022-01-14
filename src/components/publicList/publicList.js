@@ -64,12 +64,6 @@ export const List = () => {
       case "success":
         NotificationManager.success(`List "${list.title}" successfully added to your profile`, "", 3000);
         break;
-      // case "warning":
-      //   NotificationManager.warning("Incorrect username or password, please try again");
-      //   break;
-      // case "error":
-      //   NotificationManager.error("Incorrect username or password, please try again");
-      //   break;
     }
   };
 

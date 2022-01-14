@@ -14,8 +14,6 @@ export const EditProfile = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [inputType, setInputType] = useState("password");
-  // const [visiblePass, setVisiblePass] = useState(false);
-  // const [passIcon, setPassIcon] = useState("bi bi-eye-slash");
   const [profileImg, setProfileImg] = useState("");
   const [openProfile, setOpenProfile] = useState(true);
 
@@ -40,17 +38,6 @@ export const EditProfile = () => {
     const profile = await getUserFetch(userId);
     setUser(profile.user);
   }, [])
-
-  // const visiblePassHandler = () => {
-  //   setVisiblePass(!visiblePass);
-  //   if (visiblePass) {
-  //     setInputType("password");
-  //     setPassIcon("bi bi-eye-slash");
-  //   } else {
-  //     setInputType("text");
-  //     setPassIcon("bi bi-eye");
-  //   }
-  // }
 
   const handleImageChange = (picture) => {
     setProfileImg(picture);
@@ -79,9 +66,6 @@ export const EditProfile = () => {
 
   const createNotification = (type) => {
     switch (type) {
-      // case "info":
-      //   NotificationManager.info("Changes saved successfully");
-      //   break;
       case "success":
         NotificationManager.success("Changes saved successfully");
         break;
@@ -116,7 +100,6 @@ export const EditProfile = () => {
           <p>
             <label for="newPassword">Update password</label>
             <input className="edit-profile-input" onChange={(e) => setPassword(e.target.value)} autocapitalize="none" placeholder="New password" id="newPassword" type={inputType} value={password} />
-            {/* <i class={passIcon} onClick={visiblePassHandler}></i> */}
           </p>
         </form>
       </div >

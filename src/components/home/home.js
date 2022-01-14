@@ -81,7 +81,6 @@ const Article = (props) => {
     <div className="category-article">
       <img src={props.Img} className="Img" />
       <p>{props.title}</p>
-      {/* <p className = "category">{props.category}</p> */}
     </div>
   )
 }

@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
 }
+
 .newListBody {
   text-align: center;
   margin: 80px 0;
@@ -74,10 +75,9 @@
 
 .newListListMap, .newListRenderListMap {
   display: flex;
-  flex-wrap: wrap;
-  margin: 15px;
+  flex-direction: column;
+  margin: 0 auto;
   font-size: 18px;
-  max-height: 40vh;
 }
 
 .newListRenderListMap li, .newListListMap li {
@@ -90,7 +90,6 @@
 
 .newListButtons {
   margin: 15px;
-  ;
 }
 
 .newListSaveButton {
@@ -111,4 +110,24 @@
   .newListSaveButton {
     margin-bottom: 20vh;
   }
+}
+
+.mapped-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+.edit-delete-item-buttons i {
+  margin: 0 5px;
+}
+
+.edit-delete-item-buttons i:hover {
+  color: #FF725E;
+  font-size: 18px;
+}
+
+.edit-delete-item-buttons i:active {
+  color: #CC5B4B;
 }

@@ -44,15 +44,6 @@ export const LogIn = ({ authContext }) => {
 
   const createNotification = (type) => {
     switch (type) {
-      // case 'info':
-      //   NotificationManager.info('Info message');
-      //   break;
-      // case 'success':
-      //   NotificationManager.success('Success message', 'Title here');
-      //   break;
-      // case 'warning':
-      //   NotificationManager.warning("Incorrect username or password, please try again");
-      //   break;
       case 'error':
         NotificationManager.error("Incorrect username or password, please try again");
         break;

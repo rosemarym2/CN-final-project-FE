@@ -20,4 +20,5 @@
 } 
 .footerli:hover {
     color: #FF725E;
+    cursor: pointer;
 }

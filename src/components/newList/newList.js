@@ -129,18 +129,9 @@ export const NewList = () => {
 
   const createNotification = (type) => {
     switch (type) {
-      // case 'info':
-      //   NotificationManager.info('Info message');
-      //   break;
       case 'success':
         NotificationManager.success("You've successfully added your list!", 'List Added');
         break;
-      // case 'warning':
-      //   NotificationManager.warning("Something went wrong, please try again");
-      //   break;
-      // case 'error':
-      //   NotificationManager.error("Something went wrong, please try again");
-      //   break;
     }
   };
 
@@ -187,52 +178,52 @@ export const NewList = () => {
                   }
                 })}
               </div>
-          </div>
-          <div className="newListAddListItemsAndRender">
-            <div className="newListListItemsContainer">
-              <h2>Add List Items</h2>
-              <label for="itemName">Name</label>
-              <input className="newListInput" type="text" onChange={nameChangeHandler} id="itemName" name="itemName" placeholder="Fly to the Moon" required autocomplete="off" value={itemName} />
-              <label for="itemInfo">Info</label>
-              <input className="newListInput" type="text" onChange={infoChangeHandler} id="itemInfo" name="itemInfo" placeholder="Need a Rocket" required autocomplete="off" value={itemInfo} />
-              <button className="newListButtons" onClick={() => newListItem(itemName, itemInfo)}>Add Item</button>
             </div>
-            <div className="newListListContents">
-              <h2>Your List Items:</h2>
-              <div className="newListRenderListMap">
-                {listItems.map((item, index) => {
-                  if (item.itemName !== "") {
-                    return (
-                      <div className="mapped-item">
-                        <li key={index}>{item.itemName} {!item.itemInfo ? "" : `- ${item.itemInfo}`}</li>
-                        <div className="edit-delete-item-buttons">
-                          <i class="bi bi-pencil" onClick={() => editItemHandler(index)}></i>
-                          <i class="bi bi-trash" onClick={() => removeItemHandler(index)}></i>
+            <div className="newListAddListItemsAndRender">
+              <div className="newListListItemsContainer">
+                <h2>Add List Items</h2>
+                <label for="itemName">Name</label>
+                <input className="newListInput" type="text" onChange={nameChangeHandler} id="itemName" name="itemName" placeholder="Fly to the Moon" required autocomplete="off" value={itemName} />
+                <label for="itemInfo">Info</label>
+                <input className="newListInput" type="text" onChange={infoChangeHandler} id="itemInfo" name="itemInfo" placeholder="Need a Rocket" required autocomplete="off" value={itemInfo} />
+                <button className="newListButtons" onClick={() => newListItem(itemName, itemInfo)}>Add Item</button>
+              </div>
+              <div className="newListListContents">
+                <h2>Your List Items:</h2>
+                <div className="newListRenderListMap">
+                  {listItems.map((item, index) => {
+                    if (item.itemName !== "") {
+                      return (
+                        <div className="mapped-item">
+                          <li key={index}>{item.itemName} {!item.itemInfo ? "" : `- ${item.itemInfo}`}</li>
+                          <div className="edit-delete-item-buttons">
+                            <i class="bi bi-pencil" onClick={() => editItemHandler(index)}></i>
+                            <i class="bi bi-trash" onClick={() => removeItemHandler(index)}></i>
+                          </div>
                         </div>
-                      </div>
-                    )
-                  }
-                })}
+                      )
+                    }
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-            <div>
-              <p>Choose where you want the list saved to!</p>
-                <div className="newListCheckbox" >
+          <div>
+            <p>Choose where you want the list saved to!</p>
+            <div className="newListCheckbox" >
               <input type="checkbox" id="private" name="private" value="private" onChange={handlePrivateAccess} />
-              <label for="private"> Add to my lists</label>
-              </div>
-              <div className="newListCheckbox" >
-              <input className="newListCheckbox" type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
-              <label for="public"> Add to public gallery</label>
-              </div>
+              <label for="private">Add to my lists</label>
             </div>
-        <button className="newListSaveButton newListButtons" onClick={newListHandler}>Save List</button>
-      </div >
-      <Footer />
-      <NotificationContainer />
-    </div>
+            <div className="newListCheckbox" >
+              <input className="newListCheckbox" type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
+              <label for="public">Add to public gallery</label>
+            </div>
+          </div>
+          <button className="newListSaveButton newListButtons" onClick={newListHandler}>Save List</button>
+        </div >
+        <Footer />
+        <NotificationContainer />
+      </div>
     </>
   )
 };

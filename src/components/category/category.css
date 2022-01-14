@@ -26,3 +26,17 @@
 .category-image {
   width: 180px;
 }
+
+@media screen and (max-width: 600px) {
+  .category-all-items {
+    width: 350px;
+  }
+
+  .category-item {
+    width: 150px;
+  }
+
+  .category-image {
+    width: 150px;
+  }
+}

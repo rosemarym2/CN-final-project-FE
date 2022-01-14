@@ -1,9 +1,9 @@
 .category-component {
-  margin-top: 70px;
+  margin-top: 80px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .category-all-items {

@@ -142,41 +142,43 @@ export const NewList = () => {
         <div className="newListBody">
           <h1>Create a New List</h1>
           <img className="newListImg" src="https://res.cloudinary.com/cn-project/image/upload/v1641918493/pana/misc/Add_notes-pana_h7jiy7.png" />
-          <div className="newListSetupandKeyContainer">
-            <div className="newListSetupContainer">
-              <h2>Set Up Your List</h2>
-              <label for="listTitle">Name Your List</label>
-              <input className="newListInput" type="text" onChange={(event) => setTitle(event.target.value)} id="listTitle" name="listTitle" placeholder="My New List" required />
-              <label className="listLabelPadding" for="listTitle">Choose a Category</label>
-              <select className="selectNewListCategory listLabelPadding" defaultValue={category} onChange={(e) => handleCategory(e.target.value)}>
-                <option value="default" disabled selected>
-                  Select Category
-                </option>
-                <option value="Travel">Travel</option>
-                <option value="Music">Music</option>
-                <option value="Books">Books</option>
-                <option value="Movies">Movies</option>
-              </select>
-              <label className="listLabelPadding" for="listKeyword">Add Some Keywords <span className="keywordSubtext">(Click "Add Keyword" after each entry)</span></label>
-              <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required autocomplete="off" value={keywordStr} />
-              <button className="newListButtons" onClick={() => newKeyword(keywordStr)}>Add Keyword</button>
-            </div>
-            <div className="newListKeywordsContainer">
-              <h2>Keywords:</h2>
-              <div className="newListListMap">
-                {keywords.map((item, index) => {
-                  if (item !== "") {
-                    return (
-                      <div className="mapped-item">
-                        <li key={index}>{item}</li>
-                        <div className="edit-delete-item-buttons">
-                          <i class="bi bi-pencil" onClick={() => editKeywordHandler(index)}></i>
-                          <i class="bi bi-trash" onClick={() => removeKeywordHandler(index)}></i>
+          <div className="create-list-fields-position">
+            <div className="newListSetupandKeyContainer">
+              <div className="newListSetupContainer">
+                <h2>Set Up Your List</h2>
+                <label for="listTitle">Name Your List</label>
+                <input className="newListInput" type="text" onChange={(event) => setTitle(event.target.value)} id="listTitle" name="listTitle" placeholder="My New List" required />
+                <label className="listLabelPadding" for="listTitle">Choose a Category</label>
+                <select className="selectNewListCategory listLabelPadding" defaultValue={category} onChange={(e) => handleCategory(e.target.value)}>
+                  <option value="default" disabled selected>
+                    Select Category
+                  </option>
+                  <option value="Travel">Travel</option>
+                  <option value="Music">Music</option>
+                  <option value="Books">Books</option>
+                  <option value="Movies">Movies</option>
+                </select>
+                <label className="listLabelPadding" for="listKeyword">Add Some Keywords <span className="keywordSubtext">(Click "Add Keyword" after each entry)</span></label>
+                <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required autocomplete="off" value={keywordStr} />
+                <button className="newListButtons" onClick={() => newKeyword(keywordStr)}>Add Keyword</button>
+              </div>
+              <div className="newListKeywordsContainer">
+                <h2>Keywords:</h2>
+                <div className="newListListMap">
+                  {keywords.map((item, index) => {
+                    if (item !== "") {
+                      return (
+                        <div className="mapped-item">
+                          <li key={index}>{item}</li>
+                          <div className="edit-delete-item-buttons">
+                            <i class="bi bi-pencil" onClick={() => editKeywordHandler(index)}></i>
+                            <i class="bi bi-trash" onClick={() => removeKeywordHandler(index)}></i>
+                          </div>
                         </div>
-                      </div>
-                    )
-                  }
-                })}
+                      )
+                    }
+                  })}
+                </div>
               </div>
             </div>
             <div className="newListAddListItemsAndRender">

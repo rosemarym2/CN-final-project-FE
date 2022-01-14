@@ -38,6 +38,10 @@
   text-align: center;
 }
 
+.create {
+  margin-bottom: 40px;
+}
+
 .profile-saved-lists, .profile-progress-lists, .profile-completed-lists {
   display: flex;
   flex-wrap: wrap;

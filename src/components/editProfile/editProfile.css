@@ -113,13 +113,13 @@
 }
 
 button.ant-btn.ant-btn-primary {
-    background-color: #ff725e;
-    border: 2px solid #ff725e;
-    text-align: center;
-    padding: 0;
-    color: black;
-    width: 175px;
-    height: 40px;
+  background-color: #ff725e;
+  border: 2px solid #ff725e;
+  text-align: center;
+  padding: 0;
+  color: black;
+  width: 175px;
+  height: 40px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -127,5 +127,3 @@ button.ant-btn.ant-btn-primary {
     width: 100vw;
   }
 }
-
-

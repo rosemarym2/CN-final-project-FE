@@ -19,7 +19,7 @@ export const Settings = () => {
   const getUser = async () => {
     const userId = localStorage.getItem("myId");
     const profile = await getUserFetch(userId);
-    setUser(profile.user.username);
+    setUser(profile.user);
   };
 
   useEffect(() => {
@@ -81,11 +81,9 @@ export const Settings = () => {
         <div className="align">
           <TopNav />
           <div className="userProfile">
-            <h1>Settings</h1>
-            <p>{user.username}</p>
+            <h1>{user.username}'s settings</h1>
             <UserProfile
-              Img="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"
-              username={user}
+              Img={user.image}
             />
           </div>
           <Link to="/profile/edit">
@@ -98,7 +96,6 @@ export const Settings = () => {
                 <>
                   <GlobalStyles />
                   <button className="sub" onClick={() => darkMode()}>Light/Dark mode</button>
-                  {/* <button className="sub" onClick={() => lightMode()}>Light mode</button> */}
                 </>
               </ThemeProvider>
             )}

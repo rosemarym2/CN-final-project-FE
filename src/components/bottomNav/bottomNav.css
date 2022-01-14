@@ -1,7 +1,7 @@
 .bottomNavLi {
-list-style: none;
-display: inline;
-margin: 20px;
+    list-style: none;
+    display: inline;
+    margin: 20px;
 }
 
 .bottomNavLi:hover {
@@ -13,7 +13,7 @@ margin: 20px;
     display: flex;
     flex-direction: column;
     width: 90%;
-    /* align-content: center; */
+    cursor: pointer;
 }
 
 .footerInside {

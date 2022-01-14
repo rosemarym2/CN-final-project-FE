@@ -1,16 +1,36 @@
+.hideModal {
+  display: none;
+}
+
+.imgSelect {
+  border: 2px solid #ff725e;
+  padding: 5px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+}
+
+.userImgSelected {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
 .edit-profile-title {
-  margin-top: 90px;
-  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .edit-profile-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 .change-profile-picture {
+  /* margin-top: -15px; */
+  margin-bottom: -10px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,26 +41,22 @@
   height: 150px;
 }
 
-.edit-profile-p {
-  font-size: 14px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
 .edit-profile-input {
   border: none;
   border-radius: 5px;
   outline: none;
-  width: 120px;
+  width: 170px;
   padding-left: 5px;
-  padding-right: 20px;
+}
+
+.edit-profile-input:focus::placeholder {
+  opacity: 0.3;
 }
 
 .form-size {
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 30px;
-  padding: 10px;
-  width: 330px;
+  width: 430px;
   display: flex;
   flex-direction: column;
 }
@@ -49,38 +65,67 @@
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
-}
-
-.form-size p i {
-  margin: 1.5px;
-  margin-left: -85px;
-  cursor: pointer;
-  align-self: flex-end;
-  font-size: 16px;
 }
 
 .changesBtnPosition {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .changesBtn {
   background-color: #ff725e;
   border: 2px solid #ff725e;
   border-radius: 6px;
-  padding: 15px;
   width: 175px;
-  font-weight: bold;
+  height: 55px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  margin: 4px;
   cursor: pointer;
   transition: 0.3s;
-  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: -10px;
 }
 
 .changesBtn:hover {
   border: 2px solid #cc5b4b;
 }
+
+.userImgSelected:hover {
+  border-radius: 5px;
+  background-color: #E8E8E8;
+}
+
+.imgSelectBtn {
+  margin-top: 5px;
+  background-color: #ff725e;
+  border: 2px solid #ff725e;
+  border-radius: 6px;
+  width: 180px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.ant-btn.ant-btn-primary {
+    background-color: #ff725e;
+    border: 2px solid #ff725e;
+    text-align: center;
+    padding: 0;
+    color: black;
+    width: 175px;
+    height: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .form-size {
+    width: 100vw;
+  }
+}
+
+

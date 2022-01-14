@@ -8,7 +8,8 @@ export const signUpFetch = async (username, email, password) => {
       body: JSON.stringify({
         username,
         email,
-        password
+        password, 
+        image: "https://res.cloudinary.com/cn-project/image/upload/v1642101982/pana/users/Profile-Pic-Icon_ih85ud.png"
       })
     });
     const data = await response.json();

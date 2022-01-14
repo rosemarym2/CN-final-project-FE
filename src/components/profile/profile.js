@@ -53,7 +53,7 @@ export const Profile = () => {
       <div className="profile-component">
         <h1>My Collection</h1>
         <UserProfile
-          Img="https://res.cloudinary.com/cn-project/image/upload/v1641918750/pana/users/Focus-pana_d8i1ve.png"
+          Img={user.image}
           username={user}
         />
         <h2>In Progress</h2>

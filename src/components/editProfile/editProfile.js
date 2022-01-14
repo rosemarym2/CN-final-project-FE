@@ -6,23 +6,18 @@ import { Footer } from "../footer/footer"
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import { Link } from "react-router-dom"
-
-
-import 'antd/dist/antd.css';
-import { Modal, Button } from 'antd';
-import './imgChanger.css';
-
+import { Button } from 'antd';
 
 export const EditProfile = () => {
   const [user, setUser] = useState({});
   const [newUsername, setNewUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [visiblePass, setVisiblePass] = useState(false);
+  // const [visiblePass, setVisiblePass] = useState(false);
   const [inputType, setInputType] = useState("password");
-  const [passIcon, setPassIcon] = useState("bi bi-eye-slash");
+  // const [passIcon, setPassIcon] = useState("bi bi-eye-slash");
   const [profileImg, setProfileImg] = useState("");
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [openProfile, setOpenProfile] = useState(true);
 
   const profileImagesArr = [
     "https://res.cloudinary.com/cn-project/image/upload/v1641917420/pana/users/Binary_code-pana_uxhgqu.png",
@@ -36,33 +31,26 @@ export const EditProfile = () => {
     "https://res.cloudinary.com/cn-project/image/upload/v1641918466/pana/users/Sleeping_bat-pana_elji47.png",
   ];
 
+  const handleToggle = () => {
+    setOpenProfile(prev => !prev)
+  }
+
   useEffect(async () => {
     const userId = localStorage.getItem("myId");
     const profile = await getUserFetch(userId);
     setUser(profile.user);
   }, [])
 
-  const visiblePassHandler = () => {
-    setVisiblePass(!visiblePass);
-    if (visiblePass) {
-      setInputType("password");
-      setPassIcon("bi bi-eye-slash");
-    } else {
-      setInputType("text");
-      setPassIcon("bi bi-eye");
-    }
-  }
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  // const visiblePassHandler = () => {
+  //   setVisiblePass(!visiblePass);
+  //   if (visiblePass) {
+  //     setInputType("password");
+  //     setPassIcon("bi bi-eye-slash");
+  //   } else {
+  //     setInputType("text");
+  //     setPassIcon("bi bi-eye");
+  //   }
+  // }
 
   const handleImageChange = (picture) => {
     setProfileImg(picture);
@@ -107,18 +95,16 @@ export const EditProfile = () => {
         <h1 className="edit-profile-title">Edit Profile</h1>
         <div className="change-profile-picture">
           {profileImg ? <img className="userImgSelected" src={profileImg} /> : <img src={user.image} style={{ width: 150 }} />}
-          <Button className="imgSelectBtn" type="primary" onClick={showModal}>
-            Change profile photo
-          </Button>
-          <Modal title="Pick an image.." visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+          <Button className="imgSelectBtn" type="primary" onClick={handleToggle}>{openProfile ? "Change profile photo" : "Close"}</Button>
+          <div className={`${openProfile ? "hideModal" : "imgSelect"}`}>
             {profileImagesArr.map((picture, index) => {
               return (
                 <img className="userImgSelected" key={index} src={picture} onClick={() => handleImageChange(picture)} />
               )
             })}
-          </Modal>
+          </div>
         </div>
-        <form className="form-size">
+        <form className={`${openProfile ? "form-size" : "hideModal"}`} >
           <p>
             <label for="username">Update username</label>
             <input className="edit-profile-input" onChange={(e) => setNewUsername(e.target.value)} autocapitalize="none" placeholder="New username" type="text" id="username" autocomplete="off" value={newUsername} />

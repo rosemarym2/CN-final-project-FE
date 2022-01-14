@@ -1,16 +1,36 @@
+.hideModal {
+  display: none;
+}
+
+.imgSelect {
+  padding: 5px;
+  border: 2px solid #ff725e;
+  border-radius: 5px;
+  margin: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+}
+
+.userImgSelected {
+  width: 150px;
+  height: auto;
+  margin: 3px;
+  cursor: pointer;
+}
+
 .edit-profile-title {
   margin-top: 90px;
-  margin-bottom: 30px;
 }
 
 .edit-profile-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 .change-profile-picture {
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +63,6 @@
 .form-size {
   margin-top: 30px;
   margin-bottom: 30px;
-  padding: 10px;
   width: 430px;
   display: flex;
   flex-direction: column;
@@ -87,7 +106,41 @@
   border: 2px solid #cc5b4b;
 }
 
+.userImgSelected {
+  width: 150px;
+  height: auto;
+  margin: 3px;
+  cursor: pointer;
+  text-align: center;
+}
 
+.userImgSelected:hover {
+  border-radius: 5px;
+  background-color: #E8E8E8;
+}
+
+.imgSelectBtn {
+  margin-top: 20px;
+  background-color: #ff725e;
+  border: 2px solid #ff725e;
+  border-radius: 6px;
+  width: 180px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.ant-btn.ant-btn-primary {
+    background-color: #ff725e;
+    border: 2px solid #ff725e;
+    text-align: center;
+    padding: 0;
+    color: black;
+}
 
 @media only screen and (max-width: 768px) {
   .form-size {

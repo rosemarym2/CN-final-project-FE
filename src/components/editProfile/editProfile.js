@@ -13,8 +13,8 @@ export const EditProfile = () => {
   const [newUsername, setNewUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [visiblePass, setVisiblePass] = useState(false);
   const [inputType, setInputType] = useState("password");
+  // const [visiblePass, setVisiblePass] = useState(false);
   // const [passIcon, setPassIcon] = useState("bi bi-eye-slash");
   const [profileImg, setProfileImg] = useState("");
   const [openProfile, setOpenProfile] = useState(true);

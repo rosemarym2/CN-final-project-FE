@@ -3,10 +3,8 @@
 }
 
 .imgSelect {
-  padding: 5px;
   border: 2px solid #ff725e;
   border-radius: 5px;
-  margin: 15px;
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
 }
@@ -14,12 +12,11 @@
 .userImgSelected {
   width: 150px;
   height: auto;
-  margin: 3px;
   cursor: pointer;
 }
 
 .edit-profile-title {
-  margin-top: 90px;
+  margin-top: 10px;
 }
 
 .edit-profile-page {
@@ -30,6 +27,8 @@
 }
 
 .change-profile-picture {
+  /* margin-top: -15px; */
+  margin-bottom: -10px;
   width: 500px;
   display: flex;
   flex-direction: column;
@@ -40,13 +39,6 @@
   width: 150px;
   height: 150px;
 }
-
-/* .edit-profile-p {
-  margin-top: 20px;
-  font-size: 14px;
-  cursor: pointer;
-  font-weight: bold;
-} */
 
 .edit-profile-input {
   border: none;
@@ -74,14 +66,6 @@
   font-size: 18px;
 }
 
-/* .form-size p i {
-  margin: 1.5px;
-  margin-left: -135px;
-  cursor: pointer;
-  align-self: flex-end;
-  font-size: 14px;
-} */
-
 .changesBtnPosition {
   display: flex;
   flex-direction: column;
@@ -99,19 +83,12 @@
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
-  margin: 3px;
+  margin-top: 15px;
+  margin-bottom: -10px;
 }
 
 .changesBtn:hover {
   border: 2px solid #cc5b4b;
-}
-
-.userImgSelected {
-  width: 150px;
-  height: auto;
-  margin: 3px;
-  cursor: pointer;
-  text-align: center;
 }
 
 .userImgSelected:hover {
@@ -120,7 +97,7 @@
 }
 
 .imgSelectBtn {
-  margin-top: 20px;
+  margin-top: 5px;
   background-color: #ff725e;
   border: 2px solid #ff725e;
   border-radius: 6px;
@@ -141,6 +118,21 @@ button.ant-btn.ant-btn-primary {
     padding: 0;
     color: black;
 }
+
+/* .edit-profile-p {
+  margin-top: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+} */
+
+/* .form-size p i {
+  margin: 1.5px;
+  margin-left: -135px;
+  cursor: pointer;
+  align-self: flex-end;
+  font-size: 14px;
+} */
 
 @media only screen and (max-width: 768px) {
   .form-size {

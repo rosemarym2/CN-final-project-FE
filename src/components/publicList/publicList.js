@@ -59,10 +59,10 @@ export const List = () => {
   const createNotification = (type) => {
     switch (type) {
       case "info":
-        NotificationManager.info(`List "${list.title}" already exists in your profile`);
+        NotificationManager.info(`List "${list.title}" already exists in your profile`, "", 3000);
         break;
       case "success":
-        NotificationManager.success(`List "${list.title}" successfully added to your profile`);
+        NotificationManager.success(`List "${list.title}" successfully added to your profile`, "", 3000);
         break;
       // case "warning":
       //   NotificationManager.warning("Incorrect username or password, please try again");

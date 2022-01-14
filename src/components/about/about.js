@@ -1,12 +1,21 @@
 import "./about.css";
 import { TopNav } from "../topNav/topNav";
 import { Footer } from "../footer/footer"
+import { useState, useEffect } from "react";
 
 export const About = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const userId = localStorage.getItem("myId");
+    if (userId) {
+      setLoggedIn(true);
+    }
+  }, []);
 
   return (
     <>
-      <TopNav />
+      {loggedIn ? <TopNav /> : ""}
       <div className="about-us-component">
         <div className="about">
           <img className="aboutImg" src="https://res.cloudinary.com/cn-project/image/upload/v1642092205/pana/misc/output-onlinepngtools_d346ft.png
@@ -18,7 +27,7 @@ export const About = () => {
           <h5>Based in Nottingham UK, Rosie, Rachel, Julija and Holly met at work and found a shared interest in creating websites and also making lists! Join them as they delve into the world of online lists!</h5>
         </div>
       </div>
-      <Footer />
+      {loggedIn ? <Footer /> : ""}
     </>
   )
 }

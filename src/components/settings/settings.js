@@ -68,12 +68,12 @@ export const Settings = () => {
   const darkMode = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
     console.log(theme);
-    };
+  };
 
   const lightMode = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
     console.log(theme);
-    };
+  };
 
   return (
     <>
@@ -95,11 +95,11 @@ export const Settings = () => {
             <button className="main" onClick={buttonHandler}>Colour Scheme</button>
             {!showButtons ? "" : (
               <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-              <>
-              <GlobalStyles />
-                <button className="sub" onClick={() => darkMode()}>Light/Dark mode</button>
-                {/* <button className="sub" onClick={() => lightMode()}>Light mode</button> */}
-              </>
+                <>
+                  <GlobalStyles />
+                  <button className="sub" onClick={() => darkMode()}>Light/Dark mode</button>
+                  {/* <button className="sub" onClick={() => lightMode()}>Light mode</button> */}
+                </>
               </ThemeProvider>
             )}
           </div>

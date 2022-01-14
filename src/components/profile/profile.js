@@ -48,7 +48,7 @@ export const Profile = () => {
     <>
       <TopNav />
       <div className="profile-component">
-        <h1 className="userTitle">Welcome back, {user.username}!</h1>
+        <h1 className="userTitle">Hi, {user.username}!</h1>
         <UserProfile
           Img={user.image}
         />

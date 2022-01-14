@@ -46,10 +46,12 @@
 }
 
 .ul-list {
+  border-radius: 5px;
   width: 100px;
   margin: 2px;
-  padding: 5px 5px 0 15px;
+  padding: 10px 5px 0px 15px;
   background-color: #FFFFFF;
+  border: 1px solid #ff725e;
 }
 
 .burgerBtn {

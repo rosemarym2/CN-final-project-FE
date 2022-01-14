@@ -1,6 +1,5 @@
 .newListComponentDiv {
   display: flex;
-  /* justify-content: center; */
   margin-top: 80px;
   flex-direction: column;
 }
@@ -11,6 +10,7 @@
   flex-direction: column;
   width: 800px;
   margin: auto;
+  margin-bottom: 100px;
 }
 
 .newListBody img {

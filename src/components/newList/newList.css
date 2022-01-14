@@ -23,7 +23,11 @@
   border-radius: 5px;
   border: 2px solid #ff725e;
   outline: none;
-  margin: 5px 0;
+  margin: 7px 0;
+}
+
+.newListCheckbox {
+padding: 10px 0;
 }
 
 .listLabelPadding {
@@ -95,6 +99,7 @@
 .newListSaveButton {
   display: block;
   margin: auto;
+  margin-top: 10px; 
 }
 
 @media only screen and (max-width: 768px) {

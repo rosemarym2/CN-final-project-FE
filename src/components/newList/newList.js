@@ -166,12 +166,6 @@ export const NewList = () => {
                 <option value="Books">Books</option>
                 <option value="Movies">Movies</option>
               </select>
-              <div>
-                <input type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
-                <label for="public">Public List</label>
-                <input type="checkbox" id="private" name="private" value="private" onChange={handlePrivateAccess} />
-                <label for="private">Private List</label>
-              </div>
               <label className="listLabelPadding" for="listKeyword">Add Some Keywords <span className="keywordSubtext">(Click "Add Keyword" after each entry)</span></label>
               <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required autocomplete="off" value={keywordStr} />
               <button className="newListButtons" onClick={() => newKeyword(keywordStr)}>Add Keyword</button>
@@ -193,7 +187,6 @@ export const NewList = () => {
                   }
                 })}
               </div>
-            </div>
           </div>
           <div className="newListAddListItemsAndRender">
             <div className="newListListItemsContainer">
@@ -223,11 +216,23 @@ export const NewList = () => {
               </div>
             </div>
           </div>
-          <button className="newListSaveButton newListButtons" onClick={newListHandler}>Save List</button>
-        </div >
-        <Footer />
-        <NotificationContainer />
-      </div>
+        </div>
+            <div>
+              <p>Choose where you want the list saved to!</p>
+                <div className="newListCheckbox" >
+              <input type="checkbox" id="private" name="private" value="private" onChange={handlePrivateAccess} />
+              <label for="private"> Add to my lists</label>
+              </div>
+              <div className="newListCheckbox" >
+              <input className="newListCheckbox" type="checkbox" id="public" name="public" value="public" onChange={handlePublicAccess} />
+              <label for="public"> Add to public gallery</label>
+              </div>
+            </div>
+        <button className="newListSaveButton newListButtons" onClick={newListHandler}>Save List</button>
+      </div >
+      <Footer />
+      <NotificationContainer />
+    </div>
     </>
   )
 };

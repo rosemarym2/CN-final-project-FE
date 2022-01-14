@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./landing.css";
-import { Footer } from "../footer/footer"
 
 export const Landing = () => {
   return (
@@ -21,7 +20,6 @@ export const Landing = () => {
           <p className="landingAbout"><Link to="/about">About Us</Link></p>
         </div>
       </div >
-      {/* <Footer /> */}
     </div>
   );
 }

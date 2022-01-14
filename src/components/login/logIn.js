@@ -4,7 +4,6 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import "./logIn.css";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import { Footer } from "../footer/footer"
 
 export const LogIn = ({ authContext }) => {
   const useAuth = () => {

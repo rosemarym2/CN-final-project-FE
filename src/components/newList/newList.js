@@ -135,12 +135,12 @@ export const NewList = () => {
       case 'success':
         NotificationManager.success("You've successfully added your list!", 'List Added');
         break;
-      case 'warning':
-        NotificationManager.warning("Something went wrong, please try again");
-        break;
-      case 'error':
-        NotificationManager.error("Something went wrong, please try again");
-        break;
+      // case 'warning':
+      //   NotificationManager.warning("Something went wrong, please try again");
+      //   break;
+      // case 'error':
+      //   NotificationManager.error("Something went wrong, please try again");
+      //   break;
     }
   };
 
@@ -173,7 +173,6 @@ export const NewList = () => {
                 <label for="private">Private List</label>
               </div>
               <label className="listLabelPadding" for="listKeyword">Add Some Keywords <span className="keywordSubtext">(Click "Add Keyword" after each entry)</span></label>
-
               <input className="newListInput" type="text" onChange={(event) => setKeywordStr(event.target.value)} id="listKeyword" name="listKeyword" placeholder='e.g. Travel, Bucket List, Amazing...' required autocomplete="off" value={keywordStr} />
               <button className="newListButtons" onClick={() => newKeyword(keywordStr)}>Add Keyword</button>
             </div>

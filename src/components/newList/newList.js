@@ -187,7 +187,6 @@ export const NewList = () => {
                   }
                 })}
               </div>
-            </div>
           </div>
           <div className="newListAddListItemsAndRender">
             <div className="newListListItemsContainer">
